@@ -1,0 +1,8 @@
+Schedule and deliverable:
+	* Create general Frame work for the game -- Thur 02/23 by 11:59pm (estimate: 8 hours)
+		This includes: 
+		> JFrame with properties
+		> JPanel for game package includes
+			> JPanel Menu 
+			> JPanel Game Area
+			> JPanel Ending Credit
