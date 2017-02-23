@@ -1,4 +1,3 @@
 Schedule and deliverable:
-	-
-	-
-	-
+	- Create git repository and send collaboration request to team members. -- Wed 02/22 by 11:59pm 
+	- Implement interface for Player.java -- Fri 02/24 by 11:59 (estimated 6 hours)
