@@ -1,4 +1,7 @@
 Schedule and deliverable:
+	* Find Bug tracking software for team    -- Thur  02/23 by 11:59pm (estimate: 1 Hour) 
+						 -- COMPLETE 02/23 at 12:38 am 
+	
 	* Create general Frame work for the game -- Thur 02/23 by 11:59pm (estimate: 8 hours)
 		This includes: 
 		> JFrame with properties
