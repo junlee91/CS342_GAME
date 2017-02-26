@@ -1,8 +1,10 @@
 Schedule and deliverable:
-	- Create git repository and send collaboration request to team members. -- Wed 02/22 by 11:59pm 
+	- Create git repository and send collaboration request to team members. -- Wed 02/22 by 11:59pm
+										COMPLETED
 	- Implement interface for Player.java -- Fri 02/24 by 11:59 (estimated 6 hours)
+										COMPLETED
 	
-	- Abstract class of GameObject	-- Wed 03/01 by 11:59pm (estimated 1 hour)
-	- Implement gravitational fall	-- Wed 03/01 by 11:59pm (estimated 1 hour)
-	- Implement collision with bottomlayer. - Thur 03/02 11:59pm (estimated 2 hours)
-	- Implement KeyAdapter to player	- Thur 03/02 11:59pm (estimated 2 hours)
+	- Abstract class of GameObject		-- Wed 03/01 by 11:59pm (estimated 1 hour)
+	- Implement gravitational fall		-- Wed 03/01 by 11:59pm (estimated 1 hour)
+	- Implement collision with bottomlayer. -- Thur 03/02 11:59pm (estimated 2 hours)
+	- Implement KeyAdapter to player	-- Thur 03/02 11:59pm (estimated 2 hours)
