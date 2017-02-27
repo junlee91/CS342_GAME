@@ -81,9 +81,9 @@ public class Player extends GameObject{
 	
 	
 	//-------------------------------------------------------------------//
-	//  Following functions are not in abstract class yet.				 //
-	//  We will choose later which parts we need.						 //
-	//  Too many abstract item considered not good. In my opinion. 		 //
+	//  Following functions are not in abstract class yet.		     //
+	//  We will choose later which parts we need.			     //
+	//  Too many abstract item considered not good. In my opinion. 	     //
 	//                                                   2/27/17 Jun.    //
 	//-------------------------------------------------------------------//
 
