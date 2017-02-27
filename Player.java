@@ -1,103 +1,164 @@
-public class Player {
- private String name;
- private int damage;
- private int maxHealth;
- private int curHealth;
- private double speed;
- private boolean dead;
- private boolean airborn;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Rectangle;
+import java.util.LinkedList;
 
- public Player(){
-  name = "Bob";
-  damage = 10;
-  maxHealth = 100;
-  curHealth = 100;
-  speed = 10.0; //changed dependent on pixels and specific character role
-  dead = false;
-  airborn = false; //starts grounded //based on y coordinate and ground
- }
+public class Player extends GameObject{
+	private String name;
+	private int damage;
+	private int maxHealth;
+	private int curHealth;
+	private double speed;
+	private boolean dead;
+	private boolean airborn;
 
-  public Player(String newName, int newDamage, int newMaxHealth, double newSpeed){
-    name = newName;
-    damage = newDamage;
-    maxHealth = newMaxHealth;
-    curHealth = newMaxHealth;
-    speed = newSpeed;
-    dead = false;
-    airborn = false;
-  }
+	// TODO:: to be changed to Polygon
+	private float width = 48, height = 96;
 
- public void playerInfo(){
-  System.out.println("Player name: " + name);
-  System.out.println(name + "'s health: " + curHealth);
-  System.out.println(name + "'s damage: " + damage);
-  System.out.println(name + "'s speed: " + speed);
- }
+	private float gravity = 0.5f;
+	private final float MAX_SPEED = 10;
 
- public void passiveHeal(){
-  if(curHealth < maxHealth){
-   curHealth = curHealth +1;
-  }
- }
+	private ObjectHandler handler;
 
-  public void heal(int healHP){
-    if(curHealth + healHP >= maxHealth){
-     curHealth = maxHealth;
-    }
-    else{
-     curHealth = curHealth + healHP;
-    }
-  }
+	public Player(float x, float y, ObjectHandler handler, ObjectID id) {
+		super(x, y, id);
+		this.handler = handler;
 
-  public void changeMaxHealth(int newMaxHealth){
-    maxHealth = newMaxHealth;
-  }
+		name = "Bob";
+		damage = 10;
+		maxHealth = 100;
+		curHealth = 100;
+		speed = 10.0; //changed dependent on pixels and specific character role
+		dead = false;
+		airborn = false; //starts grounded //based on y coordinate and ground
+	}
 
-  public void takeDamage(int damageTaken){
-    if(curHealth - damageTaken < 0){
-     dead = true;
-    }
-    else{
-     curHealth = curHealth - damageTaken;
-    }
-  }
+	public void Update(LinkedList<GameObject> ObjectList) {
+		x += velX;
+		y += velY;
 
- public boolean isDead(){
-  if(curHealth == 0 || curHealth < 0){
-   dead = true;
-  }
-  return dead;
- }
+		if( falling )
+		{
+			velY += gravity;
 
- public String getName(){
-  return name;
- }
+			if( velY > MAX_SPEED )
+				velY = MAX_SPEED;
+		}
 
- public void setName(String newName){
-  name = newName;
- }
+		CollisionDetection(ObjectList);
+	}
 
- public int getCurrentHealth(){
-  return curHealth;
- }
+	public void CollisionDetection(LinkedList<GameObject> ObjectList)
+	{
+		for(int i = 0; i < handler.ObjectList.size(); i++)
+		{
+			GameObject tempObject = handler.ObjectList.get(i);
 
- public int getMaximumHealth(){
-  return maxHealth;
- }
+			if(tempObject.getId() == ObjectID.BottomLayer)
+			{
+				if(getBounds().intersects(tempObject.getBounds())){
+					y = tempObject.getY() - height;
+					velY = 0;
 
- public int getDamage(){
-  return damage;
- }
+					falling = false;
+				} else {
+					falling = true;
+				}
+			}
+		}
+	}
 
- public void setDamage(int newDamage){
-  damage = newDamage;
- }
 
- public double getSpeed(){
-  return speed;
- }
+	public void renderObject(Graphics g) {
+		g.setColor(Color.BLUE);
+		g.fillRect((int)x, (int)y, (int)width, (int)height);		
+	}
 
- public void setSpeed(double newSpeed){
-  speed = newSpeed;
- }
+	public Rectangle getBounds() {
+		return new Rectangle ((int)x, (int)y, (int)width, (int)height);
+	}
+	
+	
+	
+	//-------------------------------------------------------------------//
+	//  Following functions are not in abstract class yet.				 //
+	//  We will choose later which parts we need.						 //
+	//  Too many abstract item considered not good. In my opinion. 		 //
+	//                                                   2/27/17 Jun.    //
+	//-------------------------------------------------------------------//
+
+	public void playerInfo(){
+		System.out.println("Player name: " + name);
+		System.out.println(name + "'s health: " + curHealth);
+		System.out.println(name + "'s damage: " + damage);
+		System.out.println(name + "'s speed: " + speed);
+	}
+
+	public void passiveHeal(){
+		if(curHealth < maxHealth){
+			curHealth = curHealth +1;
+		}
+	}
+
+	public void heal(int healHP){
+		if(curHealth + healHP >= maxHealth){
+			curHealth = maxHealth;
+		}
+		else{
+			curHealth = curHealth + healHP;
+		}
+	}
+
+	public void changeMaxHealth(int newMaxHealth){
+		maxHealth = newMaxHealth;
+	}
+
+	public void takeDamage(int damageTaken){
+		if(curHealth - damageTaken < 0){
+			dead = true;
+		}
+		else{
+			curHealth = curHealth - damageTaken;
+		}
+	}
+
+	public boolean isDead(){
+		if(curHealth == 0 || curHealth < 0){
+			dead = true;
+		}
+		return dead;
+	}
+
+	public String getName(){
+		return name;
+	}
+
+	public void setName(String newName){
+		name = newName;
+	}
+
+	public int getCurrentHealth(){
+		return curHealth;
+	}
+
+	public int getMaximumHealth(){
+		return maxHealth;
+	}
+
+	public int getDamage(){
+		return damage;
+	}
+
+	public void setDamage(int newDamage){
+		damage = newDamage;
+	}
+
+	public double getSpeed(){
+		return speed;
+	}
+
+	public void setSpeed(double newSpeed){
+		speed = newSpeed;
+	}
+
 }
