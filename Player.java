@@ -8,7 +8,6 @@ public class Player extends GameObject{
 	private int damage;
 	private int maxHealth;
 	private int curHealth;
-	private double speed;
 	private boolean dead;
 	private boolean airborn;
 
@@ -28,7 +27,6 @@ public class Player extends GameObject{
 		damage = 10;
 		maxHealth = 100;
 		curHealth = 100;
-		speed = 10.0; //changed dependent on pixels and specific character role
 		dead = false;
 		airborn = false; //starts grounded //based on y coordinate and ground
 	}
@@ -37,8 +35,7 @@ public class Player extends GameObject{
 		x += velX;
 		y += velY;
 
-		if( falling )
-		{
+		if( falling ){
 			velY += gravity;
 
 			if( velY > MAX_SPEED )
@@ -156,13 +153,4 @@ public class Player extends GameObject{
 	public void setDamage(int newDamage){
 		damage = newDamage;
 	}
-
-	public double getSpeed(){
-		return speed;
-	}
-
-	public void setSpeed(double newSpeed){
-		speed = newSpeed;
-	}
-
 }
