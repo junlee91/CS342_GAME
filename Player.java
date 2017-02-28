@@ -87,7 +87,7 @@ public class Player extends GameObject{
 		System.out.println("Player name: " + name);
 		System.out.println(name + "'s health: " + curHealth);
 		System.out.println(name + "'s damage: " + damage);
-		System.out.println(name + "'s speed: " + speed);
+	
 	}
 
 	//TODO: Implement attack for graphics and if collision, then outcome
