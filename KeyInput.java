@@ -21,6 +21,9 @@ public class KeyInput implements KeyListener{
 			{
 				if(key == KeyEvent.VK_D) tempObject.setVelX(5);
 				if(key == KeyEvent.VK_A) tempObject.setVelX(-5);
+				//TODO: S and W commands
+				if(key == KeyEvent.VK_S){}
+				if(key == KeyEvent.VK_W){}
 			}
 		}	
 	}
