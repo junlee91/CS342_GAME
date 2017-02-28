@@ -93,6 +93,11 @@ public class Player extends GameObject{
 		System.out.println(name + "'s speed: " + speed);
 	}
 
+	//TODO: Implement attack for graphics and if collision, then outcome
+	public void attack(){
+
+	}
+
 	public void passiveHeal(){
 		if(curHealth < maxHealth){
 			curHealth = curHealth +1;
