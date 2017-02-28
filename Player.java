@@ -48,14 +48,11 @@ public class Player extends GameObject{
 		CollisionDetection(ObjectList);
 	}
 
-	public void CollisionDetection(LinkedList<GameObject> ObjectList)
-	{
-		for(int i = 0; i < handler.ObjectList.size(); i++)
-		{
+	public void CollisionDetection(LinkedList<GameObject> ObjectList){
+		for(int i = 0; i < handler.ObjectList.size(); i++){
 			GameObject tempObject = handler.ObjectList.get(i);
 
-			if(tempObject.getId() == ObjectID.BottomLayer)
-			{
+			if(tempObject.getId() == ObjectID.BottomLayer){
 				if(getBounds().intersects(tempObject.getBounds())){
 					y = tempObject.getY() - height;
 					velY = 0;
