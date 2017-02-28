@@ -5,6 +5,12 @@ Schedule and deliverable:
 										COMPLETED
 	
 	- Abstract class of GameObject		-- Wed 03/01 by 11:59pm (estimated 1 hour)
+										COMPLETED 
+	
 	- Implement gravitational fall		-- Wed 03/01 by 11:59pm (estimated 1 hour)
+										COMPLETED 
+						
 	- Implement collision with bottomlayer. -- Thur 03/02 11:59pm (estimated 2 hours)
+										COMPLETED
+	
 	- Implement KeyAdapter to player	-- Thur 03/02 11:59pm (estimated 2 hours)
