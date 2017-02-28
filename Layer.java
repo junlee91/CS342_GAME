@@ -12,10 +12,10 @@ public class Layer extends GameObject{
 
 
 	public void Update(LinkedList<GameObject> ObjectList) {
-		// Layer is fixed graphic.
+		// Layer is fixed graphic. No implementation needed
 	}
 
-	public void renderObject(Graphics g) {		
+	public void renderObject(Graphics g) {
 		g.setColor(Color.WHITE);
 		g.drawRect((int)x, (int)y, 32, 32);
 	}
@@ -23,5 +23,4 @@ public class Layer extends GameObject{
 	public Rectangle getBounds() {
 		return new Rectangle ((int)x, (int)y, 32, 32);
 	}
-	
 }
