@@ -36,5 +36,6 @@ public class ObjectHandler
 	public void CreateBottomLayer(){
 		for(int i = 0; i < Game.WIDTH+32; i += 32)
 			addObject(new Layer(i, Game.HEIGHT-64, ObjectID.BottomLayer));
+		
 	}
 }

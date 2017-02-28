@@ -13,7 +13,7 @@ import java.awt.event.MouseListener;
 import javax.swing.Timer;
 
 
-public class Game extends JPanel implements ActionListener, MouseListener, KeyListener
+public class Game extends JPanel implements ActionListener, MouseListener
 {
 	private Timer refresh = new Timer(10, this);  // 360 frames per seconds
 	public static int WIDTH = 1000, HEIGHT = 750; // size of frame
@@ -44,7 +44,7 @@ public class Game extends JPanel implements ActionListener, MouseListener, KeyLi
 		
 		this.setFocusable(true);
 		this.addMouseListener(this);
-		this.addKeyListener(this);
+		this.addKeyListener(new KeyInput(handler));
 		
 		refresh.start();
 	}
@@ -75,37 +75,4 @@ public class Game extends JPanel implements ActionListener, MouseListener, KeyLi
 	public void mouseEntered   (MouseEvent click) {} 
 	public void mouseExited    (MouseEvent click) {}
 	
-	
-	
-	// TODO:: KeyListener not working
-	public void keyPressed(KeyEvent type) {
-		
-		int key = type.getKeyCode();
-		
-		for(int i = 0; i < handler.ObjectList.size(); i++){
-			GameObject tempObject = handler.ObjectList.get(i);
-			
-			if(tempObject.getId() == ObjectID.Player)
-			{
-				if(key == KeyEvent.VK_D) tempObject.setVelX(5);
-				if(key == KeyEvent.VK_A) tempObject.setVelX(-5);
-			}
-		}	
-	}
-
-	public void keyReleased(KeyEvent type) {
-		int key = type.getKeyCode();
-		
-		for(int i = 0; i < handler.ObjectList.size(); i++){
-			GameObject tempObject = handler.ObjectList.get(i);
-		
-			if(tempObject.getId() == ObjectID.Player)
-			{
-				if(key == KeyEvent.VK_D) tempObject.setVelX(0);
-				if(key == KeyEvent.VK_A) tempObject.setVelX(0);
-			}
-		}
-	}
-
-	public void keyTyped(KeyEvent type) { }
 }
