@@ -42,6 +42,10 @@ public class Game extends JPanel implements ActionListener, MouseListener, KeyLi
 		
 		handler.CreateBottomLayer();			// bottom layer created by handler
 		
+		this.setFocusable(true);
+		this.addMouseListener(this);
+		this.addKeyListener(this);
+		
 		refresh.start();
 	}
 
@@ -50,7 +54,7 @@ public class Game extends JPanel implements ActionListener, MouseListener, KeyLi
 		// objects left here will be "Redrawn"
 		// thus character objects should be called here.
 		
-		System.out.println("TO SHOW THAT THIS IS BEING CALLED!!!");
+		//System.out.println("TO SHOW THAT THIS IS BEING CALLED!!!");
 		super.paintComponent(g);
 
 		handler.Update();			
@@ -65,7 +69,6 @@ public class Game extends JPanel implements ActionListener, MouseListener, KeyLi
 	}	
 	
 	
-	// TODO:: MouseListener not working
 	public void mouseReleased  (MouseEvent click) {}
 	public void mouseClicked   (MouseEvent click) {}
 	public void mousePressed   (MouseEvent click) {} 
@@ -76,6 +79,7 @@ public class Game extends JPanel implements ActionListener, MouseListener, KeyLi
 	
 	// TODO:: KeyListener not working
 	public void keyPressed(KeyEvent type) {
+		
 		int key = type.getKeyCode();
 		
 		for(int i = 0; i < handler.ObjectList.size(); i++){
