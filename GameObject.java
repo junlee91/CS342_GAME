@@ -1,13 +1,14 @@
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.util.LinkedList;
+import java.awt.Polygon;
 
 public abstract class GameObject{  // TODO:: this will extend Polygon class later - JUN
     protected float x,y;
     protected float velX = 0, velY = 0;
     protected ObjectID id;
     
-    protected boolean falling = true;
+    protected boolean falling = true; //TODO: set to false for testing
     
     public GameObject(float x, float y, ObjectID id){
         this.x = x;
