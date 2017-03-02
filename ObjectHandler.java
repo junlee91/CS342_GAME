@@ -34,8 +34,10 @@ public class ObjectHandler
 	
 	// TODO:: Adding Ground Image
 	public void CreateBottomLayer(){
-		for(int i = 0; i < Game.WIDTH+32; i += 32)
+		for(int i = 0; i < Game.WIDTH*2; i += 32)
 			addObject(new Layer(i, Game.HEIGHT-64, ObjectID.BottomLayer));
 		
+		for(int y = Game.HEIGHT/2; y < Game.HEIGHT+32; y += 32)
+			addObject(new Layer(0, y, ObjectID.BottomLayer));
 	}
 }

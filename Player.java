@@ -55,7 +55,7 @@ public class Player extends GameObject{
 					velY = 0;
 
 					falling = false;
-					
+					jumping = false;
 					//handler.removeObject(tempObject);
 				} else {
 					falling = true;

@@ -3,6 +3,7 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -18,6 +19,7 @@ public class Game extends JPanel implements ActionListener, MouseListener
 	private Timer refresh = new Timer(10, this);  // 360 frames per seconds
 	public static int WIDTH = 1000, HEIGHT = 750; // size of frame
 
+	Camera camera;
 	ObjectHandler handler;
 	/*
 	 *  ObjectHandler class is a bridge between our Board and GameObjects.
@@ -32,11 +34,13 @@ public class Game extends JPanel implements ActionListener, MouseListener
 	 *     
 	 */
 	
+	
 	public Game()
 	{
 		// insert JPanel Game screen here!!
 		
 		handler = new ObjectHandler();			// create handler for objects
+		camera = new Camera(0,0);
 				
 		handler.addObject(new Player(100, 100, handler, ObjectID.Player));	// one player (blue rectangle)
 		
@@ -56,9 +60,23 @@ public class Game extends JPanel implements ActionListener, MouseListener
 		
 		//System.out.println("TO SHOW THAT THIS IS BEING CALLED!!!");
 		super.paintComponent(g);
-
-		handler.Update();			
-		handler.renderObject(g);
+		
+		handler.Update();	
+		
+		for(int i = 0; i < handler.ObjectList.size(); i++){
+			GameObject tempObject = handler.ObjectList.get(i);
+			if(tempObject.getId() == ObjectID.Player)
+			{				
+				camera.renderObject(tempObject);
+			}
+		}
+		
+		
+		Graphics2D graphicSetting = (Graphics2D) g;
+		
+		graphicSetting.translate(camera.getX(), camera.getY());		
+		handler.renderObject(g);		
+		graphicSetting.translate(-camera.getX(), -camera.getY());		
 	}
 
 	public void actionPerformed(ActionEvent event){
