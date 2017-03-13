@@ -32,7 +32,6 @@ public class Player extends GameObject{
 	private ObjectMotion playerWalkRight;
 	private ObjectMotion playerWalkLeft;
 
-
 	//--------------------------------------------//
 
 	public Player(float x, float y, ObjectHandler handler, ObjectID id) {
@@ -123,22 +122,20 @@ public class Player extends GameObject{
 
 	public void renderObject(Graphics g) {
 
-		if( velX > 0 )
+		if( velX > 0 )		// going Right
 		{
 			playerWalkRight.drawMotion(g, (int)x, (int)y);
 		}
-		else if( velX < 0)
+		else if( velX < 0)	// going Left
 		{
 			playerWalkLeft.drawMotion(g, (int)x, (int)y);
 		}
-		else
+		else				// standing
 		{
 			g.drawImage(characterRight[0], (int)x, (int)y, null);
 		}
 
-		//g.drawImage(characterStanding, (int)x, (int)y, null);
-		// g.setColor(Color.BLUE);
-		// g.fillRect((int)x, (int)y, (int)width, (int)height);	
+		//TODO:: Jumping and Falling
 	
 		// Graphics2D gg = (Graphics2D)g;
 		// gg.setColor(Color.RED);
