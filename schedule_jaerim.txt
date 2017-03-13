@@ -7,6 +7,9 @@ Schedule and deliverable:
 	
 	* Create designs prototype for character -- Friday 02/25 by 11:59 pm (estimate: 6 hours)
 						 -- COMPLETE 02/25 by 11:00 am
+	
+	--> we had change of heart of the style of the game, thus alien prototype is scrapped
+        
 
 	* Create animations Jump / Attack        -- Sunday 02/26 by 11:59 pm (estimate: 2 hours)       
 	
@@ -15,8 +18,18 @@ Schedule and deliverable:
 		This includes:                   -- COMPLETE 02/25 by 10:53 pm 
 		> JFrame with properties	 
 		> JPanel for game package includes
-			> JPanel Menu            <-- needs update
-			> JPanel Game Area       <-- needs update
-			> JPanel Ending Credit   <-- needs update
+			> JPanel Menu            <-- Finished
+			> JPanel Game Area       <-- Finished
+			> JPanel Ending Credit   <-- Finished
+        
+	* Character design rough sketch -- 3/1/2017 by 11:59pm (estimate: 2 hours) Finished
+         -- Assasin / Knight / Werewolf / etc
+        
+        * Transfering design to actual art that can be used -- -- 3/5/2017 by 11:59pm (estimate: 4 hours)
+	 -- Main character	
 
-
+        * Left and Right movement for player ---- 3/5/2017 by 11:59pm (estimate: 4 hours) Finished
+        * Attack animation for player        ---  3/9/2017 by 11:59pm (estimate: 4 hours) Finished
+	* Adding animation to the game and touch up on code ---- 3/12/2017 by 11:59pm (estimate: 5 hours) Finished
+	* Look through unity store for possible assets in the game --- 3/13/2017 by 11:59pm <nothing useful found...> Finished
+	
