@@ -1,5 +1,6 @@
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.util.LinkedList;
 
@@ -44,12 +45,16 @@ public class Player extends GameObject{
 		CollisionDetection(ObjectList);
 	}
 
+	// REMINDER!!: CollisionDetection is subject to change (different character)
 	public void CollisionDetection(LinkedList<GameObject> ObjectList){
+
 		for(int i = 0; i < handler.ObjectList.size(); i++){
 			GameObject tempObject = handler.ObjectList.get(i);
 
 			if(tempObject.getId() == ObjectID.BottomLayer){
-				if(getBounds().intersects(tempObject.getBounds())){
+
+				
+				if( getBounds().intersects(tempObject.getBounds()) ){
 					y = tempObject.getY() - height;
 					velY = 0;
 
@@ -59,6 +64,27 @@ public class Player extends GameObject{
 				} else {
 					falling = true;
 				}
+				
+				if( getBoundsTop().intersects(tempObject.getBounds()) ){			
+					y = tempObject.getY() + 40;
+					velY = 0;
+				}
+
+				if(getBoundsRight().intersects(tempObject.getBounds())){	   	
+					System.out.println("Collide Right side!");
+					x = tempObject.getX() - width;					
+					this.setGoingRight(false);
+				}
+				else if(getBoundsLeft().intersects(tempObject.getBounds())){	
+					System.out.println("Collide Left side!");
+					x = tempObject.getX() + 35;
+					this.setGoingLeft(false);
+				}
+				else
+				{
+					this.setGoingLeft(true);
+					this.setGoingRight(true);
+				}
 			}
 		}
 	}
@@ -66,12 +92,33 @@ public class Player extends GameObject{
 
 	public void renderObject(Graphics g) {
 		g.setColor(Color.BLUE);
-		g.fillRect((int)x, (int)y, (int)width, (int)height);		
+		g.fillRect((int)x, (int)y, (int)width, (int)height);	
+
+				
+		// Graphics2D gg = (Graphics2D)g;
+		// gg.setColor(Color.RED);
+		// gg.draw(getBoundsLeft());
+		// gg.draw(getBoundsRight());
+		// gg.draw(getBoundsTop());		
+		// gg.draw(getBounds());	
 	}
 
+	//---------------------- collision bounds subject to change ------------------------------------------//
 	public Rectangle getBounds() {
-		return new Rectangle ((int)x, (int)y, (int)width, (int)height);
+		return new Rectangle ((int)x, (int)(y+height*0.75), (int)width, (int)height/4);
 	}
+
+	public Rectangle getBoundsTop() {
+		return new Rectangle((int) ((int)x+(width/2)-((width/2)/2)),(int)y, (int)width/2, (int)height/2); 
+	}
+	
+	public Rectangle getBoundsRight() {		
+		return new Rectangle((int) ((int)x+width-5),(int)y+5, (int)5, (int)height-10); 
+	}
+	public Rectangle getBoundsLeft() {		
+		return new Rectangle((int)x,(int)y+5, (int)5, (int)height-10); 
+	}
+	//---------------------------------------------------------------------------------------------------//
 	
 	
 	

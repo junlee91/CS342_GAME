@@ -10,8 +10,8 @@ public abstract class GameObject{  // TODO:: this will extend Polygon class late
     
     protected boolean falling = true; 
     protected boolean jumping = false;
-    protected boolean goingRight = false;
-    protected boolean goingLeft = false;
+    protected boolean goingRight = true;
+    protected boolean goingLeft = true;
     
     
 

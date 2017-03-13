@@ -19,12 +19,19 @@ public class KeyInput implements KeyListener{
 			
 			if(tempObject.getId() == ObjectID.Player)
 			{
-				if(key == KeyEvent.VK_D) { tempObject.setVelX(5);  tempObject.setGoingRight(true); }
-				if(key == KeyEvent.VK_A) { tempObject.setVelX(-5); tempObject.setGoingLeft(true); }
+				if(key == KeyEvent.VK_D && tempObject.isGoingRight()) { 
+					tempObject.setVelX(5);  
+					
+				}
+				
+				if(key == KeyEvent.VK_A && tempObject.isGoingLeft()) { 
+					tempObject.setVelX(-5); 
+					
+				}
 				
 				//TODO: S and W commands
 				//TODO: Need to fix gravitational motion.
-				if(key == KeyEvent.VK_S)
+				if(key == KeyEvent.VK_S )
 				{
 					tempObject.setPosition(5);
 				}
@@ -54,8 +61,6 @@ public class KeyInput implements KeyListener{
 				if(key == KeyEvent.VK_D) tempObject.setVelX(0);
 				if(key == KeyEvent.VK_A) tempObject.setVelX(0);
 				
-				tempObject.setGoingLeft(false);
-				tempObject.setGoingRight(false);
 			}
 		}
 	}
