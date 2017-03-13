@@ -27,6 +27,12 @@ public class Player extends GameObject{
 	private BufferedImage[] characterLeft = new BufferedImage[4];
 	private BufferedImage characterJumping = null;
 	private BufferedImage characterFalling = null;
+
+
+	private ObjectMotion playerWalkRight;
+	private ObjectMotion playerWalkLeft;
+
+
 	//--------------------------------------------//
 
 	public Player(float x, float y, ObjectHandler handler, ObjectID id) {
@@ -35,12 +41,10 @@ public class Player extends GameObject{
 
 		loadMotionImage();
 
-		name = "Bob";
-		damage = 10;
-		maxHealth = 100;
-		curHealth = 100;
-		dead = false;
-		airborn = false; //starts grounded //based on y coordinate and ground
+		playerWalkRight = new ObjectMotion(5, characterRight[0], characterRight[1],
+				characterRight[2], characterRight[3]);
+		playerWalkLeft = new ObjectMotion(5, characterLeft[0], characterLeft[1], 
+				characterLeft[2], characterLeft[3]);
 	}
 
 	private void loadMotionImage(){
@@ -67,6 +71,9 @@ public class Player extends GameObject{
 		}
 
 		CollisionDetection(ObjectList);
+
+		playerWalkRight.runMotion();
+		playerWalkLeft.runMotion();
 	}
 
 	// REMINDER!!: CollisionDetection is subject to change (different character)
@@ -116,22 +123,18 @@ public class Player extends GameObject{
 
 	public void renderObject(Graphics g) {
 
-		if(this.isGoingRight())
+		if( velX > 0 )
 		{
-			for(int i = 0; i < 4; i++)
-			{
-				g.drawImage(characterRight[i], (int)x, (int)y, null);
-			}
+			playerWalkRight.drawMotion(g, (int)x, (int)y);
 		}
-
-		// if(this.isGoingLeft())
-		// {
-		// 	System.out.println("Goint left");
-		// 	for(int i = 0; i < 4; i++)
-		// 	{
-		// 		g.drawImage(characterLeft[i], (int)x, (int)y, null);
-		// 	}
-		// }
+		else if( velX < 0)
+		{
+			playerWalkLeft.drawMotion(g, (int)x, (int)y);
+		}
+		else
+		{
+			g.drawImage(characterRight[0], (int)x, (int)y, null);
+		}
 
 		//g.drawImage(characterStanding, (int)x, (int)y, null);
 		// g.setColor(Color.BLUE);
