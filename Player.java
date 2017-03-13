@@ -13,7 +13,7 @@ public class Player extends GameObject{
 	private boolean dead;
 	private boolean airborn;
 
-	private float width = 48, height = 96;	
+	private float width = 48, height = 77;	
 
 	private float gravity = 0.5f;
 	private final float MAX_SPEED = 10;
@@ -23,8 +23,8 @@ public class Player extends GameObject{
 	//------------TODO: put in array--------------//
 	ImageLoader imageLoading = new ImageLoader();	
 	private BufferedImage characterStanding = null;
-	private BufferedImage characterRight = null;
-	private BufferedImage characterLeft = null;
+	private BufferedImage[] characterRight = new BufferedImage[4];
+	private BufferedImage[] characterLeft = new BufferedImage[4];
 	private BufferedImage characterJumping = null;
 	private BufferedImage characterFalling = null;
 	//--------------------------------------------//
@@ -33,7 +33,7 @@ public class Player extends GameObject{
 		super(x, y, id);
 		this.handler = handler;
 
-		characterStanding = imageLoading.LoadImage("/res/robot.gif");
+		loadMotionImage();
 
 		name = "Bob";
 		damage = 10;
@@ -41,6 +41,18 @@ public class Player extends GameObject{
 		curHealth = 100;
 		dead = false;
 		airborn = false; //starts grounded //based on y coordinate and ground
+	}
+
+	private void loadMotionImage(){
+		characterRight[0] = imageLoading.LoadImage("/res/Motion/Walk Right/_R1.png");
+		characterRight[1] = imageLoading.LoadImage("/res/Motion/Walk Right/_R2.png");
+		characterRight[2] = imageLoading.LoadImage("/res/Motion/Walk Right/_R3.png");
+		characterRight[3] = imageLoading.LoadImage("/res/Motion/Walk Right/_R4.png");
+
+		characterLeft[0] = imageLoading.LoadImage("/res/Motion/Walk Left/_L1.png");
+		characterLeft[1] = imageLoading.LoadImage("/res/Motion/Walk Left/_L2.png");
+		characterLeft[2] = imageLoading.LoadImage("/res/Motion/Walk Left/_L3.png");
+		characterLeft[3] = imageLoading.LoadImage("/res/Motion/Walk Left/_L4.png");
 	}
 
 	public void Update(LinkedList<GameObject> ObjectList) {
@@ -104,7 +116,24 @@ public class Player extends GameObject{
 
 	public void renderObject(Graphics g) {
 
-		g.drawImage(characterStanding, (int)x, (int)y, null);
+		if(this.isGoingRight())
+		{
+			for(int i = 0; i < 4; i++)
+			{
+				g.drawImage(characterRight[i], (int)x, (int)y, null);
+			}
+		}
+
+		// if(this.isGoingLeft())
+		// {
+		// 	System.out.println("Goint left");
+		// 	for(int i = 0; i < 4; i++)
+		// 	{
+		// 		g.drawImage(characterLeft[i], (int)x, (int)y, null);
+		// 	}
+		// }
+
+		//g.drawImage(characterStanding, (int)x, (int)y, null);
 		// g.setColor(Color.BLUE);
 		// g.fillRect((int)x, (int)y, (int)width, (int)height);	
 	
