@@ -18,6 +18,9 @@ Schedule and deliverable:
 
 	- Collision Detection needs to be more sentitive
 						-- Sun 03/12 11:59pm (estimated 3 hours)
-
+										COMPLETED
 	- Background Image with rendering
 						-- Sun 03/12 11:59pm (estimated 3 hours)
+										COMPLETED
+	- Image motion 
+						-- Tue 03/14 12:00pm (estimated 8 hours)
