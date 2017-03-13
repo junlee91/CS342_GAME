@@ -14,3 +14,10 @@ Schedule and deliverable:
 										COMPLETED
 	
 	- Implement KeyAdapter to player	-- Thur 03/02 11:59pm (estimated 2 hours)
+										COMPLETED
+
+	- Collision Detection needs to be more sentitive
+						-- Sun 03/12 11:59pm (estimated 3 hours)
+
+	- Background Image with rendering
+						-- Sun 03/12 11:59pm (estimated 3 hours)

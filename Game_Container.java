@@ -15,7 +15,7 @@ public class Game_Container{
 		game_window.setResizable(false);
 		//game_window.setLocationRelativeTo(null);	// SET by JUN: This does not fit into my screen.
 		game_window.setTitle("D.E.X.-001");
-		game_window.setSize(1000, 750);
+		game_window.setSize(1800, 750);
 		game_window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 }

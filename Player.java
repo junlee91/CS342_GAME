@@ -11,8 +11,7 @@ public class Player extends GameObject{
 	private boolean dead;
 	private boolean airborn;
 
-	// TODO:: to be changed to Polygon
-	private float width = 48, height = 96;
+	private float width = 48, height = 96;	
 
 	private float gravity = 0.5f;
 	private final float MAX_SPEED = 10;
@@ -77,8 +76,8 @@ public class Player extends GameObject{
 	
 	
 	//-------------------------------------------------------------------//
-	//  Following functions are not in abstract class yet.		     //
-	//  We will choose later which parts we need.			     //
+	//  Following functions are not in abstract class yet.               //
+	//  We will choose later which parts we need.                        //
 	//  Too many abstract item considered not good. In my opinion. 	     //
 	//                                                   2/27/17 Jun.    //
 	//-------------------------------------------------------------------//

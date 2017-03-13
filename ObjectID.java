@@ -4,5 +4,5 @@
  * 
  */
 public enum ObjectID {
-	Player, BottomLayer;
+	Player, Player2, BottomLayer, Monster;
 }

@@ -9,13 +9,9 @@ public class Camera {
 	
 	public void renderObject(GameObject player){
 		
-		//if(player.isGoingRight())     x-=3;
-		//else if(player.isGoingLeft()) x+=3;
-		
-		
 		// This sets player into middle
 		x = -player.getX() + Game.WIDTH/2;
-		
+		y = -player.getY() + Game.HEIGHT/2 + 50;   // subject to change
 	}
 
 	public void setX(float x){	this.x = x;	}

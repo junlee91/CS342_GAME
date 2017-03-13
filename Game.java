@@ -10,14 +10,14 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-
+import java.awt.image.BufferedImage;
 import javax.swing.Timer;
 
 
 public class Game extends JPanel implements ActionListener, MouseListener
 {
 	private Timer refresh = new Timer(10, this);  // 360 frames per seconds
-	public static int WIDTH = 1000, HEIGHT = 750; // size of frame
+	public static int WIDTH = 1800, HEIGHT = 750; // size of frame
 
 	Camera camera;
 	ObjectHandler handler;
@@ -34,6 +34,8 @@ public class Game extends JPanel implements ActionListener, MouseListener
 	 *     
 	 */
 	
+	ImageLoader imageLoading;
+	private BufferedImage Layer = null, City = null;
 	
 	public Game()
 	{
@@ -41,10 +43,14 @@ public class Game extends JPanel implements ActionListener, MouseListener
 		
 		handler = new ObjectHandler();			// create handler for objects
 		camera = new Camera(0,0);
+		imageLoading = new ImageLoader();
+
+		Layer = imageLoading.LoadImage("/res/Map1.png");
+		City = imageLoading.LoadImage("/res/City.png");
 				
-		handler.addObject(new Player(100, 100, handler, ObjectID.Player));	// one player (blue rectangle)
-		
-		handler.CreateBottomLayer();			// bottom layer created by handler
+		SetGameLayer(Layer);		
+		//handler.addObject(new Player(100, 100, handler, ObjectID.Player));	// one player (blue rectangle)		
+		//handler.CreateBottomLayer();			// bottom layer created by handler
 		
 		this.setFocusable(true);
 		this.addMouseListener(this);
@@ -71,11 +77,19 @@ public class Game extends JPanel implements ActionListener, MouseListener
 			}
 		}
 		
-		
 		Graphics2D graphicSetting = (Graphics2D) g;
 		
 		graphicSetting.translate(camera.getX(), camera.getY());		
-		handler.renderObject(g);		
+
+
+		for(int x = 0; x < City.getWidth() * 2; x += City.getWidth())
+		{
+			g.drawImage(City, x, -50, this);
+		}
+
+		
+		handler.renderObject(g);	
+
 		graphicSetting.translate(-camera.getX(), -camera.getY());		
 	}
 
@@ -85,6 +99,32 @@ public class Game extends JPanel implements ActionListener, MouseListener
 		// this calls the paintComponent and refreshes the screen
 		repaint();  
 	}	
+
+	private void SetGameLayer(BufferedImage image){
+		int width = image.getWidth();
+		int height = image.getHeight();
+
+		for(int x = 0; x < height; x++){
+			for(int y = 0; y < width; y++){
+				int pixel = image.getRGB(x,y);
+
+				int red		= (pixel >> 16) & 0xff;
+				int green	= (pixel >> 8)  & 0xff;
+				int blue	= (pixel) & 0xff;
+
+				if(red == 255 && green == 255 && blue == 255)
+				{
+					handler.addObject(new Layer(x*32, y*32, ObjectID.BottomLayer));
+				}
+
+				if(red == 0 && green == 0 && blue == 255)
+				{
+					handler.addObject(new Player(x*32, y*32, handler, ObjectID.Player));
+				}
+			}
+		}
+	}
+
 	
 	
 	public void mouseReleased  (MouseEvent click) {}
