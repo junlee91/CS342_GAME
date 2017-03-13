@@ -41,7 +41,7 @@ public class KeyInput implements KeyListener{
 				}
 				
 				
-				if(key == KeyEvent.VK_SPACE && ! tempObject.isJumping())
+				if(key == KeyEvent.VK_SPACE && !tempObject.isJumping())
 				{
 					tempObject.setJumping(true);
 					tempObject.setVelY(-15);

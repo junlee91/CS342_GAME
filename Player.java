@@ -1,6 +1,7 @@
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
 import java.awt.Rectangle;
 import java.util.LinkedList;
 
@@ -19,9 +20,20 @@ public class Player extends GameObject{
 
 	private ObjectHandler handler;
 
+	//------------TODO: put in array--------------//
+	ImageLoader imageLoading = new ImageLoader();	
+	private BufferedImage characterStanding = null;
+	private BufferedImage characterRight = null;
+	private BufferedImage characterLeft = null;
+	private BufferedImage characterJumping = null;
+	private BufferedImage characterFalling = null;
+	//--------------------------------------------//
+
 	public Player(float x, float y, ObjectHandler handler, ObjectID id) {
 		super(x, y, id);
 		this.handler = handler;
+
+		characterStanding = imageLoading.LoadImage("/res/robot.gif");
 
 		name = "Bob";
 		damage = 10;
@@ -91,10 +103,11 @@ public class Player extends GameObject{
 
 
 	public void renderObject(Graphics g) {
-		g.setColor(Color.BLUE);
-		g.fillRect((int)x, (int)y, (int)width, (int)height);	
 
-				
+		g.drawImage(characterStanding, (int)x, (int)y, null);
+		// g.setColor(Color.BLUE);
+		// g.fillRect((int)x, (int)y, (int)width, (int)height);	
+	
 		// Graphics2D gg = (Graphics2D)g;
 		// gg.setColor(Color.RED);
 		// gg.draw(getBoundsLeft());
