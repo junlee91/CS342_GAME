@@ -23,7 +23,7 @@ public class Player extends GameObject{
 
 	//------------TODO: put in array--------------//
 	ImageLoader imageLoading = new ImageLoader();	
-	private BufferedImage characterStanding = null;
+	private BufferedImage[] characterStanding = new BufferedImage[3];
 	private BufferedImage[] characterRight = new BufferedImage[4];
 	private BufferedImage[] characterLeft = new BufferedImage[4];
 	private BufferedImage characterJumpingRight = null;
@@ -32,6 +32,7 @@ public class Player extends GameObject{
 
 	private ObjectMotion playerWalkRight;
 	private ObjectMotion playerWalkLeft;
+	private ObjectMotion playerStand;
 
 	//--------------------------------------------//
 
@@ -45,6 +46,7 @@ public class Player extends GameObject{
 				characterRight[2], characterRight[3]);
 		playerWalkLeft = new ObjectMotion(5, characterLeft[0], characterLeft[1], 
 				characterLeft[2], characterLeft[3]);
+		playerStand = new ObjectMotion(10, characterStanding[0], characterStanding[1], characterStanding[2]);
 	}
 
 	private void loadMotionImage(){
@@ -58,7 +60,11 @@ public class Player extends GameObject{
 		characterLeft[2] = imageLoading.LoadImage("/res/Motion/Walk Left/_L3.png");
 		characterLeft[3] = imageLoading.LoadImage("/res/Motion/Walk Left/_L4.png");
 
-		characterStanding = imageLoading.LoadImage("/res/Motion/");
+		characterStanding[0] = imageLoading.LoadImage("/res/Motion/Stand/_S1.png");
+		characterStanding[1] = imageLoading.LoadImage("/res/Motion/Stand/_S2.png");
+		characterStanding[2] = imageLoading.LoadImage("/res/Motion/Stand/_S3.png");
+
+
 		characterJumpingRight = imageLoading.LoadImage("/res/Motion/Jump/_J2.png");
 		characterJumpingLeft = imageLoading.LoadImage("/res/Motion/Jump/JL2.png");
 		
@@ -82,6 +88,7 @@ public class Player extends GameObject{
 
 		playerWalkRight.runMotion();
 		playerWalkLeft.runMotion();
+		playerStand.runMotion();
 	}
 
 	// REMINDER!!: CollisionDetection is subject to change (different character)
@@ -157,8 +164,9 @@ public class Player extends GameObject{
 				}
 			}	
 			else				// standing
-			{				
-				g.drawImage(characterStanding, (int)x, (int)y, null);
+			{	
+				playerStand.drawMotion(g, (int)x, (int)y);			
+				//g.drawImage(characterStanding, (int)x, (int)y, null);
 			}
 		}
 	
