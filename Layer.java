@@ -16,8 +16,8 @@ public class Layer extends GameObject{
 	}
 
 	public void renderObject(Graphics g) {
-		g.setColor(Color.WHITE);				// layer default: white rectangle.  Subject to change graphics
-		g.drawRect((int)x, (int)y, 32, 32);
+		//g.setColor(Color.WHITE);				// layer default: white rectangle.  Subject to change graphics
+		//g.drawRect((int)x, (int)y, 32, 32);
 	}
 
 	public Rectangle getBounds() {
