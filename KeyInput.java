@@ -45,6 +45,9 @@ public class KeyInput implements KeyListener{
 					tempObject.setVelY(-15);
 				}
 			}
+		}
+		if(key == KeyEvent.VK_ESCAPE){
+			System.exit(0);
 		}	
 	}
 
