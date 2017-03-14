@@ -25,8 +25,7 @@ public class Player extends GameObject{
 	private BufferedImage characterStanding = null;
 	private BufferedImage[] characterRight = new BufferedImage[4];
 	private BufferedImage[] characterLeft = new BufferedImage[4];
-	private BufferedImage[] characterJumping = new BufferedImage[3];
-	private BufferedImage[] characterFalling = new BufferedImage[3];
+	private BufferedImage characterJumping = null;
 
 
 	private ObjectMotion playerWalkRight;
@@ -56,6 +55,8 @@ public class Player extends GameObject{
 		characterLeft[1] = imageLoading.LoadImage("/res/Motion/Walk Left/_L2.png");
 		characterLeft[2] = imageLoading.LoadImage("/res/Motion/Walk Left/_L3.png");
 		characterLeft[3] = imageLoading.LoadImage("/res/Motion/Walk Left/_L4.png");
+
+		characterJumping = imageLoading.LoadImage("/res/Motion/Jump/_J2.png");
 	}
 
 	public void Update(LinkedList<GameObject> ObjectList) {
@@ -122,28 +123,25 @@ public class Player extends GameObject{
 
 	public void renderObject(Graphics g) {
 
-		if(jumping)
+		if(jumping || (velY > 5))
 		{
-
+			g.drawImage(characterJumping, (int)x, (int)y, null);
 		}
-		else if(falling)
+		else
 		{
-			
+			if( velX > 0 )		// going Right
+			{
+				playerWalkRight.drawMotion(g, (int)x, (int)y);
+			}
+			else if( velX < 0)	// going Left
+			{
+				playerWalkLeft.drawMotion(g, (int)x, (int)y);
+			}
+			else				// standing
+			{
+				g.drawImage(characterRight[0], (int)x, (int)y, null);
+			}
 		}
-
-		if( velX > 0 )		// going Right
-		{
-			playerWalkRight.drawMotion(g, (int)x, (int)y);
-		}
-		else if( velX < 0)	// going Left
-		{
-			playerWalkLeft.drawMotion(g, (int)x, (int)y);
-		}
-		else				// standing
-		{
-			g.drawImage(characterRight[0], (int)x, (int)y, null);
-		}
-
 		//TODO:: Jumping and Falling
 	
 		// Graphics2D gg = (Graphics2D)g;
