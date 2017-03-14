@@ -13,9 +13,4 @@ public class Jae_TestCase extends TestCase
 	{
 		assertNotNull(game);
 	}
-
-	public void testIfGameisCreated() throws Exception
-	{
-		assertTrue(game.isGameManagerCreated());
-	}
 }

@@ -5,7 +5,6 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 
 public class Game_Container{
-
 	public static void main(String[] args) {
 		JFrame game_window = new JFrame(); 
 		Game manager = new Game();
@@ -18,11 +17,5 @@ public class Game_Container{
 		game_window.setTitle("D.E.X.-001");
 		game_window.setSize(1800, 750);
 		game_window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	}
-
-	public boolean isGameManagerCreated()
-	{
-		if(!manager) return false;
-		return true;
 	}
 }
