@@ -14,10 +14,14 @@ import java.awt.image.BufferedImage;
 import javax.swing.Timer;
 
 
+
 public class Game extends JPanel implements ActionListener, MouseListener
 {
 	private Timer refresh = new Timer(10, this);  // 360 frames per seconds
 	public static int WIDTH = 1800, HEIGHT = 750; // size of frame
+	
+	// This is for TDD unit testing <Note this needs to change -J>
+	public Test test;
 
 	Camera camera;
 	ObjectHandler handler;
@@ -54,6 +58,7 @@ public class Game extends JPanel implements ActionListener, MouseListener
 		this.addMouseListener(this);
 		this.addKeyListener(new KeyInput(handler));
 		
+		unitTest();
 		refresh.start();
 	}
 
@@ -93,7 +98,6 @@ public class Game extends JPanel implements ActionListener, MouseListener
 
 	public void actionPerformed(ActionEvent event){
 
-		
 		// this calls the paintComponent and refreshes the screen
 		repaint();  
 	}	
@@ -128,5 +132,18 @@ public class Game extends JPanel implements ActionListener, MouseListener
 	public void mousePressed   (MouseEvent click) {} 
 	public void mouseEntered   (MouseEvent click) {} 
 	public void mouseExited    (MouseEvent click) {}
-	
+
+
+	public void unitTest()
+	{
+		Test test = new Test(1);
+		
+		if(test != null)
+		{
+			test.isHandlerCreated(handler);
+			test.isCameraCreated(camera);
+			test.isImgLoaderCreated(imageLoading);
+		}
+		else System.out.println("unit tester not found\n");
+	}
 }
