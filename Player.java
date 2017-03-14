@@ -25,8 +25,8 @@ public class Player extends GameObject{
 	private BufferedImage characterStanding = null;
 	private BufferedImage[] characterRight = new BufferedImage[4];
 	private BufferedImage[] characterLeft = new BufferedImage[4];
-	private BufferedImage characterJumping = null;
-	private BufferedImage characterFalling = null;
+	private BufferedImage[] characterJumping = new BufferedImage[3];
+	private BufferedImage[] characterFalling = new BufferedImage[3];
 
 
 	private ObjectMotion playerWalkRight;
@@ -121,6 +121,15 @@ public class Player extends GameObject{
 
 
 	public void renderObject(Graphics g) {
+
+		if(jumping)
+		{
+
+		}
+		else if(falling)
+		{
+			
+		}
 
 		if( velX > 0 )		// going Right
 		{
