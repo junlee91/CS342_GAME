@@ -58,6 +58,7 @@ public class Player extends GameObject{
 		characterLeft[2] = imageLoading.LoadImage("/res/Motion/Walk Left/_L3.png");
 		characterLeft[3] = imageLoading.LoadImage("/res/Motion/Walk Left/_L4.png");
 
+		characterStanding = imageLoading.LoadImage("/res/Motion/");
 		characterJumpingRight = imageLoading.LoadImage("/res/Motion/Jump/_J2.png");
 		characterJumpingLeft = imageLoading.LoadImage("/res/Motion/Jump/JL2.png");
 		
@@ -156,14 +157,10 @@ public class Player extends GameObject{
 				}
 			}	
 			else				// standing
-			{
-				if( facing == 1 )
-					g.drawImage(characterRight[0], (int)x, (int)y, null);
-				else if( facing == -1)
-					g.drawImage(characterLeft[0], (int)x, (int)y, null);
+			{				
+				g.drawImage(characterStanding, (int)x, (int)y, null);
 			}
 		}
-		//TODO:: Jumping and Falling
 	
 		// Graphics2D gg = (Graphics2D)g;
 		// gg.setColor(Color.RED);
