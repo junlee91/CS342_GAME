@@ -8,3 +8,9 @@ build:
 clean: 
 	rm -f *.class
 	clear
+
+test:
+	rm -f *.class
+	clear
+	javac Jae_TestCase.java
+	java Jae_TestCase
