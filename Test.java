@@ -23,7 +23,18 @@ public class Test
 	{
 		String id = "isHandlerCreated: ";
 		
-		if(handler != null) System.out.println(id + pass);
+		if(handler != null)
+		{
+			if(handler.ObjectList.size() == 0)
+			{
+				System.out.println(id + pass);
+			}
+			else
+			{
+				System.out.println(id + fail);
+				System.out.println("Inside: " + handler.ObjectList.size() +"\n");
+			} 
+		} 
 		else System.out.println(id + fail);
 	}
 
@@ -35,8 +46,13 @@ public class Test
 		{
 			 if(camera.getX() == 0f && camera.getY() == 0f)
 			 	System.out.println(id + pass);
-			 else 
-			 	System.out.println(id + fail);
+			 else
+			 {
+			 	System.out.println(id + fail);	
+			 	System.out.println("Camera location X: "+ camera.getX()
+			 								  + "  Y: " + camera.getY());
+			 } 
+			 
 		}
 		else System.out.println(id + fail);
 	}
