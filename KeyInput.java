@@ -27,8 +27,7 @@ public class KeyInput implements KeyListener{
 					tempObject.setVelX(-5); 
 				}
 				
-				//TODO: S and W commands
-				//TODO: Need to fix gravitational motion.
+				//TODO: S does not do anything
 				if(key == KeyEvent.VK_S )
 				{
 					tempObject.setPosition(5);

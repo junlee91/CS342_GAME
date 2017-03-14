@@ -48,9 +48,7 @@ public class Game extends JPanel implements ActionListener, MouseListener
 		Layer = imageLoading.LoadImage("/res/Map1.png");
 		City = imageLoading.LoadImage("/res/City.png");
 				
-		SetGameLayer(Layer);		
-		//handler.addObject(new Player(100, 100, handler, ObjectID.Player));	// one player (blue rectangle)		
-		//handler.CreateBottomLayer();			// bottom layer created by handler
+		SetGameLayer(Layer);
 		
 		this.setFocusable(true);
 		this.addMouseListener(this);
@@ -123,9 +121,7 @@ public class Game extends JPanel implements ActionListener, MouseListener
 				}
 			}
 		}
-	}
-
-	
+	}	
 	
 	public void mouseReleased  (MouseEvent click) {}
 	public void mouseClicked   (MouseEvent click) {}

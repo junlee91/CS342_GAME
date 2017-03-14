@@ -21,7 +21,7 @@ public class Player extends GameObject{
 
 	private ObjectHandler handler;
 
-	//------------TODO: put in array--------------//
+	//------------ Motion arrayList  --------------//
 	ImageLoader imageLoading = new ImageLoader();	
 	private BufferedImage[] characterStanding = new BufferedImage[3];
 	private BufferedImage[] characterRight = new BufferedImage[4];
@@ -29,11 +29,9 @@ public class Player extends GameObject{
 	private BufferedImage characterJumpingRight = null;
 	private BufferedImage characterJumpingLeft = null;
 
-
 	private ObjectMotion playerWalkRight;
 	private ObjectMotion playerWalkLeft;
 	private ObjectMotion playerStand;
-
 	//--------------------------------------------//
 
 	public Player(float x, float y, ObjectHandler handler, ObjectID id) {
@@ -64,7 +62,6 @@ public class Player extends GameObject{
 		characterStanding[1] = imageLoading.LoadImage("/res/Motion/Stand/_S2.png");
 		characterStanding[2] = imageLoading.LoadImage("/res/Motion/Stand/_S3.png");
 
-
 		characterJumpingRight = imageLoading.LoadImage("/res/Motion/Jump/_J2.png");
 		characterJumpingLeft = imageLoading.LoadImage("/res/Motion/Jump/JL2.png");
 		
@@ -74,7 +71,7 @@ public class Player extends GameObject{
 		x += velX;
 		y += velY;
 
-		if( velX < 0 ) 		facing = -1;		// facing Left
+		if( velX < 0 ) 		facing = -1;	// facing Left
 		else if( velX > 0)	facing = 1;		// facing Right
 
 		if( falling ){
@@ -106,7 +103,7 @@ public class Player extends GameObject{
 
 					falling = false;
 					jumping = false;
-					//handler.removeObject(tempObject);
+			
 				} else {
 					falling = true;
 				}
@@ -163,10 +160,9 @@ public class Player extends GameObject{
 					playerWalkLeft.drawMotion(g, (int)x, (int)y);
 				}
 			}	
-			else				// standing
+			else						// standing
 			{	
 				playerStand.drawMotion(g, (int)x, (int)y);			
-				//g.drawImage(characterStanding, (int)x, (int)y, null);
 			}
 		}
 	
