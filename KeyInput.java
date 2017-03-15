@@ -33,7 +33,7 @@ public class KeyInput implements KeyListener{
 					tempObject.setPosition(5);
 				}
 				
-				if(key == KeyEvent.VK_W && !tempObject.isJumping())
+				if(key == KeyEvent.VK_W && !tempObject.isJumping() && tempObject.getVelY() <= 5 )
 				{
 					tempObject.setJumping(true);
 					tempObject.setVelY(-15);
