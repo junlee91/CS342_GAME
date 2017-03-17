@@ -48,7 +48,7 @@ public class Game extends JPanel implements ActionListener, MouseListener
 		handler = new ObjectHandler();			// create handler for objects
 		camera = new Camera(0,0);				
 		imageLoading = new ImageLoader();
-		unitTest();
+		//unitTest();
 
 		Layer = imageLoading.LoadImage("/res/Map1.png");
 		City = imageLoading.LoadImage("/res/City.png");
