@@ -14,8 +14,9 @@ public class Player extends GameObject{
 	private boolean dead;
 	private boolean airborn;
 
-	private int facing = 1;
+	//private int facing = 1;
 	private boolean hasSword = false;
+	private boolean hasBow = false;
 	private float width = 48, height = 77;	
 
 	private float gravity = 0.5f;
@@ -95,8 +96,8 @@ public class Player extends GameObject{
 		x += velX;
 		y += velY;
 
-		if( velX < 0 ) 		facing = -1;	// facing Left
-		else if( velX > 0)	facing = 1;		// facing Right
+		if( velX < 0 ) 		direction = -1;	// facing Left
+		else if( velX > 0)	direction = 1;		// facing Right
 
 		if( falling ){
 			velY += gravity;
@@ -165,6 +166,17 @@ public class Player extends GameObject{
 					}
 				}
 			}
+			if(tempObject.getId() == ObjectID.Bow){
+				if( getBounds().intersects(tempObject.getBounds()))
+				{
+					if( pickUp && !hasBow ){
+						System.out.println("Picked up BOW!!!!!!");
+
+						tempObject.setIsPickedUp( true );
+						hasBow = true;
+					}
+				}
+			}
 		}
 	}
 
@@ -178,20 +190,20 @@ public class Player extends GameObject{
 			else if( velX < 0)
 				g.drawImage(characterJumpingLeft, (int)x, (int)y, null);
 			else{
-				if(facing == 1)
+				if(direction == 1)
 					g.drawImage(characterJumpingRight, (int)x, (int)y, null);
-				else if(facing == -1)
+				else if(direction == -1)
 					g.drawImage(characterJumpingLeft, (int)x, (int)y, null);
 			}
 		}
 		else							// moving motion
 		{
 			if( velX != 0){
-				if( facing == 1 )		// going Right
+				if( direction == 1 )		// going Right
 				{
 					playerWalkRight.drawMotion(g, (int)x, (int)y);
 				}
-				else if( facing == -1 )	// going Left
+				else if( direction == -1 )	// going Left
 				{
 					playerWalkLeft.drawMotion(g, (int)x, (int)y);
 				}
@@ -200,11 +212,11 @@ public class Player extends GameObject{
 			{	
 				if( pickUp )
 				{
-					if( facing == 1 )
+					if( direction == 1 )
 					{
 						g.drawImage(characterCrouchRight, (int)x, (int)y, null);						
 					}
-					else if( facing == -1 )
+					else if( direction == -1 )
 					{
 						g.drawImage(characterCrouchLeft, (int)x, (int)y, null);
 					}
@@ -212,16 +224,20 @@ public class Player extends GameObject{
 				else if( isAttacking && hasSword )
 				{
 					System.out.println("Attack!");
-					if( facing == 1 )
+					if( direction == 1 )
 					{
 						playerAttackRight.drawAttackMotion(g, (int)x, (int)y, this);
 
 					}
-					else if( facing == -1 )
+					else if( direction == -1 )
 					{
 						playerAttackLeft.drawAttackMotion(g, (int)x-30, (int)y, this);
 	
 					}
+				}
+				else if( isShooting && hasBow )
+				{
+
 				}
 				else
 					playerStand.drawMotion(g, (int)x, (int)y);	
@@ -229,11 +245,11 @@ public class Player extends GameObject{
 		}
 	
 		Graphics2D gg = (Graphics2D)g;
-		gg.setColor(Color.RED);
-		gg.draw(getBoundsLeft());
-		gg.draw(getBoundsRight());
-		gg.draw(getBoundsTop());		
-		gg.draw(getBounds());	
+		// gg.setColor(Color.RED);
+		// gg.draw(getBoundsLeft());
+		// gg.draw(getBoundsRight());
+		// gg.draw(getBoundsTop());		
+		// gg.draw(getBounds());	
 
 		gg.setColor(Color.BLUE);
 		gg.draw(getAttackBoundsRight());
@@ -264,8 +280,7 @@ public class Player extends GameObject{
 		return new Rectangle((int)x-30,(int)y+5, (int)40, (int)height-10); 
 	}
 	//---------------------------------------------------------------------------------------------------//
-	
-	
+
 	
 	//-------------------------------------------------------------------//
 	//  Following functions are not in abstract class yet.               //

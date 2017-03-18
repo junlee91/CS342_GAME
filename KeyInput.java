@@ -43,6 +43,12 @@ public class KeyInput implements KeyListener{
 				{
 					tempObject.setAttacking(true);
 				}
+
+				if(key == KeyEvent.VK_L)
+				{			
+					tempObject.setShooting(true);
+					handler.addObject(new Arrow( tempObject.getX(), tempObject.getY()+30, handler, ObjectID.Arrow, tempObject.getDirection()*10));
+				}
 			}
 		}
 		if(key == KeyEvent.VK_ESCAPE){
@@ -63,6 +69,7 @@ public class KeyInput implements KeyListener{
 				if(key == KeyEvent.VK_S) tempObject.setPickUp(false);
 				
 				tempObject.setAttacking(false);
+				tempObject.setShooting(false);
 			}
 		}
 	}
