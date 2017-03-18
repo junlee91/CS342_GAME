@@ -27,10 +27,10 @@ public class KeyInput implements KeyListener{
 					tempObject.setVelX(-5); 
 				}
 				
-				//TODO: S does not do anything
+				
 				if(key == KeyEvent.VK_S )
 				{
-					tempObject.setPosition(5);
+					tempObject.setPickUp(true);
 				}
 				
 				if(key == KeyEvent.VK_W && !tempObject.isJumping() && tempObject.getVelY() <= 5 )
@@ -55,7 +55,7 @@ public class KeyInput implements KeyListener{
 			{
 				if(key == KeyEvent.VK_D) tempObject.setVelX(0);
 				if(key == KeyEvent.VK_A) tempObject.setVelX(0);
-				
+				if(key == KeyEvent.VK_S) tempObject.setPickUp(false);
 			}
 		}
 	}

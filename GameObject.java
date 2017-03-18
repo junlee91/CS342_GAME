@@ -12,6 +12,7 @@ public abstract class GameObject{  // TODO:: this will extend Polygon class late
     protected boolean jumping = false;
     protected boolean goingRight = true;
     protected boolean goingLeft = true;
+	protected boolean pickUp = false;
     
     
 
@@ -48,6 +49,9 @@ public abstract class GameObject{  // TODO:: this will extend Polygon class late
 
 	public boolean isGoingLeft() {	return goingLeft;	}
 	public void setGoingLeft(boolean goingLeft) {	this.goingLeft = goingLeft;	}
+
+	public boolean isPickUp() { return pickUp; }
+	public void setPickUp(boolean pickUp){ 	this.pickUp = pickUp; }
 
 	public ObjectID getId() {	return id;	}
 

@@ -28,6 +28,8 @@ public class Player extends GameObject{
 	private BufferedImage[] characterLeft = new BufferedImage[4];
 	private BufferedImage characterJumpingRight = null;
 	private BufferedImage characterJumpingLeft = null;
+	private BufferedImage characterCrouchRight = null;
+	private BufferedImage characterCrouchLeft = null;
 
 	private ObjectMotion playerWalkRight;
 	private ObjectMotion playerWalkLeft;
@@ -64,7 +66,10 @@ public class Player extends GameObject{
 
 		characterJumpingRight = imageLoading.LoadImage("/res/Motion/Jump/_J2.png");
 		characterJumpingLeft = imageLoading.LoadImage("/res/Motion/Jump/JL2.png");
-		
+
+		characterCrouchRight = imageLoading.LoadImage("/res/Motion/Pick Up/Crouch_R.png");
+		characterCrouchLeft = imageLoading.LoadImage("/res/Motion/Pick Up/Crouch_L.png");
+
 	}
 
 	public void Update(LinkedList<GameObject> ObjectList) {
@@ -135,7 +140,7 @@ public class Player extends GameObject{
 
 	public void renderObject(Graphics g) {
 
-		if(jumping || (velY > 5))
+		if(jumping || (velY > 5))		// jumping motion
 		{
 			if( velX > 0)
 				g.drawImage(characterJumpingRight, (int)x, (int)y, null);
@@ -148,7 +153,7 @@ public class Player extends GameObject{
 					g.drawImage(characterJumpingLeft, (int)x, (int)y, null);
 			}
 		}
-		else
+		else							// moving motion
 		{
 			if( velX != 0){
 				if( facing == 1 )		// going Right
@@ -162,7 +167,19 @@ public class Player extends GameObject{
 			}	
 			else						// standing
 			{	
-				playerStand.drawMotion(g, (int)x, (int)y);			
+				if( pickUp )
+				{
+					if( facing == 1 )
+					{
+						g.drawImage(characterCrouchRight, (int)x, (int)y, null);						
+					}
+					else if( facing == -1 )
+					{
+						g.drawImage(characterCrouchLeft, (int)x, (int)y, null);
+					}
+				}
+				else
+					playerStand.drawMotion(g, (int)x, (int)y);			
 			}
 		}
 	
