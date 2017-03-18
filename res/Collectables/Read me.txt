@@ -1,0 +1,3 @@
+Fully scaled:
+Sword_removed
+Sword_inRock
