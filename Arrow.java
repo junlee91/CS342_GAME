@@ -6,7 +6,7 @@ import java.util.LinkedList;
 public class Arrow extends GameObject{
     
     private float gravity = 0.1f;
-    private float count = 0.3f;
+    private int degree = 30;            // degree adjustable
     private ObjectHandler handler;
 
     public Arrow(float x, float y, ObjectHandler handler, ObjectID id, int speed){
@@ -17,9 +17,9 @@ public class Arrow extends GameObject{
 
     public void Update(LinkedList<GameObject> ObjectList) {
 		x += velX;
-        y += gravity*count;
+        y -= gravity*degree;
 
-        count += 0.2;
+        degree -= 1;
         CollisionDetection(ObjectList);
 	}
 
@@ -39,7 +39,7 @@ public class Arrow extends GameObject{
     }
 
 	public void renderObject(Graphics g) {
-		g.setColor(Color.RED);				// layer default: white rectangle.  Subject to change graphics
+		g.setColor(Color.RED);				
 		g.fillRect((int)x, (int)y, 16, 16);
 	}
 
