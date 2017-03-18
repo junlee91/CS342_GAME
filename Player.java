@@ -53,8 +53,10 @@ public class Player extends GameObject{
 				characterLeft[2], characterLeft[3]);
 		playerStand = new ObjectMotion(10, characterStanding[0], characterStanding[1]);
 		
-		//playerAttackRight = new ObjectMotion(5, ....);
-		//playerAttackLeft = new ObjectMotion(5, ....);
+		playerAttackRight = new ObjectMotion(5, characterAttackRight[0],characterAttackRight[1],
+				characterAttackRight[2], characterAttackRight[3]);
+		playerAttackLeft = new ObjectMotion(5, characterAttackLeft[0],characterAttackLeft[1],
+				characterAttackLeft[2], characterAttackLeft[3]);
 	}
 
 	private void loadMotionImage(){
@@ -77,11 +79,15 @@ public class Player extends GameObject{
 		characterCrouchRight = imageLoading.LoadImage("/res/Motion/Pick Up/Crouch_R.png");
 		characterCrouchLeft = imageLoading.LoadImage("/res/Motion/Pick Up/Crouch_L.png");
 
-		//characterAttackRight[0] = imageLoading.LoadImage("/res/Motion/");
+		characterAttackRight[0] = imageLoading.LoadImage("/res/Motion/Attack/R_Attack1.png");
+		characterAttackRight[1] = imageLoading.LoadImage("/res/Motion/Attack/R_Attack2.png");
+		characterAttackRight[2] = imageLoading.LoadImage("/res/Motion/Attack/R_Attack3.png");
+		characterAttackRight[3] = imageLoading.LoadImage("/res/Motion/Attack/R_Attack4.png");
 		
-		
-		//characterAttackLeft[0] = imageLoading.LoadImage("/res/Motion/");
-
+		characterAttackLeft[0] = imageLoading.LoadImage("/res/Motion/Attack/L_Attack1.png");
+		characterAttackLeft[1] = imageLoading.LoadImage("/res/Motion/Attack/L_Attack2.png");
+		characterAttackLeft[2] = imageLoading.LoadImage("/res/Motion/Attack/L_Attack3.png");
+		characterAttackLeft[3] = imageLoading.LoadImage("/res/Motion/Attack/L_Attack4.png");
 	}
 
 	public void Update(LinkedList<GameObject> ObjectList) {
@@ -103,8 +109,8 @@ public class Player extends GameObject{
 		playerWalkRight.runMotion();
 		playerWalkLeft.runMotion();
 		playerStand.runMotion();
-		//playerAttackRight.runMotion();
-		//playerAttackLeft.runMotion();
+		playerAttackRight.runMotion();
+		playerAttackLeft.runMotion();
 	}
 
 	// REMINDER!!: CollisionDetection is subject to change (different character)
@@ -202,22 +208,21 @@ public class Player extends GameObject{
 						g.drawImage(characterCrouchLeft, (int)x, (int)y, null);
 					}
 				}
+				else if( isAttacking && hasSword )
+				{
+					System.out.println("Attack!");
+					if( facing == 1 )
+					{
+						playerAttackRight.drawMotion(g, (int)x, (int)y);
+					}
+					else if( facing == -1 )
+					{
+						playerAttackLeft.drawMotion(g, (int)x-30, (int)y);
+					}
+				}
 				else
-					playerStand.drawMotion(g, (int)x, (int)y);			
-			}
-
-			if( isAttacking && hasSword )
-			{
-				System.out.println("Attack!");
-				if( facing == 1 )
-				{
-					//playerAttackRight.drawMotion(g, (int)x, (int)y);
-				}
-				else if( facing == -1 )
-				{
-					//playerAttackLeft.drawMotion(g, (int)x, (int)y);
-				}
-			}
+					playerStand.drawMotion(g, (int)x, (int)y);	
+			}	
 		}
 	
 		Graphics2D gg = (Graphics2D)g;
