@@ -5,6 +5,8 @@ import java.util.LinkedList;
 
 public class Arrow extends GameObject{
     
+    private float gravity = 0.1f;
+    private float count = 0.3f;
     private ObjectHandler handler;
 
     public Arrow(float x, float y, ObjectHandler handler, ObjectID id, int speed){
@@ -15,7 +17,9 @@ public class Arrow extends GameObject{
 
     public void Update(LinkedList<GameObject> ObjectList) {
 		x += velX;
+        y += gravity*count;
 
+        count += 0.2;
         CollisionDetection(ObjectList);
 	}
 
