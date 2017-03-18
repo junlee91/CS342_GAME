@@ -237,7 +237,15 @@ public class Player extends GameObject{
 				}
 				else if( isShooting && hasBow )
 				{
+					System.out.println("Shoot!");
+					if( direction == 1)
+					{
 
+					}
+					else if( direction == -1)
+					{
+
+					}
 				}
 				else
 					playerStand.drawMotion(g, (int)x, (int)y);	

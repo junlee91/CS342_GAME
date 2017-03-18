@@ -25,9 +25,6 @@ public class Bow extends GameObject{
 	}
 
 	public void renderObject(Graphics g) {
-        // Graphics2D gg = (Graphics2D)g;
-        // gg.setColor(Color.RED);
-        // gg.draw(getBounds());
         
         // if( !isPickedUp )
         //     g.drawImage(, (int)x, (int)y-40, null);
