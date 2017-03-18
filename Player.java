@@ -257,11 +257,11 @@ public class Player extends GameObject{
 	}
 
 	public Rectangle getAttackBoundsRight(){
-		return new Rectangle((int) ((int)x + width-10),(int)y+5, (int)50, (int)height-10); 
+		return new Rectangle((int) ((int)x + width-10),(int)y+5, (int)40, (int)height-10); 
 	}
 
 	public Rectangle getAttackBoundsLeft(){
-		return new Rectangle((int)x-40,(int)y+5, (int)50, (int)height-10); 
+		return new Rectangle((int)x-30,(int)y+5, (int)40, (int)height-10); 
 	}
 	//---------------------------------------------------------------------------------------------------//
 	
