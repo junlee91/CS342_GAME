@@ -12,8 +12,9 @@ public class Player extends GameObject{
 	private int curHealth;
 	private boolean dead;
 	private boolean airborn;
-	private int facing = 1;
 
+	private int facing = 1;
+	private boolean hasSword = false;
 	private float width = 48, height = 77;	
 
 	private float gravity = 0.5f;
@@ -26,6 +27,8 @@ public class Player extends GameObject{
 	private BufferedImage[] characterStanding = new BufferedImage[2];
 	private BufferedImage[] characterRight = new BufferedImage[4];
 	private BufferedImage[] characterLeft = new BufferedImage[4];
+	private BufferedImage[] characterAttackRight = new BufferedImage[4];
+	private BufferedImage[] characterAttackLeft = new BufferedImage[4];	
 	private BufferedImage characterJumpingRight = null;
 	private BufferedImage characterJumpingLeft = null;
 	private BufferedImage characterCrouchRight = null;
@@ -34,6 +37,8 @@ public class Player extends GameObject{
 	private ObjectMotion playerWalkRight;
 	private ObjectMotion playerWalkLeft;
 	private ObjectMotion playerStand;
+	private ObjectMotion playerAttackRight;
+	private ObjectMotion playerAttackLeft;
 	//--------------------------------------------//
 
 	public Player(float x, float y, ObjectHandler handler, ObjectID id) {
@@ -47,6 +52,9 @@ public class Player extends GameObject{
 		playerWalkLeft = new ObjectMotion(5, characterLeft[0], characterLeft[1], 
 				characterLeft[2], characterLeft[3]);
 		playerStand = new ObjectMotion(10, characterStanding[0], characterStanding[1]);
+		
+		//playerAttackRight = new ObjectMotion(5, ....);
+		//playerAttackLeft = new ObjectMotion(5, ....);
 	}
 
 	private void loadMotionImage(){
@@ -69,6 +77,11 @@ public class Player extends GameObject{
 		characterCrouchRight = imageLoading.LoadImage("/res/Motion/Pick Up/Crouch_R.png");
 		characterCrouchLeft = imageLoading.LoadImage("/res/Motion/Pick Up/Crouch_L.png");
 
+		//characterAttackRight[0] = imageLoading.LoadImage("/res/Motion/");
+		
+		
+		//characterAttackLeft[0] = imageLoading.LoadImage("/res/Motion/");
+
 	}
 
 	public void Update(LinkedList<GameObject> ObjectList) {
@@ -90,6 +103,8 @@ public class Player extends GameObject{
 		playerWalkRight.runMotion();
 		playerWalkLeft.runMotion();
 		playerStand.runMotion();
+		//playerAttackRight.runMotion();
+		//playerAttackLeft.runMotion();
 	}
 
 	// REMINDER!!: CollisionDetection is subject to change (different character)
@@ -135,10 +150,11 @@ public class Player extends GameObject{
 			if(tempObject.getId() == ObjectID.Sword){
 				if( getBounds().intersects(tempObject.getBounds()))
 				{
-					if( pickUp ){
-						System.out.println("puck up");
+					if( pickUp && !hasSword ){
+						System.out.println("Picked up SWORD!!!!!!!!");
 						
 						tempObject.setIsPickedUp( true );
+						hasSword = true;
 					}
 				}
 			}
@@ -189,14 +205,31 @@ public class Player extends GameObject{
 				else
 					playerStand.drawMotion(g, (int)x, (int)y);			
 			}
+
+			if( isAttacking && hasSword )
+			{
+				System.out.println("Attack!");
+				if( facing == 1 )
+				{
+					//playerAttackRight.drawMotion(g, (int)x, (int)y);
+				}
+				else if( facing == -1 )
+				{
+					//playerAttackLeft.drawMotion(g, (int)x, (int)y);
+				}
+			}
 		}
 	
-		// Graphics2D gg = (Graphics2D)g;
-		// gg.setColor(Color.RED);
-		// gg.draw(getBoundsLeft());
-		// gg.draw(getBoundsRight());
-		// gg.draw(getBoundsTop());		
-		// gg.draw(getBounds());	
+		Graphics2D gg = (Graphics2D)g;
+		gg.setColor(Color.RED);
+		gg.draw(getBoundsLeft());
+		gg.draw(getBoundsRight());
+		gg.draw(getBoundsTop());		
+		gg.draw(getBounds());	
+
+		gg.setColor(Color.BLUE);
+		gg.draw(getAttackBoundsRight());
+		gg.draw(getAttackBoundsLeft());
 	}
 
 	//---------------------- collision bounds subject to change ------------------------------------------//
@@ -213,6 +246,14 @@ public class Player extends GameObject{
 	}
 	public Rectangle getBoundsLeft() {		
 		return new Rectangle((int)x,(int)y+5, (int)5, (int)height-10); 
+	}
+
+	public Rectangle getAttackBoundsRight(){
+		return new Rectangle((int) ((int)x + width-10),(int)y+5, (int)50, (int)height-10); 
+	}
+
+	public Rectangle getAttackBoundsLeft(){
+		return new Rectangle((int)x-40,(int)y+5, (int)50, (int)height-10); 
 	}
 	//---------------------------------------------------------------------------------------------------//
 	

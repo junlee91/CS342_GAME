@@ -38,6 +38,11 @@ public class KeyInput implements KeyListener{
 					tempObject.setJumping(true);
 					tempObject.setVelY(-15);
 				}
+
+				if(key == KeyEvent.VK_K)
+				{
+					tempObject.setAttacking(true);
+				}
 			}
 		}
 		if(key == KeyEvent.VK_ESCAPE){
@@ -56,6 +61,7 @@ public class KeyInput implements KeyListener{
 				if(key == KeyEvent.VK_D) tempObject.setVelX(0);
 				if(key == KeyEvent.VK_A) tempObject.setVelX(0);
 				if(key == KeyEvent.VK_S) tempObject.setPickUp(false);
+				if(key == KeyEvent.VK_K) tempObject.setAttacking(false);
 			}
 		}
 	}
