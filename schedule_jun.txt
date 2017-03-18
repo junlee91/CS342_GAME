@@ -22,5 +22,9 @@ Schedule and deliverable:
 	- Background Image with rendering
 						-- Sun 03/12 11:59pm (estimated 3 hours)
 										COMPLETED
-	- Image motion 
+	- Image motion (walk, jump) 
 						-- Tue 03/14 12:00pm (estimated 8 hours)
+										COMPLETED
+		
+	- Image motion (attack)
+						-- Sat 03/18 11:59pm (estimated 4 hours)
