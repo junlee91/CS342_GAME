@@ -23,7 +23,7 @@ public class Player extends GameObject{
 
 	//------------ Motion arrayList  --------------//
 	ImageLoader imageLoading = new ImageLoader();	
-	private BufferedImage[] characterStanding = new BufferedImage[3];
+	private BufferedImage[] characterStanding = new BufferedImage[2];
 	private BufferedImage[] characterRight = new BufferedImage[4];
 	private BufferedImage[] characterLeft = new BufferedImage[4];
 	private BufferedImage characterJumpingRight = null;
@@ -46,7 +46,7 @@ public class Player extends GameObject{
 				characterRight[2], characterRight[3]);
 		playerWalkLeft = new ObjectMotion(5, characterLeft[0], characterLeft[1], 
 				characterLeft[2], characterLeft[3]);
-		playerStand = new ObjectMotion(10, characterStanding[0], characterStanding[1], characterStanding[2]);
+		playerStand = new ObjectMotion(10, characterStanding[0], characterStanding[1]);
 	}
 
 	private void loadMotionImage(){
@@ -60,9 +60,8 @@ public class Player extends GameObject{
 		characterLeft[2] = imageLoading.LoadImage("/res/Motion/Walk Left/_L3.png");
 		characterLeft[3] = imageLoading.LoadImage("/res/Motion/Walk Left/_L4.png");
 
-		characterStanding[0] = imageLoading.LoadImage("/res/Motion/Stand/stand_1.png");
-		characterStanding[1] = imageLoading.LoadImage("/res/Motion/Stand/stand_2.png");
-		characterStanding[2] = imageLoading.LoadImage("/res/Motion/Stand/stand_3.png");
+		characterStanding[0] = imageLoading.LoadImage("/res/Motion/Stand/stand_2.png");
+		characterStanding[1] = imageLoading.LoadImage("/res/Motion/Stand/stand_3.png");
 
 		characterJumpingRight = imageLoading.LoadImage("/res/Motion/Jump/_J2.png");
 		characterJumpingLeft = imageLoading.LoadImage("/res/Motion/Jump/JL2.png");
