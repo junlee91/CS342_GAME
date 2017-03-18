@@ -1,4 +1,5 @@
 Schedule and deliverable:
+	
 	* Find Bug tracking software for team    -- Thur  02/23 by 11:59pm (estimate: 1 Hour) 
 						 -- COMPLETE 02/23 at 12:38 am 
 
@@ -11,25 +12,48 @@ Schedule and deliverable:
 	--> we had change of heart of the style of the game, thus alien prototype is scrapped
         
 
-	* Create animations Jump / Attack        -- Sunday 02/26 by 11:59 pm (estimate: 2 hours)       
+	* Create animations Jump / Attack        -- Sunday 02/26 by 11:59 pm (estimate: 2 hours) 
+						 -- COMPLETE      
 	
 	
 	* Create general Frame work for the game -- Thur 02/23 by 11:59pm (estimate: 8 hours)
 		This includes:                   -- COMPLETE 02/25 by 10:53 pm 
 		> JFrame with properties	 
 		> JPanel for game package includes
-			> JPanel Menu            <-- Finished
-			> JPanel Game Area       <-- Finished
-			> JPanel Ending Credit   <-- Finished
+			> JPanel Menu            -- COMPLETE 
+			> JPanel Game Area       -- COMPLETE 
+			> JPanel Ending Credit   -- COMPLETE 
         
-	* Character design rough sketch -- 3/1/2017 by 11:59pm (estimate: 2 hours) Finished
-         -- Assasin / Knight / Werewolf / etc
+	* Character design rough sketch -- 3/1/2017 by 11:59pm (estimate: 2 hours)
+	-- Assasin / Knight / Werewolf / etc	 -- COMPLETE 
+         
         
         * Transfering design to actual art that can be used -- -- 3/5/2017 by 11:59pm (estimate: 4 hours)
+					          -- COMPLETE 
 	 -- Main character	
 
-        * Left and Right movement for player ---- 3/5/2017 by 11:59pm (estimate: 4 hours) Finished
-        * Attack animation for player        ---  3/9/2017 by 11:59pm (estimate: 4 hours) Finished
-	* Adding animation to the game and touch up on code ---- 3/12/2017 by 11:59pm (estimate: 5 hours) Finished
-	* Look through unity store for possible assets in the game --- 3/13/2017 by 11:59pm <nothing useful found...> Finished
+        * Left and Right movement for player      -- 3/5/2017 by 11:59pm (estimate: 4 hours) 
+						  -- COMPLETE 
+        * Attack animation for player             --  3/9/2017 by 11:59pm (estimate: 4 hours) 
+						  --COMPLETE 
+
+	* Adding animation to the game and touch up on code -- 3/12/2017 by 11:59pm (estimate: 5 hours) 
+							    -- COMPLETE 
 	
+	* Look through unity store for possible assets in the game -- 3/13/2017 by 11:59pm <nothing useful found...> 
+								   -- COMPLETE 
+	
+	* Update standing animation 		   -- 3/15/2017 (3 Hours)
+						   -- COMPLETE 
+
+	* Fix character floor clipping bug 	   -- 3/15/2017 (4 Hours)
+	 					   -- COMPLETE 
+	
+	* Create crouch animation and add to game  -- 3/17/2017 (5 Hours)
+						   -- COMPLETE 
+
+	* Create pick up object sword	 	   -- 3/17/2017 (3 Hours)
+						   -- COMPLETE 
+	
+	* Incorporate attack animation  	   -- 3/18/2017 (7 Hours)
+						   -- COMPLETE 
