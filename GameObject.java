@@ -13,7 +13,7 @@ public abstract class GameObject{  // TODO:: this will extend Polygon class late
     protected boolean goingRight = true;
     protected boolean goingLeft = true;
 	protected boolean pickUp = false;
-    
+    protected boolean isPickedUp = false;
     
 
 	public GameObject(float x, float y, ObjectID id){
@@ -52,6 +52,9 @@ public abstract class GameObject{  // TODO:: this will extend Polygon class late
 
 	public boolean isPickUp() { return pickUp; }
 	public void setPickUp(boolean pickUp){ 	this.pickUp = pickUp; }
+
+	public void setIsPickedUp(boolean status) { this.isPickedUp = status; }
+    public boolean isPickedUp() { return isPickedUp; }
 
 	public ObjectID getId() {	return id;	}
 

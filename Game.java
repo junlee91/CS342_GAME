@@ -124,6 +124,11 @@ public class Game extends JPanel implements ActionListener, MouseListener
 					handler.addObject(new Player(x*32, y*32, handler, ObjectID.Player));
 				}
 
+				if(red == 0 && green == 128 && blue == 128)
+				{
+					handler.addObject(new Sword(x*32, y*32, ObjectID.Sword));
+				}
+
 				
 			}
 		}

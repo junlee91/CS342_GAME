@@ -100,8 +100,6 @@ public class Player extends GameObject{
 			GameObject tempObject = handler.ObjectList.get(i);
 
 			if(tempObject.getId() == ObjectID.BottomLayer){
-
-				
 				if( getBounds().intersects(tempObject.getBounds()) ){
 					y = tempObject.getY() - height;
 					velY = 0;
@@ -132,6 +130,17 @@ public class Player extends GameObject{
 				{
 					this.setGoingLeft(true);
 					this.setGoingRight(true);
+				}
+			}
+
+			if(tempObject.getId() == ObjectID.Sword){
+				if( getBounds().intersects(tempObject.getBounds()))
+				{
+					if( pickUp ){
+						System.out.println("puck up");
+						
+						tempObject.setIsPickedUp( true );
+					}
 				}
 			}
 		}
