@@ -60,9 +60,9 @@ public class Player extends GameObject{
 		characterLeft[2] = imageLoading.LoadImage("/res/Motion/Walk Left/_L3.png");
 		characterLeft[3] = imageLoading.LoadImage("/res/Motion/Walk Left/_L4.png");
 
-		characterStanding[0] = imageLoading.LoadImage("/res/Motion/Stand/_S1.png");
-		characterStanding[1] = imageLoading.LoadImage("/res/Motion/Stand/_S2.png");
-		characterStanding[2] = imageLoading.LoadImage("/res/Motion/Stand/_S3.png");
+		characterStanding[0] = imageLoading.LoadImage("/res/Motion/Stand/stand_1.png");
+		characterStanding[1] = imageLoading.LoadImage("/res/Motion/Stand/stand_2.png");
+		characterStanding[2] = imageLoading.LoadImage("/res/Motion/Stand/stand_3.png");
 
 		characterJumpingRight = imageLoading.LoadImage("/res/Motion/Jump/_J2.png");
 		characterJumpingLeft = imageLoading.LoadImage("/res/Motion/Jump/JL2.png");
