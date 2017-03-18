@@ -5,6 +5,7 @@ import java.awt.image.BufferedImage;
 import java.awt.Rectangle;
 import java.util.LinkedList;
 
+
 public class Player extends GameObject{
 	private String name;
 	private int damage;
@@ -213,11 +214,13 @@ public class Player extends GameObject{
 					System.out.println("Attack!");
 					if( facing == 1 )
 					{
-						playerAttackRight.drawMotion(g, (int)x, (int)y);
+						playerAttackRight.drawAttackMotion(g, (int)x, (int)y, this);
+
 					}
 					else if( facing == -1 )
 					{
-						playerAttackLeft.drawMotion(g, (int)x-30, (int)y);
+						playerAttackLeft.drawAttackMotion(g, (int)x-30, (int)y, this);
+	
 					}
 				}
 				else

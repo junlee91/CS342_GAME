@@ -7,6 +7,7 @@ public class ObjectMotion{
 
     private int index = 0;
     private int count = 0;
+    private boolean resetImage = false;
 
     private BufferedImage[] CharacterImages;
     private BufferedImage currentImage;
@@ -35,14 +36,23 @@ public class ObjectMotion{
         currentImage = CharacterImages[count];
         count++;
 
-        if(count >= numFrames)
+        if(count >= numFrames){
             count = 0;
+            resetImage = true;
+        }
         
     }
 
     public void drawMotion(Graphics g, int x, int y)
     {
         g.drawImage(currentImage, x, y, null);
+    }
+
+    public void drawAttackMotion(Graphics g, int x, int y, GameObject object){
+        g.drawImage(currentImage, x, y, null);
+
+        //if( resetImage )
+            //object.setAttacking(false);
     }
 
 }
