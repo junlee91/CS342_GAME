@@ -23,8 +23,8 @@ public class Arrow extends GameObject{
     }
 
     private void loadGraphicImage(){
-        arrow_R = imageLoading.LoadImage("res/Motion/Attack/CrossBow/R_arrow.png");
-        arrow_L = imageLoading.LoadImage("res/Motion/Attack/CrossBow/L_arrow.png");
+        arrow_R = imageLoading.LoadImage("res/Hero/Attack/CrossBow/R_arrow.png");
+        arrow_L = imageLoading.LoadImage("res/Hero/Attack/CrossBow/L_arrow.png");
     }
 
     public void Update(LinkedList<GameObject> ObjectList) {

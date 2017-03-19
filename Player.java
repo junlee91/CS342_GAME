@@ -33,10 +33,10 @@ public class Player extends GameObject{
 	private BufferedImage characterCrouchRight = null;
 	private BufferedImage characterCrouchLeft = null;
 
-	private BufferedImage[] characterGNDShootingLeft = new BufferedImage[2];
-	private BufferedImage[] characterGNDShootingRight = new BufferedImage[2];	
-	private BufferedImage[] characterSKYShootingLeft = new BufferedImage[2];
-	private BufferedImage[] characterSKYShootingRight = new BufferedImage[2];
+	private BufferedImage[] characterGNDShootingLeft = new BufferedImage[1];
+	private BufferedImage[] characterGNDShootingRight = new BufferedImage[1];	
+	private BufferedImage[] characterSKYShootingLeft = new BufferedImage[1];
+	private BufferedImage[] characterSKYShootingRight = new BufferedImage[1];
 	
 
 	private ObjectMotion playerWalkRight;
@@ -77,40 +77,40 @@ public class Player extends GameObject{
 	}
 
 	private void loadMotionImage(){
-		characterRight[0] = imageLoading.LoadImage("/res/Motion/Walk Right/_R1.png");
-		characterRight[1] = imageLoading.LoadImage("/res/Motion/Walk Right/_R2.png");
-		characterRight[2] = imageLoading.LoadImage("/res/Motion/Walk Right/_R3.png");
-		characterRight[3] = imageLoading.LoadImage("/res/Motion/Walk Right/_R4.png");
+		characterRight[0] = imageLoading.LoadImage("/res/Hero/Walk Right/_R1.png");
+		characterRight[1] = imageLoading.LoadImage("/res/Hero/Walk Right/_R2.png");
+		characterRight[2] = imageLoading.LoadImage("/res/Hero/Walk Right/_R3.png");
+		characterRight[3] = imageLoading.LoadImage("/res/Hero/Walk Right/_R4.png");
 
-		characterLeft[0] = imageLoading.LoadImage("/res/Motion/Walk Left/_L1.png");
-		characterLeft[1] = imageLoading.LoadImage("/res/Motion/Walk Left/_L2.png");
-		characterLeft[2] = imageLoading.LoadImage("/res/Motion/Walk Left/_L3.png");
-		characterLeft[3] = imageLoading.LoadImage("/res/Motion/Walk Left/_L4.png");
+		characterLeft[0] = imageLoading.LoadImage("/res/Hero/Walk Left/_L1.png");
+		characterLeft[1] = imageLoading.LoadImage("/res/Hero/Walk Left/_L2.png");
+		characterLeft[2] = imageLoading.LoadImage("/res/Hero/Walk Left/_L3.png");
+		characterLeft[3] = imageLoading.LoadImage("/res/Hero/Walk Left/_L4.png");
 
-		characterStanding[0] = imageLoading.LoadImage("/res/Motion/Stand/stand_2.png");
-		characterStanding[1] = imageLoading.LoadImage("/res/Motion/Stand/stand_3.png");
+		characterStanding[0] = imageLoading.LoadImage("/res/Hero/Stand/stand_2.png");
+		characterStanding[1] = imageLoading.LoadImage("/res/Hero/Stand/stand_3.png");
 
-		characterJumpingRight = imageLoading.LoadImage("/res/Motion/Jump/_J2.png");
-		characterJumpingLeft = imageLoading.LoadImage("/res/Motion/Jump/JL2.png");
+		characterJumpingRight = imageLoading.LoadImage("/res/Hero/Jump/_J2.png");
+		characterJumpingLeft = imageLoading.LoadImage("/res/Hero/Jump/JL2.png");
 
-		characterCrouchRight = imageLoading.LoadImage("/res/Motion/Pick Up/Crouch_R.png");
-		characterCrouchLeft = imageLoading.LoadImage("/res/Motion/Pick Up/Crouch_L.png");
+		characterCrouchRight = imageLoading.LoadImage("/res/Hero/Pick Up/Crouch_R.png");
+		characterCrouchLeft = imageLoading.LoadImage("/res/Hero/Pick Up/Crouch_L.png");
 
-		characterAttackRight[0] = imageLoading.LoadImage("/res/Motion/Attack/Sword/R_Attack1.png");
-		characterAttackRight[1] = imageLoading.LoadImage("/res/Motion/Attack/Sword/R_Attack2.png");
-		characterAttackRight[2] = imageLoading.LoadImage("/res/Motion/Attack/Sword/R_Attack3.png");
-		characterAttackRight[3] = imageLoading.LoadImage("/res/Motion/Attack/Sword/R_Attack4.png");
+		characterAttackRight[0] = imageLoading.LoadImage("/res/Hero/Attack/Sword/R_Attack1.png");
+		characterAttackRight[1] = imageLoading.LoadImage("/res/Hero/Attack/Sword/R_Attack2.png");
+		characterAttackRight[2] = imageLoading.LoadImage("/res/Hero/Attack/Sword/R_Attack3.png");
+		characterAttackRight[3] = imageLoading.LoadImage("/res/Hero/Attack/Sword/R_Attack4.png");
 		
-		characterAttackLeft[0] = imageLoading.LoadImage("/res/Motion/Attack/Sword/L_Attack1.png");
-		characterAttackLeft[1] = imageLoading.LoadImage("/res/Motion/Attack/Sword/L_Attack2.png");
-		characterAttackLeft[2] = imageLoading.LoadImage("/res/Motion/Attack/Sword/L_Attack3.png");
-		characterAttackLeft[3] = imageLoading.LoadImage("/res/Motion/Attack/Sword/L_Attack4.png");
+		characterAttackLeft[0] = imageLoading.LoadImage("/res/Hero/Attack/Sword/L_Attack1.png");
+		characterAttackLeft[1] = imageLoading.LoadImage("/res/Hero/Attack/Sword/L_Attack2.png");
+		characterAttackLeft[2] = imageLoading.LoadImage("/res/Hero/Attack/Sword/L_Attack3.png");
+		characterAttackLeft[3] = imageLoading.LoadImage("/res/Hero/Attack/Sword/L_Attack4.png");
 
-		characterGNDShootingLeft[0] = imageLoading.LoadImage("/res/Motion/Attack/CrossBow/L_Gnd_shot1.png");
-		characterGNDShootingRight[0] = imageLoading.LoadImage("/res/Motion/Attack/CrossBow/R_Gnd_shot1.png");
+		characterGNDShootingLeft[0] = imageLoading.LoadImage("/res/Hero/Attack/CrossBow/L_Gnd_shot1.png");
+		characterGNDShootingRight[0] = imageLoading.LoadImage("/res/Hero/Attack/CrossBow/R_Gnd_shot1.png");
 
-		characterSKYShootingLeft[0] = imageLoading.LoadImage("/res/Motion/Attack/CrossBow/L_Jmp_shot1.png");
-		characterSKYShootingRight[0] = imageLoading.LoadImage("/res/Motion/Attack/CrossBow/R_Jmp_shot1.png");
+		characterSKYShootingLeft[0] = imageLoading.LoadImage("/res/Hero/Attack/CrossBow/L_Jmp_shot1.png");
+		characterSKYShootingRight[0] = imageLoading.LoadImage("/res/Hero/Attack/CrossBow/R_Jmp_shot1.png");
 	}
 
 	public void Update(LinkedList<GameObject> ObjectList) {
