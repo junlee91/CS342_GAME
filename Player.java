@@ -69,10 +69,10 @@ public class Player extends GameObject{
 		playerAttackLeft = new ObjectMotion(5, characterAttackLeft[0],characterAttackLeft[1],
 				characterAttackLeft[2], characterAttackLeft[3]);
 
-		playerGNDShootLeft = new ObjectMotion(7, characterGNDShootingLeft[0], characterGNDShootingLeft[1]);
-		playerGNDShootRight = new ObjectMotion(7, characterGNDShootingRight[0], characterGNDShootingRight[1]);
-		playerSKYShootLeft = new ObjectMotion(7, characterSKYShootingLeft[0], characterSKYShootingLeft[1]);
-		playerSKYShootRight = new ObjectMotion(7, characterSKYShootingRight[0], characterSKYShootingRight[1]);
+		playerGNDShootLeft = new ObjectMotion(7, characterGNDShootingLeft[0]);
+		playerGNDShootRight = new ObjectMotion(7, characterGNDShootingRight[0]);
+		playerSKYShootLeft = new ObjectMotion(7, characterSKYShootingLeft[0]);
+		playerSKYShootRight = new ObjectMotion(7, characterSKYShootingRight[0]);
 
 	}
 
@@ -107,16 +107,10 @@ public class Player extends GameObject{
 		characterAttackLeft[3] = imageLoading.LoadImage("/res/Motion/Attack/L_Attack4.png");
 
 		characterGNDShootingLeft[0] = imageLoading.LoadImage("/res/Motion/Attack/CrossBow/L_Gnd_shot1.png");
-		characterGNDShootingLeft[1] = imageLoading.LoadImage("/res/Motion/Attack/CrossBow/L_Gnd_shot2.png");
-
 		characterGNDShootingRight[0] = imageLoading.LoadImage("/res/Motion/Attack/CrossBow/R_Gnd_shot1.png");
-		characterGNDShootingRight[1] = imageLoading.LoadImage("/res/Motion/Attack/CrossBow/R_Gnd_shot2.png");
 
 		characterSKYShootingLeft[0] = imageLoading.LoadImage("/res/Motion/Attack/CrossBow/L_Jmp_shot1.png");
-		characterSKYShootingLeft[1] = imageLoading.LoadImage("/res/Motion/Attack/CrossBow/L_Jmp_shot2.png");
-
 		characterSKYShootingRight[0] = imageLoading.LoadImage("/res/Motion/Attack/CrossBow/R_Jmp_shot1.png");
-		characterSKYShootingRight[1] = imageLoading.LoadImage("/res/Motion/Attack/CrossBow/R_Jmp_shot2.png");
 	}
 
 	public void Update(LinkedList<GameObject> ObjectList) {
