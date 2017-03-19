@@ -57,3 +57,12 @@ Schedule and deliverable:
 	
 	* Incorporate attack animation  	   -- 3/18/2017 (7 Hours)
 						   -- COMPLETE 
+	* Incorporate pick up weapons bow and sword -- 3/18/2017 (5 Hours)
+						    -- COMPLETE
+
+	* Fix the bug with weapon clipping through  -- 3/18/2017 (2 Hours)
+						    -- COMPLETE
+
+	* Organize image files                      -- 3/18/2017 (30 min)
+						    -- COMPLETE
+	
