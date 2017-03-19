@@ -7,8 +7,7 @@ import java.util.LinkedList;
 
 public class Bow extends GameObject{
     ImageLoader imageLoading = new ImageLoader();	
-    private BufferedImage BowPick = null;
-    private BufferedImage BowRemoved = null;
+    private BufferedImage CrossBow = null;
 
     public Bow(float x, float y, ObjectID id){
         super(x, y, id);
@@ -17,7 +16,7 @@ public class Bow extends GameObject{
     }
 
     private void loadGraphicImage(){
-
+        CrossBow = imageLoading.LoadImage("res/Collectables/CrossBow.png");
     }
 
     public void Update(LinkedList<GameObject> ObjectList) {
@@ -25,11 +24,9 @@ public class Bow extends GameObject{
 	}
 
 	public void renderObject(Graphics g) {
-        
-        // if( !isPickedUp )
-        //     g.drawImage(, (int)x, (int)y-40, null);
-        // else
-        //     g.drawImage(, (int)x, (int)y-40, null);
+      
+        g.drawImage(CrossBow, (int)x, (int)y-40, null);
+ 
 	}
 
 	public Rectangle getBounds() {

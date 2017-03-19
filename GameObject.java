@@ -16,6 +16,8 @@ public abstract class GameObject{  // TODO:: this will extend Polygon class late
     protected boolean isPickedUp = false;
 	protected boolean isAttacking = false;
 	protected boolean isShooting = false;
+	protected boolean hasSword = false;
+	protected boolean hasBow = false;
 
 	protected int direction = 1;    
 
@@ -54,11 +56,12 @@ public abstract class GameObject{  // TODO:: this will extend Polygon class late
 	public void setGoingLeft(boolean goingLeft) {	this.goingLeft = goingLeft;	}
 
 	public void setPickUp(boolean pickUp){ 	this.pickUp = pickUp; }
-
 	public void setIsPickedUp(boolean status) { this.isPickedUp = status; }
 
 	public void setAttacking(boolean status) { this.isAttacking = status; }
 	public void setShooting(boolean status) { this.isShooting = status; }
+
+	public boolean HasBow(){ return hasBow; }
 
 	public int getDirection(){ return direction; }
 

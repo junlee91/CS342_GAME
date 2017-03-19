@@ -2,17 +2,29 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.util.LinkedList;
+import java.awt.image.BufferedImage;
 
 public class Arrow extends GameObject{
     
     private float gravity = 0.1f;
     private int degree = 30;            // degree adjustable
     private ObjectHandler handler;
+    
+    ImageLoader imageLoading = new ImageLoader();	
+    private BufferedImage arrow_R = null;
+    private BufferedImage arrow_L = null;
+    
 
     public Arrow(float x, float y, ObjectHandler handler, ObjectID id, int speed){
         super(x, y, id);
         this.velX = speed;
         this.handler = handler;
+        loadGraphicImage();
+    }
+
+    private void loadGraphicImage(){
+        arrow_R = imageLoading.LoadImage("res/Motion/Attack/CrossBow/R_arrow.png");
+        arrow_L = imageLoading.LoadImage("res/Motion/Attack/CrossBow/L_arrow.png");
     }
 
     public void Update(LinkedList<GameObject> ObjectList) {
@@ -39,8 +51,14 @@ public class Arrow extends GameObject{
     }
 
 	public void renderObject(Graphics g) {
-		g.setColor(Color.RED);				
-		g.fillRect((int)x, (int)y, 16, 16);
+		if( velX > 0 )
+        {
+            g.drawImage(arrow_R, (int)x, (int)y, null);
+        }
+        else
+        {
+            g.drawImage(arrow_L, (int)x, (int)y, null);
+        }
 	}
 
 	public Rectangle getBounds() {

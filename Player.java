@@ -14,9 +14,6 @@ public class Player extends GameObject{
 	private boolean dead;
 	private boolean airborn;
 
-	//private int facing = 1;
-	private boolean hasSword = false;
-	private boolean hasBow = false;
 	private float width = 48, height = 77;	
 
 	private float gravity = 0.5f;
@@ -205,8 +202,7 @@ public class Player extends GameObject{
 				{
 					if( pickUp && !hasBow ){
 						System.out.println("Picked up BOW!!!!!!");
-
-						tempObject.setIsPickedUp( true );
+						handler.removeObject( tempObject );
 						hasBow = true;
 					}
 				}
@@ -221,7 +217,7 @@ public class Player extends GameObject{
 		{
 			if( velX > 0)				// jumping Right
 			{					
-				if( isShooting ) // && hasBow
+				if( isShooting && hasBow ) 
 				{
 					playerSKYShootRight.drawMotion(g, (int)x, (int)y);
 				}
@@ -239,7 +235,7 @@ public class Player extends GameObject{
 			}
 			else
 			{
-				if( isShooting  ) //&& hasBow
+				if( isShooting && hasBow ) 
 				{
 					System.out.println("Shoot!");
 					if( direction == 1)
@@ -299,7 +295,7 @@ public class Player extends GameObject{
 	
 					}
 				}
-				else if( isShooting  ) //&& hasBow
+				else if( isShooting && hasBow ) 
 				{
 					System.out.println("Shoot!");
 					if( direction == 1)
