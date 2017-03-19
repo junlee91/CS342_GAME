@@ -284,11 +284,11 @@ public class Player extends GameObject{
 					System.out.println("Shoot!");
 					if( direction == 1)
 					{
-						playerGNDShootRight.drawMotion(g, (int)x, (int)y);
+						playerGNDShootRight.drawMotion(g, (int)x, (int)y+10);
 					}
 					else if( direction == -1)
 					{
-						playerGNDShootLeft.drawMotion(g, (int)x-20, (int)y);						
+						playerGNDShootLeft.drawMotion(g, (int)x-20, (int)y+10);						
 					}
 				}
 				else
