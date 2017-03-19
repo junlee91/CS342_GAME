@@ -228,7 +228,7 @@ public class Player extends GameObject{
 					}
 					else if( direction == -1)
 					{
-						playerSKYShootLeft.drawMotion(g, (int)x, (int)y);						
+						playerSKYShootLeft.drawMotion(g, (int)x-20, (int)y);						
 					}
 				}
 				else
@@ -288,7 +288,7 @@ public class Player extends GameObject{
 					}
 					else if( direction == -1)
 					{
-						playerGNDShootLeft.drawMotion(g, (int)x, (int)y);						
+						playerGNDShootLeft.drawMotion(g, (int)x-20, (int)y);						
 					}
 				}
 				else
