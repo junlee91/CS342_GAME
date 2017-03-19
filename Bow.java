@@ -25,7 +25,7 @@ public class Bow extends GameObject{
 
 	public void renderObject(Graphics g) {
       
-        g.drawImage(CrossBow, (int)x, (int)y-40, null);
+        g.drawImage(CrossBow, (int)x, (int)y-70, null);
  
 	}
 
