@@ -36,11 +36,23 @@ public class Player extends GameObject{
 	private BufferedImage characterCrouchRight = null;
 	private BufferedImage characterCrouchLeft = null;
 
+	private BufferedImage[] characterGNDShootingLeft = new BufferedImage[2];
+	private BufferedImage[] characterGNDShootingRight = new BufferedImage[2];	
+	private BufferedImage[] characterSKYShootingLeft = new BufferedImage[2];
+	private BufferedImage[] characterSKYShootingRight = new BufferedImage[2];
+	
+
 	private ObjectMotion playerWalkRight;
 	private ObjectMotion playerWalkLeft;
 	private ObjectMotion playerStand;
 	private ObjectMotion playerAttackRight;
 	private ObjectMotion playerAttackLeft;
+
+	private ObjectMotion playerGNDShootRight;
+	private ObjectMotion playerGNDShootLeft;
+
+	private ObjectMotion playerSKYShootRight;
+	private ObjectMotion playerSKYShootLeft;
 	//--------------------------------------------//
 
 	public Player(float x, float y, ObjectHandler handler, ObjectID id) {
@@ -59,6 +71,12 @@ public class Player extends GameObject{
 				characterAttackRight[2], characterAttackRight[3]);
 		playerAttackLeft = new ObjectMotion(5, characterAttackLeft[0],characterAttackLeft[1],
 				characterAttackLeft[2], characterAttackLeft[3]);
+
+		playerGNDShootLeft = new ObjectMotion(7, characterGNDShootingLeft[0], characterGNDShootingLeft[1]);
+		playerGNDShootRight = new ObjectMotion(7, characterGNDShootingRight[0], characterGNDShootingRight[1]);
+		playerSKYShootLeft = new ObjectMotion(7, characterSKYShootingLeft[0], characterSKYShootingLeft[1]);
+		playerSKYShootRight = new ObjectMotion(7, characterSKYShootingRight[0], characterSKYShootingRight[1]);
+
 	}
 
 	private void loadMotionImage(){
@@ -90,6 +108,18 @@ public class Player extends GameObject{
 		characterAttackLeft[1] = imageLoading.LoadImage("/res/Motion/Attack/L_Attack2.png");
 		characterAttackLeft[2] = imageLoading.LoadImage("/res/Motion/Attack/L_Attack3.png");
 		characterAttackLeft[3] = imageLoading.LoadImage("/res/Motion/Attack/L_Attack4.png");
+
+		characterGNDShootingLeft[0] = imageLoading.LoadImage("/res/Motion/Attack/CrossBow/L_Gnd_shot1.png");
+		characterGNDShootingLeft[1] = imageLoading.LoadImage("/res/Motion/Attack/CrossBow/L_Gnd_shot2.png");
+
+		characterGNDShootingRight[0] = imageLoading.LoadImage("/res/Motion/Attack/CrossBow/R_Gnd_shot1.png");
+		characterGNDShootingRight[1] = imageLoading.LoadImage("/res/Motion/Attack/CrossBow/R_Gnd_shot2.png");
+
+		characterSKYShootingLeft[0] = imageLoading.LoadImage("/res/Motion/Attack/CrossBow/L_Jmp_shot1.png");
+		characterSKYShootingLeft[1] = imageLoading.LoadImage("/res/Motion/Attack/CrossBow/L_Jmp_shot2.png");
+
+		characterSKYShootingRight[0] = imageLoading.LoadImage("/res/Motion/Attack/CrossBow/R_Jmp_shot1.png");
+		characterSKYShootingRight[1] = imageLoading.LoadImage("/res/Motion/Attack/CrossBow/R_Jmp_shot2.png");
 	}
 
 	public void Update(LinkedList<GameObject> ObjectList) {
@@ -113,6 +143,10 @@ public class Player extends GameObject{
 		playerStand.runMotion();
 		playerAttackRight.runMotion();
 		playerAttackLeft.runMotion();
+		playerGNDShootLeft.runMotion();
+		playerGNDShootRight.runMotion();
+		playerSKYShootLeft.runMotion();
+		playerSKYShootRight.runMotion();
 	}
 
 	// REMINDER!!: CollisionDetection is subject to change (different character)
@@ -185,15 +219,45 @@ public class Player extends GameObject{
 
 		if(jumping || (velY > 5))		// jumping motion
 		{
-			if( velX > 0)
-				g.drawImage(characterJumpingRight, (int)x, (int)y, null);
-			else if( velX < 0)
-				g.drawImage(characterJumpingLeft, (int)x, (int)y, null);
-			else{
-				if(direction == 1)
+			if( velX > 0)				// jumping Right
+			{					
+				if( isShooting ) // && hasBow
+				{
+					playerSKYShootRight.drawMotion(g, (int)x, (int)y);
+				}
+				else
 					g.drawImage(characterJumpingRight, (int)x, (int)y, null);
-				else if(direction == -1)
+			}
+			else if( velX < 0)			// jumping Left
+			{				
+				if( isShooting )
+				{
+					playerSKYShootLeft.drawMotion(g, (int)x, (int)y);	
+				}
+				else
 					g.drawImage(characterJumpingLeft, (int)x, (int)y, null);
+			}
+			else
+			{
+				if( isShooting  ) //&& hasBow
+				{
+					System.out.println("Shoot!");
+					if( direction == 1)
+					{
+						playerSKYShootRight.drawMotion(g, (int)x, (int)y);
+					}
+					else if( direction == -1)
+					{
+						playerSKYShootLeft.drawMotion(g, (int)x, (int)y);						
+					}
+				}
+				else
+				{
+					if(direction == 1)			// falling Right
+						g.drawImage(characterJumpingRight, (int)x, (int)y, null);
+					else if(direction == -1)	// falling Left
+						g.drawImage(characterJumpingLeft, (int)x, (int)y, null);
+				}
 			}
 		}
 		else							// moving motion
@@ -235,16 +299,16 @@ public class Player extends GameObject{
 	
 					}
 				}
-				else if( isShooting && hasBow )
+				else if( isShooting  ) //&& hasBow
 				{
 					System.out.println("Shoot!");
 					if( direction == 1)
 					{
-
+						playerGNDShootRight.drawMotion(g, (int)x, (int)y);
 					}
 					else if( direction == -1)
 					{
-
+						playerGNDShootLeft.drawMotion(g, (int)x, (int)y);						
 					}
 				}
 				else
