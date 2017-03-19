@@ -50,8 +50,8 @@ public class Game extends JPanel implements ActionListener, MouseListener
 		imageLoading = new ImageLoader();
 		//unitTest();
 
-		Layer = imageLoading.LoadImage("/res/Map1.png");
-		City = imageLoading.LoadImage("/res/City.png");
+		Layer = imageLoading.LoadImage("/res/Map/Map1.png");
+		City = imageLoading.LoadImage("/res/Map/City.png");
 				
 		SetGameLayer(Layer);
 		
