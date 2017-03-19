@@ -217,21 +217,11 @@ public class Player extends GameObject{
 		{
 			if( velX > 0)				// jumping Right
 			{					
-				if( isShooting && hasBow ) 
-				{
-					playerSKYShootRight.drawMotion(g, (int)x, (int)y);
-				}
-				else
-					g.drawImage(characterJumpingRight, (int)x, (int)y, null);
+				g.drawImage(characterJumpingRight, (int)x, (int)y, null);
 			}
 			else if( velX < 0)			// jumping Left
 			{				
-				if( isShooting )
-				{
-					playerSKYShootLeft.drawMotion(g, (int)x, (int)y);	
-				}
-				else
-					g.drawImage(characterJumpingLeft, (int)x, (int)y, null);
+				g.drawImage(characterJumpingLeft, (int)x, (int)y, null);
 			}
 			else
 			{
@@ -319,9 +309,9 @@ public class Player extends GameObject{
 		// gg.draw(getBoundsTop());		
 		// gg.draw(getBounds());	
 
-		gg.setColor(Color.BLUE);
-		gg.draw(getAttackBoundsRight());
-		gg.draw(getAttackBoundsLeft());
+		// gg.setColor(Color.BLUE);
+		// gg.draw(getAttackBoundsRight());
+		// gg.draw(getAttackBoundsLeft());
 	}
 
 	//---------------------- collision bounds subject to change ------------------------------------------//
