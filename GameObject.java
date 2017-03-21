@@ -20,6 +20,7 @@ public abstract class GameObject{  // TODO:: this will extend Polygon class late
 	protected boolean hasBow = false;
 
 	protected int direction = 1;    
+	private int ArrowCount = 5;
 
 	public GameObject(float x, float y, ObjectID id){
         this.x = x;
@@ -66,5 +67,10 @@ public abstract class GameObject{  // TODO:: this will extend Polygon class late
 	public int getDirection(){ return direction; }
 
 	public ObjectID getId() {	return id;	}
+
+	public void setArrow(int count) { this.ArrowCount = count; }	 
+	public void MinusArrow() { this.ArrowCount--; }
+
+	public boolean isArrowAvailable() { return (ArrowCount > 0); }
 
 } 

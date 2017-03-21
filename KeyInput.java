@@ -46,8 +46,9 @@ public class KeyInput implements KeyListener{
 
 				if(key == KeyEvent.VK_L)
 				{
-					if( tempObject.HasBow() && tempObject.getVelX() == 0 ){
+					if( tempObject.HasBow() && tempObject.getVelX() == 0 && tempObject.isArrowAvailable() ){
 						tempObject.setShooting(true);
+						tempObject.MinusArrow();
 						handler.addObject(new Arrow( tempObject.getX()+10, tempObject.getY()+30, handler, ObjectID.Arrow, tempObject.getDirection()*10));
 					}			
 				}
