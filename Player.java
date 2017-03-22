@@ -23,7 +23,7 @@ public class Player extends GameObject{
 
 	//------------ Motion arrayList  --------------//
 	ImageLoader imageLoading = new ImageLoader();	
-	private BufferedImage[] characterStanding = new BufferedImage[2];
+	//private BufferedImage[] characterStanding = new BufferedImage[2];
 	private BufferedImage[] characterRight = new BufferedImage[4];
 	private BufferedImage[] characterLeft = new BufferedImage[4];
 	private BufferedImage[] characterAttackRight = new BufferedImage[4];
@@ -41,7 +41,7 @@ public class Player extends GameObject{
 
 	private ObjectMotion playerWalkRight;
 	private ObjectMotion playerWalkLeft;
-	private ObjectMotion playerStand;
+	//private ObjectMotion playerStand;
 	private ObjectMotion playerAttackRight;
 	private ObjectMotion playerAttackLeft;
 
@@ -62,7 +62,7 @@ public class Player extends GameObject{
 				characterRight[2], characterRight[3]);
 		playerWalkLeft = new ObjectMotion(5, characterLeft[0], characterLeft[1], 
 				characterLeft[2], characterLeft[3]);
-		playerStand = new ObjectMotion(10, characterStanding[0], characterStanding[1]);
+		//playerStand = new ObjectMotion(10, characterStanding[0], characterStanding[1]);
 		
 		playerAttackRight = new ObjectMotion(5, characterAttackRight[0],characterAttackRight[1],
 				characterAttackRight[2], characterAttackRight[3]);
@@ -87,8 +87,8 @@ public class Player extends GameObject{
 		characterLeft[2] = imageLoading.LoadImage("/res/Hero/Walk Left/_L3.png");
 		characterLeft[3] = imageLoading.LoadImage("/res/Hero/Walk Left/_L4.png");
 
-		characterStanding[0] = imageLoading.LoadImage("/res/Hero/Stand/stand_2.png");
-		characterStanding[1] = imageLoading.LoadImage("/res/Hero/Stand/stand_3.png");
+		// characterStanding[0] = imageLoading.LoadImage("/res/Hero/Stand/stand_2.png");
+		// characterStanding[1] = imageLoading.LoadImage("/res/Hero/Stand/stand_3.png");
 
 		characterJumpingRight = imageLoading.LoadImage("/res/Hero/Jump/_J2.png");
 		characterJumpingLeft = imageLoading.LoadImage("/res/Hero/Jump/JL2.png");
@@ -131,7 +131,7 @@ public class Player extends GameObject{
 
 		playerWalkRight.runMotion();
 		playerWalkLeft.runMotion();
-		playerStand.runMotion();
+		// playerStand.runMotion();
 		playerAttackRight.runMotion();
 		playerAttackLeft.runMotion();
 		playerGNDShootLeft.runMotion();
@@ -291,8 +291,16 @@ public class Player extends GameObject{
 						playerGNDShootLeft.drawMotion(g, (int)x-20, (int)y+10);						
 					}
 				}
-				else
-					playerStand.drawMotion(g, (int)x, (int)y);	
+				else{
+					if( direction == 1 )		// going Right
+					{
+						g.drawImage(characterRight[0], (int)x, (int)y, null);
+					}
+					else if( direction == -1 )	// going Left
+					{
+						g.drawImage(characterLeft[0], (int)x, (int)y, null);						
+					}
+				}
 			}	
 		}
 	
