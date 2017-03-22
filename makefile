@@ -3,11 +3,13 @@ build:
 	clear
 	javac Game_Container.java
 	java Game_Container
+	rm -f *.class
 	clear
 
 clean: 
 	rm -f *.class
 	clear
+
 
 test:
 	rm -f *.class
