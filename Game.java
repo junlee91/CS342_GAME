@@ -47,7 +47,8 @@ public class Game extends JPanel implements ActionListener, MouseListener
 	public Game()
 	{
 		// insert JPanel Game screen here!!
-		bgm = new MusicPlayer("/res/audio/bgm.wav");	// add multiple music args
+		bgm = new MusicPlayer("/res/audio/Talesweaver Title.wav",
+							  "/res/audio/Happy bgm.wav");	// add multiple music args
 		thread = new Thread(bgm);				// thread for MusicPlayer
 
 		handler = new ObjectHandler();			// create handler for objects
