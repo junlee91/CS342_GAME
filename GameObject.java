@@ -20,7 +20,7 @@ public abstract class GameObject{  // TODO:: this will extend Polygon class late
 	protected boolean hasBow = false;
 
 	protected int direction = 1;    
-	private int ArrowCount = 5;
+	private int ArrowCount = 10;
 
 	public GameObject(float x, float y, ObjectID id){
         this.x = x;
