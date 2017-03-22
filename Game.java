@@ -41,10 +41,15 @@ public class Game extends JPanel implements ActionListener, MouseListener
 	ImageLoader imageLoading;
 	private BufferedImage Layer = null, City = null;
 	
+	private Thread thread;
+	private MusicPlayer bgm;
+	
 	public Game()
 	{
 		// insert JPanel Game screen here!!
-		
+		bgm = new MusicPlayer("/res/audio/bgm.wav");	// add multiple music args
+		thread = new Thread(bgm);				// thread for MusicPlayer
+
 		handler = new ObjectHandler();			// create handler for objects
 		camera = new Camera(0,0);				
 		imageLoading = new ImageLoader();
@@ -59,6 +64,7 @@ public class Game extends JPanel implements ActionListener, MouseListener
 		this.addMouseListener(this);
 		this.addKeyListener(new KeyInput(handler));
 		
+		thread.start();
 		refresh.start();
 	}
 
