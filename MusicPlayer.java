@@ -25,6 +25,10 @@ public class MusicPlayer implements Runnable, LineListener{
             musicList.add(music);
 	}
 	
+    /*
+        Reference - http://www.programcreek.com/java-api-examples/javax.sound.sampled.AudioInputStream  Example4
+    */
+
 	private void playSound(String fileName){
         try{
             InputStream in = getClass().getResourceAsStream(fileName);
