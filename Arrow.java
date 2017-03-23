@@ -46,6 +46,13 @@ public class Arrow extends GameObject{
                     handler.removeObject( this );
                 }
             }
+
+            if(tempObject.getId() == ObjectID.Monster){
+                if( getBounds().intersects(tempObject.getBounds())){
+                    handler.removeObject(this);
+                    handler.removeObject(tempObject);
+                }
+            }
         
         }
     }
