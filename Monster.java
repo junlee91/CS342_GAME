@@ -24,6 +24,9 @@ public class Monster extends GameObject{
         x += velX;
         y += velY;
 
+        if( velX < 0 ) 		direction = -1;		// facing Left
+		else if( velX > 0)	direction = 1;		// facing Right
+
         if(falling){
             velY += gravity;
 
@@ -32,7 +35,7 @@ public class Monster extends GameObject{
         }
 
         CollisionDetection(ObjectList);
-    
+        MonsterAI();
     }
 
     public void CollisionDetection(LinkedList<GameObject> ObjectList){
@@ -52,6 +55,19 @@ public class Monster extends GameObject{
 				}
 			}
 
+        }
+    }
+
+    private void MonsterAI(){
+        int move = (int)(Math.random() * 1000);
+
+        if( move == 0)
+        {
+            velX = (float)1;
+        }
+        else if( move == 1)
+        {
+            velX = (float)1 * -1;
         }
     }
 

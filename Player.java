@@ -117,7 +117,7 @@ public class Player extends GameObject{
 		x += velX;
 		y += velY;
 
-		if( velX < 0 ) 		direction = -1;	// facing Left
+		if( velX < 0 ) 		direction = -1;		// facing Left
 		else if( velX > 0)	direction = 1;		// facing Right
 
 		if( falling ){

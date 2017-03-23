@@ -13,6 +13,15 @@ public class ObjectHandler
 			
 			tempObject = ObjectList.get(i);			
 			tempObject.Update(ObjectList);
+
+			if(tempObject.getY() > 1800){
+				if(tempObject.getId() == ObjectID.Player)
+				{
+					removeObject( tempObject );
+					System.exit(0);				
+				}
+				removeObject( tempObject );
+			}
 		}
 	}
 	
