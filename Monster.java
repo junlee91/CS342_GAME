@@ -61,11 +61,11 @@ public class Monster extends GameObject{
     private void MonsterAI(){
         int move = (int)(Math.random() * 1000);
 
-        if( move == 0)
+        if( move < 10)
         {
             velX = (float)1;
         }
-        else if( move == 1)
+        else if( move > 990)
         {
             velX = (float)1 * -1;
         }
