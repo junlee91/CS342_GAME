@@ -201,6 +201,28 @@ public class Player extends GameObject{
 					}
 				}
 			}
+
+			if(tempObject.getId() == ObjectID.Monster){
+				
+				if( isAttacking )
+				{
+					if( direction == 1)
+					{
+						if( getAttackBoundsRight().intersects(tempObject.getBounds()))
+						{
+							handler.removeObject( tempObject );
+						}
+					}
+					else if( direction == -1)
+					{
+						if( getAttackBoundsLeft().intersects(tempObject.getBounds()))
+						{
+							handler.removeObject( tempObject );
+						}
+					}
+				}
+
+			}
 		}
 	}
 
