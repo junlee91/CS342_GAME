@@ -1,5 +1,6 @@
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.util.LinkedList;
 
@@ -18,6 +19,7 @@ public class Layer extends GameObject{
 	public void renderObject(Graphics g) {
 		g.setColor(Color.WHITE);				// layer default: white rectangle.  Subject to change graphics
 		g.drawRect((int)x, (int)y, 32, 32);
+
 	}
 
 	public Rectangle getBounds() {

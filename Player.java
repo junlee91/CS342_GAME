@@ -147,6 +147,7 @@ public class Player extends GameObject{
 			GameObject tempObject = handler.ObjectList.get(i);
 
 			if(tempObject.getId() == ObjectID.BottomLayer){
+				
 				if( getBounds().intersects(tempObject.getBounds()) ){
 					y = tempObject.getY() - height;
 					velY = 0;
@@ -161,13 +162,14 @@ public class Player extends GameObject{
 				if( getBoundsTop().intersects(tempObject.getBounds()) ){			
 					y = tempObject.getY() + 40;
 					velY = 0;
-				}
-
+				} 
+				
 				if(getBoundsRight().intersects(tempObject.getBounds())){	   	
 					System.out.println("Collide Right side!");
 					x = tempObject.getX() - width;					
 					this.setGoingRight(false);
 				}
+				
 				else if(getBoundsLeft().intersects(tempObject.getBounds())){	
 					System.out.println("Collide Left side!");
 					x = tempObject.getX() + 35;
@@ -327,11 +329,11 @@ public class Player extends GameObject{
 		}
 	
 		Graphics2D gg = (Graphics2D)g;
-		// gg.setColor(Color.RED);
-		// gg.draw(getBoundsLeft());
-		// gg.draw(getBoundsRight());
-		// gg.draw(getBoundsTop());		
-		// gg.draw(getBounds());	
+		gg.setColor(Color.RED);
+		gg.draw(getBoundsLeft());
+		gg.draw(getBoundsRight());
+		gg.draw(getBoundsTop());		
+		gg.draw(getBounds());	
 
 		// gg.setColor(Color.BLUE);
 		// gg.draw(getAttackBoundsRight());
