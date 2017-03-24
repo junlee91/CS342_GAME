@@ -204,7 +204,7 @@ public class Player extends GameObject{
 
 			if(tempObject.getId() == ObjectID.Monster){
 				
-				if( isAttacking )
+				if( isAttacking && hasSword )
 				{
 					if( direction == 1)
 					{
