@@ -53,6 +53,25 @@ public class Monster extends GameObject{
 				} else {
 					falling = true;
 				}
+
+                if( getBoundsTop().intersects(tempObject.getBounds()) ){			
+					y = tempObject.getY() + 40;
+					velY = 0;
+				} 
+				
+				if(getBoundsRight().intersects(tempObject.getBounds())){	   	
+
+					x = tempObject.getX() - width;		
+                    velX *= -1;		
+				}
+				
+				else if(getBoundsLeft().intersects(tempObject.getBounds())){	
+
+					x = tempObject.getX() + 35;
+                    velX *= -1;		      
+				}
+
+
 			}
 
         }
@@ -67,17 +86,45 @@ public class Monster extends GameObject{
         }
         else if( move > 990)
         {
-            velX = (float)1 * -1;
+            velX = (float)(-1);
+        }
+        else if( move > 10 && move < 15 && falling)
+        {
+            velX = (float)1;
+            velY = (float)(-10);
+        }
+        else if( move > 20 && move < 25 && falling)
+        {
+            velX = (float)(-1);
+            velY = (float)(-10);
         }
     }
 
     public void renderObject(Graphics g) {
         g.setColor(Color.RED);
         g.fillRect((int)x, (int)y, (int)width, (int)height);
+
+        Graphics2D gg = (Graphics2D)g;
+		gg.setColor(Color.BLUE);
+        gg.draw(getBounds());	
+        gg.draw(getBoundsLeft());
+		gg.draw(getBoundsRight());
+        gg.draw(getBoundsTop());
     }
 
     public Rectangle getBounds() {
-		return new Rectangle ((int)x, (int)y, (int)width, (int)height);
+		return new Rectangle ((int)x, (int)(y+height*0.75), (int)width, (int)height/4);
+	}
+
+    public Rectangle getBoundsTop() {
+		return new Rectangle((int) ((int)x+(width/2)-((width/2)/2)),(int)y, (int)width/2, (int)height/2); 
+	}
+
+    public Rectangle getBoundsRight() {		
+		return new Rectangle((int) ((int)x+width-5),(int)y+5, (int)5, (int)height-10); 
+	}
+	public Rectangle getBoundsLeft() {		
+		return new Rectangle((int)x,(int)y+5, (int)5, (int)height-10); 
 	}
 
 }
