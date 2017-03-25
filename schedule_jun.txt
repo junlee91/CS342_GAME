@@ -32,6 +32,9 @@ Schedule and deliverable:
 						-- Tue 03/21 11:59pm (estimated 2 hours)
 										COMPLETE
 	- Sound Effect Implementation		
-						-- Wed 03/22 11:59pm (estimated 4 hours)
-							
-	- 
+						-- Wed 03/28 11:59pm (estimated 8 hours)
+															
+	- Next Level Layer
+						-- Fri 03/24 11:59pm (estimated 2 hours)
+						 				COMPLETE
+										
