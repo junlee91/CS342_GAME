@@ -68,7 +68,7 @@ public class MusicPlayer implements Runnable, LineListener{
                 We can repeat list of bgms 
                 or just repeat one bgm 
             */    
-            index++;    // play next song
+            //index++;    // play next song
             if(index >= musicList.size() )  // index bound check
                 index = 0;                  // return to first bgm
 

@@ -18,6 +18,12 @@ public class Layer extends GameObject{
 
 	public void renderObject(Graphics g) {
 		g.setColor(Color.WHITE);				// layer default: white rectangle.  Subject to change graphics
+		
+		if(id == ObjectID.SpecialLayer )
+		{
+			g.setColor(Color.BLACK);
+		}
+
 		g.drawRect((int)x, (int)y, 32, 32);
 
 	}

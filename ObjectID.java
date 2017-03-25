@@ -4,5 +4,6 @@
  * 
  */
 public enum ObjectID {
-	Player, BottomLayer, SpecialLayer, Sword, Arrow, Bow, ArrowBox, Monster;
+	Player, BottomLayer, SpecialLayer, Level,
+	Sword, Arrow, Bow, ArrowBox, Monster;
 }

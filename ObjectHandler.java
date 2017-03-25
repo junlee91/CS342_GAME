@@ -21,6 +21,7 @@ public class ObjectHandler
 		this.camera = cam;
 		imageLoading = new ImageLoader();
 		LEVEL = 1;
+
 		Layer = imageLoading.LoadImage("/res/Map/Map_level1.png");
 		Game.City = imageLoading.LoadImage("/res/Map/City.png");
 	}
@@ -78,7 +79,7 @@ public class ObjectHandler
 
 				if(red == 0 && green == 0 && blue == 255)
 				{
-					addObject(new Player(x*32, y*32, this, ObjectID.Player));
+					addObject(new Player(x*32, y*32, this, camera, ObjectID.Player));
 				}
 
 				if(red == 0 && green == 128 && blue == 128)
@@ -97,10 +98,6 @@ public class ObjectHandler
 					addObject(new Monster(x*32, y*32, this, ObjectID.Monster));
 				}
 
-				if(red == 128 && green == 64 && blue == 0)
-				{
-					// Box
-				}
 
 				if(red == 192 && green == 192 && blue == 192)
 				{
@@ -108,10 +105,36 @@ public class ObjectHandler
 					addObject(new Layer(x*32, y*32, ObjectID.SpecialLayer));					
 				}
 
-				
+				if(red == 255 && green == 255 && blue == 0)
+				{
+					// Next LEVEL
+					addObject(new NextLevel(x*32, y*32, ObjectID.Level));
+				}
 			}
 		}
 	}	
+
+	private void LevelClear(){
+		ObjectList.clear();
+	}
+
+	public void setNextLevel(){
+		LevelClear();
+		camera.setX(0);
+
+		switch(LEVEL)
+		{
+			case 1:
+				Layer = imageLoading.LoadImage("/res/Map/Map_level2.png");
+				Game.City = imageLoading.LoadImage("/res/Map/City2.png");
+				SetGameLayer();
+				break;
+			case 2: break;
+			case 3: break;
+		}
+
+		LEVEL++;
+	}
 	
 	// TODO:: Adding Ground Image
 	public void CreateBottomLayer(){
