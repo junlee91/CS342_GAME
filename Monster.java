@@ -43,7 +43,7 @@ public class Monster extends GameObject{
             GameObject tempObject = handler.ObjectList.get(i);
 
             if(tempObject.getId() == ObjectID.BottomLayer){
-				if( getBounds().intersects(tempObject.getBounds()) ){
+				if( getBoundsBottom().intersects(tempObject.getBounds()) ){
 					y = tempObject.getY() - height;
 					velY = 0;
 
@@ -104,15 +104,16 @@ public class Monster extends GameObject{
         g.setColor(Color.RED);
         g.fillRect((int)x, (int)y, (int)width, (int)height);
 
-        Graphics2D gg = (Graphics2D)g;
-		gg.setColor(Color.BLUE);
-        gg.draw(getBounds());	
-        gg.draw(getBoundsLeft());
-		gg.draw(getBoundsRight());
-        gg.draw(getBoundsTop());
+        // Graphics2D gg = (Graphics2D)g;
+		// gg.setColor(Color.BLUE);
+        // gg.draw(getBounds());	
+        // gg.draw(getBoundsLeft());
+		// gg.draw(getBoundsRight());
+        // gg.draw(getBoundsTop());
+        // gg.draw(getBoundsBottom());
     }
 
-    public Rectangle getBounds() {
+    public Rectangle getBoundsBottom() {
 		return new Rectangle ((int)x, (int)(y+height*0.75), (int)width, (int)height/4);
 	}
 
@@ -126,5 +127,8 @@ public class Monster extends GameObject{
 	public Rectangle getBoundsLeft() {		
 		return new Rectangle((int)x,(int)y+5, (int)5, (int)height-10); 
 	}
+    public Rectangle getBounds(){
+        return new Rectangle((int)x, (int)y, (int)width, (int)height);
+    }
 
 }

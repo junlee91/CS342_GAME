@@ -33,4 +33,5 @@ public class Bow extends GameObject{
         
 		return new Rectangle ((int)x, (int)y, 32, 32);
 	}
+
 }

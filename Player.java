@@ -148,7 +148,7 @@ public class Player extends GameObject{
 
 			if(tempObject.getId() == ObjectID.BottomLayer){
 				
-				if( getBounds().intersects(tempObject.getBounds()) ){
+				if( ( getBoundsBottom().intersects(tempObject.getBounds() ) )){
 					y = tempObject.getY() - height;
 					velY = 0;
 
@@ -328,12 +328,13 @@ public class Player extends GameObject{
 			}	
 		}
 	
-		Graphics2D gg = (Graphics2D)g;
-		gg.setColor(Color.RED);
-		gg.draw(getBoundsLeft());
-		gg.draw(getBoundsRight());
-		gg.draw(getBoundsTop());		
-		gg.draw(getBounds());	
+		// Graphics2D gg = (Graphics2D)g;
+		// gg.setColor(Color.RED);
+		// gg.draw(getBoundsLeft());
+		// gg.draw(getBoundsRight());
+		// gg.draw(getBoundsTop());	
+		// gg.draw(getBoundsBottom());	
+		// gg.draw(getBounds());	
 
 		// gg.setColor(Color.BLUE);
 		// gg.draw(getAttackBoundsRight());
@@ -342,6 +343,10 @@ public class Player extends GameObject{
 
 	//---------------------- collision bounds subject to change ------------------------------------------//
 	public Rectangle getBounds() {
+        return new Rectangle((int)x, (int)y, (int)width, (int)height);
+	}
+
+	public Rectangle getBoundsBottom() {
 		return new Rectangle ((int)x, (int)(y+height*0.75), (int)width, (int)height/4);
 	}
 
