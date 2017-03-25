@@ -38,8 +38,7 @@ public class Game extends JPanel implements ActionListener, MouseListener
 	 *     
 	 */
 	
-	ImageLoader imageLoading;
-	private BufferedImage Layer = null, City = null;
+	public static BufferedImage City = null;
 	
 	private Thread thread;
 	private MusicPlayer bgm;
@@ -51,15 +50,11 @@ public class Game extends JPanel implements ActionListener, MouseListener
 							  "/res/audio/Happy bgm.wav");	// add multiple music args
 		thread = new Thread(bgm);				// thread for MusicPlayer
 
-		handler = new ObjectHandler();			// create handler for objects
 		camera = new Camera(0,0);				
-		imageLoading = new ImageLoader();
+		handler = new ObjectHandler(camera);			// create handler for objects
 		//unitTest();
-
-		Layer = imageLoading.LoadImage("/res/Map/Map_level1.png");
-		City = imageLoading.LoadImage("/res/Map/City.png");
-				
-		SetGameLayer(Layer);
+	
+		handler.SetGameLayer();
 		
 		this.setFocusable(true);
 		this.addMouseListener(this);
@@ -109,59 +104,6 @@ public class Game extends JPanel implements ActionListener, MouseListener
 		repaint();  
 	}	
 
-	private void SetGameLayer(BufferedImage image){
-		int width = image.getWidth();
-		int height = image.getHeight();
-
-		for(int x = 0; x < height; x++){
-			for(int y = 0; y < width; y++){
-				int pixel = image.getRGB(x,y);
-
-				int red		= (pixel >> 16) & 0xff;
-				int green	= (pixel >> 8)  & 0xff;
-				int blue	= (pixel) & 0xff;
-
-				if(red == 255 && green == 255 && blue == 255)
-				{
-					handler.addObject(new Layer(x*32, y*32, ObjectID.BottomLayer));
-				}
-
-				if(red == 0 && green == 0 && blue == 255)
-				{
-					handler.addObject(new Player(x*32, y*32, handler, ObjectID.Player));
-				}
-
-				if(red == 0 && green == 128 && blue == 128)
-				{
-					handler.addObject(new Sword(x*32, y*32, ObjectID.Sword));
-				}
-
-				if(red == 0 && green == 128 && blue == 64)
-				{
-					handler.addObject(new Bow(x*32, y*32, ObjectID.Bow));
-				}
-
-				if(red == 128 && green == 255 && blue == 255)
-				{
-					// Enemy
-					handler.addObject(new Monster(x*32, y*32, handler, ObjectID.Monster));
-				}
-
-				if(red == 128 && green == 64 && blue == 0)
-				{
-					// Box
-				}
-
-				if(red == 192 && green == 192 && blue == 192)
-				{
-					// Special Layer for Monster
-					handler.addObject(new Layer(x*32, y*32, ObjectID.SpecialLayer));					
-				}
-
-				
-			}
-		}
-	}	
 	
 	public void mouseReleased  (MouseEvent click) {}
 	public void mouseClicked   (MouseEvent click) {}
@@ -178,7 +120,7 @@ public class Game extends JPanel implements ActionListener, MouseListener
 		{
 			test.isHandlerCreated(handler);
 			test.isCameraCreated(camera);
-			test.isImgLoaderCreated(imageLoading);
+			//test.isImgLoaderCreated(imageLoading);
 		}
 		else System.out.println("unit tester not found\n");
 	}
