@@ -42,7 +42,7 @@ public class Monster extends GameObject{
         for(int i = 0; i < handler.ObjectList.size(); i++ ){
             GameObject tempObject = handler.ObjectList.get(i);
 
-            if(tempObject.getId() == ObjectID.BottomLayer){
+            if(tempObject.getId() == ObjectID.BottomLayer || tempObject.getId() == ObjectID.SpecialLayer){
 				if( getBoundsBottom().intersects(tempObject.getBounds()) ){
 					y = tempObject.getY() - height;
 					velY = 0;
@@ -88,14 +88,16 @@ public class Monster extends GameObject{
         {
             velX = (float)(-1);
         }
-        else if( move > 10 && move < 15 && falling)
+        else if( move == 10 && falling)
         {
-            velX = (float)1;
+            falling = false;
+            velX = (float)2;
             velY = (float)(-10);
         }
-        else if( move > 20 && move < 25 && falling)
+        else if( move == 20 && falling)
         {
-            velX = (float)(-1);
+            falling = false;                        
+            velX = (float)(-2);
             velY = (float)(-10);
         }
     }

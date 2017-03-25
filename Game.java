@@ -152,6 +152,12 @@ public class Game extends JPanel implements ActionListener, MouseListener
 					// Box
 				}
 
+				if(red == 192 && green == 192 && blue == 192)
+				{
+					// Special Layer for Monster
+					handler.addObject(new Layer(x*32, y*32, ObjectID.SpecialLayer));					
+				}
+
 				
 			}
 		}
