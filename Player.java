@@ -227,7 +227,7 @@ public class Player extends GameObject{
 			if(tempObject.getId() == ObjectID.Level){
 				if( getBounds().intersects(tempObject.getBounds()))
 				{
-					handler.setNextLevel();
+					handler.setNextLevel(this);
 				}
 			}
 		}

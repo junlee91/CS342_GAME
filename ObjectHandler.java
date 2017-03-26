@@ -114,11 +114,27 @@ public class ObjectHandler
 		}
 	}	
 
-	private void LevelClear(){
-		ObjectList.clear();
-	}
+	private boolean playerSword = false;
+	private boolean playerBow = false;
+	private int playerArrowCount = 0;
 
-	public void setNextLevel(){
+
+	public void setNextLevel(GameObject player){
+
+		if( player.hasSword )
+		{
+			System.out.println("player has Sword");
+			playerSword = true;
+
+		}
+
+		if( player.hasBow )
+		{
+			System.out.println("player has Bow");
+			playerBow = true;
+			playerArrowCount = player.getArrowCount();
+		}
+
 		LevelClear();
 		camera.setX(0);
 
@@ -128,6 +144,7 @@ public class ObjectHandler
 				Layer = imageLoading.LoadImage("/res/Map/Map_level2.png");
 				Game.City = imageLoading.LoadImage("/res/Map/City2.png");
 				SetGameLayer();
+				updatePlayerData();
 				break;
 			case 2: break;
 			case 3: break;
@@ -135,7 +152,32 @@ public class ObjectHandler
 
 		LEVEL++;
 	}
+
+	private void updatePlayerData(){
+		for(int i = 0; i < ObjectList.size(); i++)
+		{
+			tempObject = ObjectList.get(i);
+
+			if( tempObject.getId() == ObjectID.Player )
+			{
+				if( playerSword )
+				{
+					tempObject.hasSword = true;
+				}
+
+				if( playerBow )
+				{
+					tempObject.hasBow = true;
+					tempObject.setArrow(playerArrowCount);
+				}
+			}
+		}
+	}
 	
+	private void LevelClear(){
+		ObjectList.clear();
+	}
+
 	// TODO:: Adding Ground Image
 	public void CreateBottomLayer(){
 		for(int i = 0; i < Game.WIDTH*2; i += 32)

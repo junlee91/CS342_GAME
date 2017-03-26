@@ -69,6 +69,7 @@ public abstract class GameObject{  // TODO:: this will extend Polygon class late
 	public ObjectID getId() {	return id;	}
 
 	public void setArrow(int count) { this.ArrowCount = count; }	 
+	public int getArrowCount() { return ArrowCount; }
 	public void MinusArrow() { this.ArrowCount--; }
 
 	public boolean isArrowAvailable() { return (ArrowCount > 0); }
