@@ -105,7 +105,7 @@ public class Monster extends GameObject{
         {
             velX = (float)(3);
         }
-        if( move < 10)
+        else if( move < 10)
         {
             velX = (float)1;
         }
