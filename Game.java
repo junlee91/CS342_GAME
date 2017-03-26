@@ -51,7 +51,7 @@ public class Game extends JPanel implements ActionListener, MouseListener
 		thread = new Thread(bgm);				// thread for MusicPlayer
 
 		camera = new Camera(0,0);				
-		handler = new ObjectHandler(camera);			// create handler for objects
+		handler = new ObjectHandler();			// create handler for objects
 		//unitTest();
 	
 		handler.SetGameLayer();

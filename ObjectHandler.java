@@ -14,11 +14,8 @@ public class ObjectHandler
 	ImageLoader imageLoading;
 	private BufferedImage Layer = null;
 
-	Camera camera;
-
-	public ObjectHandler(Camera cam)
+	public ObjectHandler()
 	{
-		this.camera = cam;
 		imageLoading = new ImageLoader();
 		LEVEL = 1;
 
@@ -136,7 +133,6 @@ public class ObjectHandler
 		}
 
 		LevelClear();
-		camera.setX(0);
 
 		switch(LEVEL)
 		{
