@@ -12,6 +12,9 @@ public class Monster extends GameObject{
 	private float gravity = 0.5f;
 	private final float MAX_SPEED = 10;
 
+    private boolean playerLeftDetected = false;
+    private boolean playerRightDetected = false;
+
 	private ObjectHandler handler;
 
 
@@ -70,9 +73,23 @@ public class Monster extends GameObject{
 					x = tempObject.getX() + 35;
                     velX *= -1;		      
 				}
-
-
 			}
+
+            if(tempObject.getId() == ObjectID.Player )
+            {
+                if( getVisionLeft().intersects(tempObject.getBounds() )){
+                    System.out.println("Player detected Left!!!");
+                    playerLeftDetected = true;
+                }
+                else if( getVisionRight().intersects(tempObject.getBounds() )){
+                    System.out.println("Player detected Right!!!");    
+                    playerRightDetected = true;                
+                }
+                else {
+                    playerLeftDetected = false;
+                    playerRightDetected = false;
+                }
+            }
 
         }
     }
@@ -80,6 +97,14 @@ public class Monster extends GameObject{
     private void MonsterAI(){
         int move = (int)(Math.random() * 1000);
 
+        if( playerLeftDetected )
+        {
+            velX = (float)(-3);
+        }
+        else if( playerRightDetected )
+        {
+            velX = (float)(3);
+        }
         if( move < 10)
         {
             velX = (float)1;
@@ -106,13 +131,15 @@ public class Monster extends GameObject{
         g.setColor(Color.RED);
         g.fillRect((int)x, (int)y, (int)width, (int)height);
 
-        // Graphics2D gg = (Graphics2D)g;
-		// gg.setColor(Color.BLUE);
+        Graphics2D gg = (Graphics2D)g;
+		gg.setColor(Color.BLUE);
         // gg.draw(getBounds());	
         // gg.draw(getBoundsLeft());
 		// gg.draw(getBoundsRight());
         // gg.draw(getBoundsTop());
         // gg.draw(getBoundsBottom());
+        gg.draw(getVisionLeft());
+        gg.draw(getVisionRight());
     }
 
     public Rectangle getBoundsBottom() {
@@ -126,11 +153,22 @@ public class Monster extends GameObject{
     public Rectangle getBoundsRight() {		
 		return new Rectangle((int) ((int)x+width-5),(int)y+5, (int)5, (int)height-10); 
 	}
-	public Rectangle getBoundsLeft() {		
+	
+    public Rectangle getBoundsLeft() {		
 		return new Rectangle((int)x,(int)y+5, (int)5, (int)height-10); 
 	}
+    
     public Rectangle getBounds(){
         return new Rectangle((int)x, (int)y, (int)width, (int)height);
     }
+
+    public Rectangle getVisionLeft(){
+        return new Rectangle((int)x-150,(int)y+5, (int)150, (int)height-10); 
+    }
+
+    public Rectangle getVisionRight(){
+        return new Rectangle((int) ((int)x + width),(int)y+5, (int)150, (int)height-10);        
+    }
+
 
 }
