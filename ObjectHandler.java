@@ -79,7 +79,7 @@ public class ObjectHandler
 
 				if(red == 0 && green == 0 && blue == 255)
 				{
-					addObject(new Player(x*32, y*32, this, camera, ObjectID.Player));
+					addObject(new Player(x*32, y*32, this, ObjectID.Player));
 				}
 
 				if(red == 0 && green == 128 && blue == 128)

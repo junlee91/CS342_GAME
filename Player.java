@@ -20,7 +20,6 @@ public class Player extends GameObject{
 	private final float MAX_SPEED = 10;
 
 	private ObjectHandler handler;
-	Camera camera;
 
 	//------------ Motion arrayList  --------------//
 	ImageLoader imageLoading = new ImageLoader();	
@@ -53,10 +52,9 @@ public class Player extends GameObject{
 	private ObjectMotion playerSKYShootLeft;
 	//--------------------------------------------//
 
-	public Player(float x, float y, ObjectHandler handler, Camera camera, ObjectID id) {
+	public Player(float x, float y, ObjectHandler handler, ObjectID id) {
 		super(x, y, id);
 		this.handler = handler;
-		this.camera = camera;
 
 		loadMotionImage();
 
