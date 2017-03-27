@@ -88,7 +88,9 @@ public class Monster extends GameObject{
                     System.out.println("Player detected Right!!!");    
                     playerRightDetected = true;                
                 }
-                else {
+              
+                if( getBounds().intersects(tempObject.getBounds())){
+                    velX = 0;
                     playerLeftDetected = false;
                     playerRightDetected = false;
                 }
