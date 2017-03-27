@@ -229,6 +229,7 @@ public class Player extends GameObject{
 					}
 				}
 			}
+			
 			if(tempObject.getId() == ObjectID.Level){
 				if( getBounds().intersects(tempObject.getBounds()))
 				{

@@ -17,6 +17,12 @@ public class Monster extends GameObject{
 
 	private ObjectHandler handler;
 
+    // --------- Motion BufferedImage ------------- //
+    ImageLoader imageLoading = new ImageLoader();	
+
+
+    // -------------------------------------------- //
+
 
     public Monster(float x, float y, ObjectHandler handler, ObjectID id){
         super(x, y, id);
@@ -24,6 +30,12 @@ public class Monster extends GameObject{
 
         setHealthPoint(500);
 	    setDamagePower(5);
+
+        loadMotionImage();
+    }
+
+    private void loadMotionImage(){
+    
     }
 
     public void Update(LinkedList<GameObject> ObjectList) {
@@ -93,6 +105,13 @@ public class Monster extends GameObject{
                     velX = 0;
                     playerLeftDetected = false;
                     playerRightDetected = false;
+
+                    tempObject.attacked(DamagePower);
+
+                    if( tempObject.isDead() ){
+                        System.out.println("Game Over!!");
+                        System.exit(0);
+                    }
                 }
             }
 
