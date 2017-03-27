@@ -22,7 +22,7 @@ public class Monster extends GameObject{
         super(x, y, id);
 		this.handler = handler;
 
-        setHealthPoint(50);
+        setHealthPoint(500);
 	    setDamagePower(5);
     }
 

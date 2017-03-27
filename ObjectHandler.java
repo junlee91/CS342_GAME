@@ -56,7 +56,6 @@ public class ObjectHandler
 		this.ObjectList.remove(object);
 	}
 
-
 	public void SetGameLayer(){
 		int width = Layer.getWidth();
 		int height = Layer.getHeight();

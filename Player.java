@@ -7,12 +7,6 @@ import java.util.LinkedList;
 
 
 public class Player extends GameObject{
-	private String name;
-	private int damage;
-	private int maxHealth;
-	private int curHealth;
-	private boolean dead;
-	private boolean airborn;
 
 	private float width = 48, height = 77;	
 
@@ -56,7 +50,7 @@ public class Player extends GameObject{
 		super(x, y, id);
 		this.handler = handler;
 
-		setHealthPoint(100);
+		setHealthPoint(1000);
 	    setDamagePower(10);
 
 		loadMotionImage();
@@ -216,14 +210,21 @@ public class Player extends GameObject{
 					{
 						if( getAttackBoundsRight().intersects(tempObject.getBounds()))
 						{
-							handler.removeObject( tempObject );
+							tempObject.attacked(DamagePower);
+
+							if( tempObject.isDead() )
+								handler.removeObject( tempObject );
+							
 						}
 					}
 					else if( direction == -1)
 					{
 						if( getAttackBoundsLeft().intersects(tempObject.getBounds()))
 						{
-							handler.removeObject( tempObject );
+							tempObject.attacked(DamagePower);
+							
+							if( tempObject.isDead() )							
+								handler.removeObject( tempObject );
 						}
 					}
 				}
@@ -379,82 +380,4 @@ public class Player extends GameObject{
 	}
 	//---------------------------------------------------------------------------------------------------//
 
-	
-	//-------------------------------------------------------------------//
-	//  Following functions are not in abstract class yet.               //
-	//  We will choose later which parts we need.                        //
-	//  Too many abstract item considered not good. In my opinion. 	     //
-	//                                                   2/27/17 Jun.    //
-	//-------------------------------------------------------------------//
-
-	public void playerInfo(){
-		System.out.println("Player name: " + name);
-		System.out.println(name + "'s health: " + curHealth);
-		System.out.println(name + "'s damage: " + damage);
-	
-	}
-
-	//TODO: Implement attack for graphics and if collision, then outcome
-	public void attack(){
-
-	}
-
-	public void passiveHeal(){
-		if(curHealth < maxHealth){
-			curHealth = curHealth +1;
-		}
-	}
-
-	public void heal(int healHP){
-		if(curHealth + healHP >= maxHealth){
-			curHealth = maxHealth;
-		}
-		else{
-			curHealth = curHealth + healHP;
-		}
-	}
-
-	public void changeMaxHealth(int newMaxHealth){
-		maxHealth = newMaxHealth;
-	}
-
-	public void takeDamage(int damageTaken){
-		if(curHealth - damageTaken < 0){
-			dead = true;
-		}
-		else{
-			curHealth = curHealth - damageTaken;
-		}
-	}
-
-	public boolean isDead(){
-		if(curHealth == 0 || curHealth < 0){
-			dead = true;
-		}
-		return dead;
-	}
-
-	public String getName(){
-		return name;
-	}
-
-	public void setName(String newName){
-		name = newName;
-	}
-
-	public int getCurrentHealth(){
-		return curHealth;
-	}
-
-	public int getMaximumHealth(){
-		return maxHealth;
-	}
-
-	public int getDamage(){
-		return damage;
-	}
-
-	public void setDamage(int newDamage){
-		damage = newDamage;
-	}
 }

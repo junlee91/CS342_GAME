@@ -36,7 +36,10 @@ public abstract class GameObject{  // TODO:: this will extend Polygon class late
 
 	public void setHealthPoint(int point) { this.HealthPoint = point; }
 	public void setDamagePower(int power) { this.DamagePower = power; }
-    
+	
+	public void attacked(int damage) { this.HealthPoint -= damage; }
+    public boolean isDead() { return (this.HealthPoint <= 0); }
+
     public float getX(){ 	return x;	}
 	public float getY() { 	return y;	}
 	public void setX(float x) {	this.x = x;	}
