@@ -199,6 +199,7 @@ public class Player extends GameObject{
 					if( pickUp && !hasBow ){
 						System.out.println("Picked up BOW!!!!!!");
 						handler.removeObject( tempObject );
+						setArrow(10);
 						hasBow = true;
 					}
 				}
