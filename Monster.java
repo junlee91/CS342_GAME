@@ -14,6 +14,7 @@ public class Monster extends GameObject{
 
     private boolean playerLeftDetected = false;
     private boolean playerRightDetected = false;
+    private boolean collideWithPlayer = false;
 
 	private ObjectHandler handler;
 
@@ -35,7 +36,7 @@ public class Monster extends GameObject{
     }
 
     private void loadMotionImage(){
-    
+        //imageLoading.LoadImage("/res/.............");
     }
 
     public void Update(LinkedList<GameObject> ObjectList) {
@@ -100,18 +101,37 @@ public class Monster extends GameObject{
                     System.out.println("Player detected Right!!!");    
                     playerRightDetected = true;                
                 }
-              
-                if( getBounds().intersects(tempObject.getBounds())){
-                    velX = 0;
+                else
+                {
                     playerLeftDetected = false;
                     playerRightDetected = false;
+                }
+              
+                if( getBounds().intersects(tempObject.getBounds())){
+                    collideWithPlayer = true;
+                }
+                else
+                    collideWithPlayer = false;
 
-                    tempObject.attacked(DamagePower);
-
+                if( getAttackBoundsLeft().intersects(tempObject.getBounds()))
+                {
+                    System.out.println("Monster attack left!!");
+                    
+                    tempObject.attacked( DamagePower );
                     if( tempObject.isDead() ){
                         System.out.println("Game Over!!");
-                        System.exit(0);
+                        //System.exit(0);
                     }
+                }
+                else if(getAttackBoundsRight().intersects(tempObject.getBounds()))
+                {
+                    System.out.println("Monster attack Right!!");
+                    
+                    tempObject.attacked( DamagePower );        
+                    if( tempObject.isDead() ){
+                        System.out.println("Game Over!!");
+                        //System.exit(0);
+                    }            
                 }
             }
 
@@ -119,6 +139,12 @@ public class Monster extends GameObject{
     }
 
     private void MonsterAI(){
+        if( collideWithPlayer )
+        {
+            velX = 0;
+            return;
+        }
+
         int move = (int)(Math.random() * 1000);
 
         if( playerLeftDetected )
@@ -164,6 +190,10 @@ public class Monster extends GameObject{
         // gg.draw(getBoundsBottom());
         gg.draw(getVisionLeft());
         gg.draw(getVisionRight());
+
+        gg.setColor(Color.RED);
+        gg.draw(getAttackBoundsLeft());
+        gg.draw(getAttackBoundsRight());
     }
 
     public Rectangle getBoundsBottom() {
@@ -193,6 +223,14 @@ public class Monster extends GameObject{
     public Rectangle getVisionRight(){
         return new Rectangle((int) ((int)x + width),(int)y+5, (int)150, (int)height-10);        
     }
+
+    public Rectangle getAttackBoundsRight(){
+		return new Rectangle((int) ((int)x + width-10),(int)y+5, (int)40, (int)height-10); 
+	}
+
+	public Rectangle getAttackBoundsLeft(){
+		return new Rectangle((int)x-30,(int)y+5, (int)40, (int)height-10); 
+	}
 
 
 }
