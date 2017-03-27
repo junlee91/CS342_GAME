@@ -56,6 +56,9 @@ public class Player extends GameObject{
 		super(x, y, id);
 		this.handler = handler;
 
+		setHealthPoint(100);
+	    setDamagePower(10);
+
 		loadMotionImage();
 
 		playerWalkRight = new ObjectMotion(5, characterRight[0], characterRight[1],

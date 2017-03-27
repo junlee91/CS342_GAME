@@ -21,6 +21,9 @@ public class Monster extends GameObject{
     public Monster(float x, float y, ObjectHandler handler, ObjectID id){
         super(x, y, id);
 		this.handler = handler;
+
+        setHealthPoint(50);
+	    setDamagePower(5);
     }
 
     public void Update(LinkedList<GameObject> ObjectList) {

@@ -21,6 +21,8 @@ public abstract class GameObject{  // TODO:: this will extend Polygon class late
 
 	protected int direction = 1;    
 	protected int ArrowCount;
+	protected int HealthPoint;
+	protected int DamagePower;
 
 	public GameObject(float x, float y, ObjectID id){
         this.x = x;
@@ -31,6 +33,9 @@ public abstract class GameObject{  // TODO:: this will extend Polygon class late
     public abstract void Update(LinkedList<GameObject> ObjectList);
     public abstract void renderObject(Graphics g);
     public abstract Rectangle getBounds();
+
+	public void setHealthPoint(int point) { this.HealthPoint = point; }
+	public void setDamagePower(int power) { this.DamagePower = power; }
     
     public float getX(){ 	return x;	}
 	public float getY() { 	return y;	}
