@@ -50,7 +50,7 @@ public class Player extends GameObject{
 		super(x, y, id);
 		this.handler = handler;
 
-		setHealthPoint(1000);
+		setHealthPoint(100);
 	    setDamagePower(10);
 
 		loadMotionImage();
@@ -162,13 +162,13 @@ public class Player extends GameObject{
 				} 
 				
 				if(getBoundsRight().intersects(tempObject.getBounds())){	   	
-					System.out.println("Collide Right side!");
+					//System.out.println("Collide Right side!");
 					x = tempObject.getX() - width;					
 					this.setGoingRight(false);
 				}
 				
 				else if(getBoundsLeft().intersects(tempObject.getBounds())){	
-					System.out.println("Collide Left side!");
+					//System.out.println("Collide Left side!");
 					x = tempObject.getX() + 35;
 					this.setGoingLeft(false);
 				}
@@ -210,7 +210,11 @@ public class Player extends GameObject{
 					{
 						if( getAttackBoundsRight().intersects(tempObject.getBounds()))
 						{
-							tempObject.attacked(DamagePower);
+							if( !playerAttackRight.isMotionPerformed() ){
+								System.out.println("Attack Right!");
+								tempObject.attacked(DamagePower);
+								playerAttackRight.setMotionPerformed(true);
+							}
 
 							if( tempObject.isDead() )
 								handler.removeObject( tempObject );
@@ -221,7 +225,11 @@ public class Player extends GameObject{
 					{
 						if( getAttackBoundsLeft().intersects(tempObject.getBounds()))
 						{
-							tempObject.attacked(DamagePower);
+							if( !playerAttackLeft.isMotionPerformed() ){
+								System.out.println("Attack Left!");							
+								tempObject.attacked(DamagePower);
+								playerAttackLeft.setMotionPerformed(true);
+							}
 							
 							if( tempObject.isDead() )							
 								handler.removeObject( tempObject );
@@ -229,7 +237,7 @@ public class Player extends GameObject{
 					}
 				}
 			}
-			
+
 			if(tempObject.getId() == ObjectID.Level){
 				if( getBounds().intersects(tempObject.getBounds()))
 				{
@@ -256,7 +264,7 @@ public class Player extends GameObject{
 			{
 				if( isShooting && hasBow ) 
 				{
-					System.out.println("Shoot!");
+					//System.out.println("Shoot!");
 					if( direction == 1)
 					{
 						playerSKYShootRight.drawMotion(g, (int)x, (int)y);
@@ -301,22 +309,19 @@ public class Player extends GameObject{
 					}
 				}
 				else if( isAttacking && hasSword )
-				{
-					System.out.println("Attack!");
+				{					
 					if( direction == 1 )
 					{
 						playerAttackRight.drawAttackMotion(g, (int)x, (int)y, this);
-
 					}
 					else if( direction == -1 )
 					{
 						playerAttackLeft.drawAttackMotion(g, (int)x-30, (int)y, this);
-	
 					}
 				}
 				else if( isShooting && hasBow ) 
 				{
-					System.out.println("Shoot!");
+					//System.out.println("Shoot!");
 					if( direction == 1)
 					{
 						playerGNDShootRight.drawMotion(g, (int)x, (int)y+10);
@@ -380,5 +385,10 @@ public class Player extends GameObject{
 		return new Rectangle((int)x-30,(int)y+5, (int)40, (int)height-10); 
 	}
 	//---------------------------------------------------------------------------------------------------//
+
+	public void performed(){
+		playerAttackRight.setMotionPerformed(false);
+		playerAttackLeft.setMotionPerformed(false);
+	}
 
 }

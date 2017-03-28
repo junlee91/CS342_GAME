@@ -50,6 +50,8 @@ public class KeyInput implements KeyListener{
 						tempObject.setShooting(true);
 						tempObject.MinusArrow();
 
+						System.out.println("Shoot!");
+
 						if( tempObject.getDirection() > 0)
 							handler.addObject(new Arrow( tempObject.getX()+40, tempObject.getY()+50, handler, ObjectID.Arrow, tempObject.getDirection()*10));
 						else
@@ -77,6 +79,7 @@ public class KeyInput implements KeyListener{
 				
 				tempObject.setAttacking(false);
 				tempObject.setShooting(false);
+				tempObject.performed();
 			}
 		}
 	}

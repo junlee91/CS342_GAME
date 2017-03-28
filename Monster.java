@@ -29,8 +29,8 @@ public class Monster extends GameObject{
         super(x, y, id);
 		this.handler = handler;
 
-        setHealthPoint(500);
-	    setDamagePower(5);
+        setHealthPoint(50);
+	    setDamagePower(1);
 
         loadMotionImage();
     }
@@ -94,11 +94,11 @@ public class Monster extends GameObject{
             if(tempObject.getId() == ObjectID.Player )
             {
                 if( getVisionLeft().intersects(tempObject.getBounds() )){
-                    System.out.println("Player detected Left!!!");
+                    //System.out.println("Player detected Left!!!");
                     playerLeftDetected = true;
                 }
                 else if( getVisionRight().intersects(tempObject.getBounds() )){
-                    System.out.println("Player detected Right!!!");    
+                    //System.out.println("Player detected Right!!!");    
                     playerRightDetected = true;                
                 }
                 else
@@ -115,21 +115,21 @@ public class Monster extends GameObject{
 
                 if( getAttackBoundsLeft().intersects(tempObject.getBounds()))
                 {
-                    System.out.println("Monster attack left!!");
+                    //System.out.println("Monster attack left!!");
                     
                     tempObject.attacked( DamagePower );
                     if( tempObject.isDead() ){
-                        System.out.println("Game Over!!");
+                        //System.out.println("Game Over!!");
                         //System.exit(0);
                     }
                 }
                 else if(getAttackBoundsRight().intersects(tempObject.getBounds()))
                 {
-                    System.out.println("Monster attack Right!!");
+                    //System.out.println("Monster attack Right!!");
                     
                     tempObject.attacked( DamagePower );        
                     if( tempObject.isDead() ){
-                        System.out.println("Game Over!!");
+                        //System.out.println("Game Over!!");
                         //System.exit(0);
                     }            
                 }

@@ -7,13 +7,15 @@ public class ObjectMotion{
 
     private int index = 0;
     private int count = 0;
-    private boolean resetImage = false;
+    private boolean motionPerformed ;
 
     private BufferedImage[] CharacterImages;
     private BufferedImage currentImage;
 
     public ObjectMotion(int speed, BufferedImage... args){
         this.motionSpeed = speed;
+        motionPerformed = false;
+        
         CharacterImages = new BufferedImage[args.length];
 
         for(int i = 0; i < args.length; i++){
@@ -38,7 +40,6 @@ public class ObjectMotion{
 
         if(count >= numFrames){
             count = 0;
-            resetImage = true;
         }
         
     }
@@ -51,8 +52,9 @@ public class ObjectMotion{
     public void drawAttackMotion(Graphics g, int x, int y, GameObject object){
         g.drawImage(currentImage, x, y, null);
 
-        //if( resetImage )
-            //object.setAttacking(false);
     }
+
+    public void setMotionPerformed(boolean status) { this.motionPerformed = status; }
+    public boolean isMotionPerformed(){ return motionPerformed; }
 
 }
