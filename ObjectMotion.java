@@ -7,7 +7,7 @@ public class ObjectMotion{
 
     private int index = 0;
     private int count = 0;
-    private boolean motionPerformed ;
+    private boolean motionPerformed;
 
     private BufferedImage[] CharacterImages;
     private BufferedImage currentImage;
@@ -15,7 +15,7 @@ public class ObjectMotion{
     public ObjectMotion(int speed, BufferedImage... args){
         this.motionSpeed = speed;
         motionPerformed = false;
-        
+
         CharacterImages = new BufferedImage[args.length];
 
         for(int i = 0; i < args.length; i++){
@@ -41,7 +41,6 @@ public class ObjectMotion{
         if(count >= numFrames){
             count = 0;
         }
-        
     }
 
     public void drawMotion(Graphics g, int x, int y)

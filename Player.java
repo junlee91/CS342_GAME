@@ -129,8 +129,10 @@ public class Player extends GameObject{
 		playerWalkRight.runMotion();
 		playerWalkLeft.runMotion();
 		// playerStand.runMotion();
+		
 		playerAttackRight.runMotion();
 		playerAttackLeft.runMotion();
+
 		playerGNDShootLeft.runMotion();
 		playerGNDShootRight.runMotion();
 		playerSKYShootLeft.runMotion();
