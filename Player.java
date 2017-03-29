@@ -388,9 +388,4 @@ public class Player extends GameObject{
 	}
 	//---------------------------------------------------------------------------------------------------//
 
-	public void performed(){
-		playerAttackRight.setMotionPerformed(false);
-		playerAttackLeft.setMotionPerformed(false);
-	}
-
 }

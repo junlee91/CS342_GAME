@@ -11,7 +11,6 @@ public class Monster extends GameObject{
 
 	private float gravity = 0.5f;
 	private final float MAX_SPEED = 10;
-
     private boolean playerLeftDetected = false;
     private boolean playerRightDetected = false;
     private boolean collideWithPlayer = false;
@@ -116,7 +115,7 @@ public class Monster extends GameObject{
                 if( getAttackBoundsLeft().intersects(tempObject.getBounds()))
                 {
                     //System.out.println("Monster attack left!!");
-                    
+
                     tempObject.attacked( DamagePower );
                     if( tempObject.isDead() ){
                         //System.out.println("Game Over!!");
@@ -125,8 +124,8 @@ public class Monster extends GameObject{
                 }
                 else if(getAttackBoundsRight().intersects(tempObject.getBounds()))
                 {
-                    //System.out.println("Monster attack Right!!");
-                    
+                    //System.out.println("Monster attack Right!!");     
+
                     tempObject.attacked( DamagePower );        
                     if( tempObject.isDead() ){
                         //System.out.println("Game Over!!");
@@ -149,11 +148,11 @@ public class Monster extends GameObject{
 
         if( playerLeftDetected )
         {
-            velX = (float)(-3);
+            velX = (float)(-2);
         }
         else if( playerRightDetected )
         {
-            velX = (float)(3);
+            velX = (float)(2);
         }
         else if( move < 10)
         {
@@ -183,17 +182,17 @@ public class Monster extends GameObject{
 
         Graphics2D gg = (Graphics2D)g;
 		gg.setColor(Color.BLUE);
-        // gg.draw(getBounds());	
+        gg.draw(getBounds());	
+        gg.draw(getVisionLeft());
+        gg.draw(getVisionRight());
         // gg.draw(getBoundsLeft());
 		// gg.draw(getBoundsRight());
         // gg.draw(getBoundsTop());
         // gg.draw(getBoundsBottom());
-        gg.draw(getVisionLeft());
-        gg.draw(getVisionRight());
 
-        gg.setColor(Color.RED);
-        gg.draw(getAttackBoundsLeft());
-        gg.draw(getAttackBoundsRight());
+        // gg.setColor(Color.RED);
+        // gg.draw(getAttackBoundsLeft());
+        // gg.draw(getAttackBoundsRight());
     }
 
     public Rectangle getBoundsBottom() {
@@ -213,15 +212,15 @@ public class Monster extends GameObject{
 	}
     
     public Rectangle getBounds(){
-        return new Rectangle((int)x, (int)y, (int)width, (int)height);
+        return new Rectangle((int)x-7, (int)y, (int)width+14, (int)height);
     }
 
     public Rectangle getVisionLeft(){
-        return new Rectangle((int)x-150,(int)y+5, (int)150, (int)height-10); 
+        return new Rectangle((int)x-150,(int)y+20, (int)150, (int)height-30); 
     }
 
     public Rectangle getVisionRight(){
-        return new Rectangle((int) ((int)x + width),(int)y+5, (int)150, (int)height-10);        
+        return new Rectangle((int) ((int)x + width),(int)y+20, (int)150, (int)height-30);        
     }
 
     public Rectangle getAttackBoundsRight(){
