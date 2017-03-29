@@ -9,6 +9,8 @@ public class ObjectMotion{
     private int count = 0;
     private boolean motionPerformed;
 
+    private int test = 1;
+
     private BufferedImage[] CharacterImages;
     private BufferedImage currentImage;
 
@@ -51,6 +53,13 @@ public class ObjectMotion{
     public void drawAttackMotion(Graphics g, int x, int y, GameObject object){
         g.drawImage(currentImage, x, y, null);
 
+        test++;        
+        if(test%28 == 0){                   // time interval
+            //System.out.println(test);   
+            object.setAttacking(false);
+            motionPerformed = false;
+            test = 0;
+        }
     }
 
     public void setMotionPerformed(boolean status) { this.motionPerformed = status; }

@@ -285,7 +285,7 @@ public class Player extends GameObject{
 				}
 			}
 		}
-		else							// moving motion
+		else								// moving motion
 		{
 			if( velX != 0){
 				if( direction == 1 )		// going Right
@@ -311,7 +311,7 @@ public class Player extends GameObject{
 					}
 				}
 				else if( isAttacking && hasSword )
-				{					
+				{										
 					if( direction == 1 )
 					{
 						playerAttackRight.drawAttackMotion(g, (int)x, (int)y, this);

@@ -77,7 +77,7 @@ public class KeyInput implements KeyListener{
 				if(key == KeyEvent.VK_A) tempObject.setVelX(0);
 				if(key == KeyEvent.VK_S) tempObject.setPickUp(false);
 				
-				tempObject.setAttacking(false);
+				//tempObject.setAttacking(false);
 				tempObject.setShooting(false);
 			}
 		}
