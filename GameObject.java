@@ -70,7 +70,6 @@ public abstract class GameObject{  // TODO:: this will extend Polygon class late
 	public void setAttacking(boolean status) { this.isAttacking = status; }
 	public void setShooting(boolean status) { this.isShooting = status; }
 
-	public void performed(){}
 
 	public boolean HasBow(){ return hasBow; }
 

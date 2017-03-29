@@ -36,7 +36,7 @@ public class KeyInput implements KeyListener{
 				if(key == KeyEvent.VK_W && !tempObject.isJumping() && tempObject.getVelY() <= 5 )
 				{
 					tempObject.setJumping(true);
-					tempObject.setVelY(-15);
+					tempObject.setVelY(-12);
 				}
 
 				if(key == KeyEvent.VK_K)
@@ -79,7 +79,6 @@ public class KeyInput implements KeyListener{
 				
 				tempObject.setAttacking(false);
 				tempObject.setShooting(false);
-				tempObject.performed();
 			}
 		}
 	}
