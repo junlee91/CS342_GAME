@@ -21,10 +21,12 @@ public class KeyInput implements KeyListener{
 			{
 				if(key == KeyEvent.VK_D && tempObject.isGoingRight()) { 
 					tempObject.setVelX(5);  
+					tempObject.setAttacking(false);
 				}
 				
 				if(key == KeyEvent.VK_A && tempObject.isGoingLeft()) { 
 					tempObject.setVelX(-5); 
+					tempObject.setAttacking(false);					
 				}
 				
 				
