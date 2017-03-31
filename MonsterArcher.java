@@ -116,7 +116,7 @@ public class MonsterArcher extends GameObject{
         if( time%100 != 0 ) return;
 
         if( direction == -1){
-            handler.addObject(new Arrow(getX()-30, getY(), handler, ObjectID.Arrow, direction*10));
+            handler.addObject(new Arrow(getX()-30, getY(), handler, ObjectID.Arrow, direction*10));     // temporay arrow, needs to be changed
 
         }
         else{ 
