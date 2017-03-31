@@ -61,9 +61,9 @@ public class Player extends GameObject{
 				characterLeft[2], characterLeft[3]);
 		//playerStand = new ObjectMotion(10, characterStanding[0], characterStanding[1]);
 		
-		playerAttackRight = new ObjectMotion(3, characterAttackRight[0],characterAttackRight[1],
+		playerAttackRight = new ObjectMotion(4, characterAttackRight[0],characterAttackRight[1],
 				characterAttackRight[2], characterAttackRight[3]);
-		playerAttackLeft = new ObjectMotion(3, characterAttackLeft[0],characterAttackLeft[1],
+		playerAttackLeft = new ObjectMotion(4, characterAttackLeft[0],characterAttackLeft[1],
 				characterAttackLeft[2], characterAttackLeft[3]);
 
 		playerGNDShootLeft = new ObjectMotion(7, characterGNDShootingLeft[0]);

@@ -54,11 +54,12 @@ public class ObjectMotion{
         g.drawImage(currentImage, x, y, null);
 
         test++;        
-        if(test%28 == 0){                   // time interval
+        if(test%20 == 0){                   // time interval
             //System.out.println(test);   
             object.setAttacking(false);
             motionPerformed = false;
             test = 0;
+            index = 0;
         }
     }
 
