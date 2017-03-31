@@ -94,6 +94,11 @@ public class ObjectHandler
 					addObject(new Monster(x*32, y*32, this, ObjectID.Monster));
 				}
 
+				if(red == 255 && green == 0 && blue == 255)
+				{
+					// Enemy
+					addObject(new MonsterArcher(x*32, y*32, this, ObjectID.Monster));
+				}
 
 				if(red == 192 && green == 192 && blue == 192)
 				{
