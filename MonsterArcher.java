@@ -71,12 +71,53 @@ public class MonsterArcher extends GameObject{
 				}
 
 			}
+            
+            if(tempObject.getId() == ObjectID.Player )
+            {
+                if( getVisionLeft().intersects(tempObject.getBounds() )){
+                    //System.out.println("Player detected Left!!!");
+                    playerLeftDetected = true;
+                }
+                else if( getVisionRight().intersects(tempObject.getBounds() )){
+                    //System.out.println("Player detected Right!!!");    
+                    playerRightDetected = true;                
+                }
+                else
+                {
+                    playerLeftDetected = false;
+                    playerRightDetected = false;
+                }
+            }
+
         }
     }
 
     private void MonsterAI(){
+
+
+        if( playerLeftDetected )
+        {
+            direction = -1;
+            MonsterShoot();
+        }
+        else if( playerRightDetected )
+        {
+            direction = 1;
+            MonsterShoot();
+        }
     
+        
     }
+
+    private void MonsterShoot()
+    {
+        if( direction == -1)
+            handler.addObject(new Arrow(getX()-30, getY(), handler, ObjectID.Arrow, direction*10));
+        else 
+            handler.addObject(new Arrow(getX()+width, getY(), handler, ObjectID.Arrow, direction*10));
+
+    }
+
 
     public void renderObject(Graphics g){
         g.setColor(Color.MAGENTA);

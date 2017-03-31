@@ -6,7 +6,7 @@ import java.awt.image.BufferedImage;
 
 public class Arrow extends GameObject{
     
-    private float gravity = 0.1f;
+    private float gravity = 0.2f;
     private int degree = 30;            // degree adjustable
     private ObjectHandler handler;
     
