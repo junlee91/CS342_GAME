@@ -8,7 +8,7 @@ import java.util.LinkedList;
 
 public class Player extends GameObject{
 
-	private float width = 48, height = 77;	
+	private float width = 48, height = 68;	
 
 	private float gravity = 0.5f;
 	private final float MAX_SPEED = 10;
@@ -346,13 +346,13 @@ public class Player extends GameObject{
 			}	
 		}
 	
-		// Graphics2D gg = (Graphics2D)g;
-		// gg.setColor(Color.RED);
+		Graphics2D gg = (Graphics2D)g;
+		gg.setColor(Color.RED);
 		// gg.draw(getBoundsLeft());
 		// gg.draw(getBoundsRight());
 		// gg.draw(getBoundsTop());	
-		// gg.draw(getBoundsBottom());	
-		// gg.draw(getBounds());	
+		gg.draw(getBoundsBottom());	
+		gg.draw(getBounds());	
 
 		// gg.setColor(Color.BLUE);
 		// gg.draw(getAttackBoundsRight());
