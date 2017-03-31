@@ -14,6 +14,8 @@ public class MonsterArcher extends GameObject{
     private boolean playerRightDetected = false;
     private boolean collideWithPlayer = false;
 
+    private int time = 0;
+
     private ObjectHandler handler;
 
    // --------- Motion BufferedImage ------------- //
@@ -94,7 +96,6 @@ public class MonsterArcher extends GameObject{
 
     private void MonsterAI(){
 
-
         if( playerLeftDetected )
         {
             direction = -1;
@@ -106,16 +107,24 @@ public class MonsterArcher extends GameObject{
             MonsterShoot();
         }
     
-        
     }
 
     private void MonsterShoot()
     {
-        if( direction == -1)
-            handler.addObject(new Arrow(getX()-30, getY(), handler, ObjectID.Arrow, direction*10));
-        else 
-            handler.addObject(new Arrow(getX()+width, getY(), handler, ObjectID.Arrow, direction*10));
+        time++;
 
+        if( time%100 != 0 ) return;
+
+        if( direction == -1){
+            handler.addObject(new Arrow(getX()-30, getY(), handler, ObjectID.Arrow, direction*10));
+
+        }
+        else{ 
+            handler.addObject(new Arrow(getX()+width, getY(), handler, ObjectID.Arrow, direction*10));
+            
+        }
+
+        time = 0;
     }
 
 
