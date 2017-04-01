@@ -180,11 +180,11 @@ public class Monster extends GameObject{
         g.setColor(Color.RED);
         g.fillRect((int)x, (int)y, (int)width, (int)height);
 
-        Graphics2D gg = (Graphics2D)g;
-		gg.setColor(Color.BLUE);
-        gg.draw(getBounds());	
-        gg.draw(getVisionLeft());
-        gg.draw(getVisionRight());
+        // Graphics2D gg = (Graphics2D)g;
+		// gg.setColor(Color.BLUE);
+        // gg.draw(getBounds());	
+        // gg.draw(getVisionLeft());
+        // gg.draw(getVisionRight());
         // gg.draw(getBoundsLeft());
 		// gg.draw(getBoundsRight());
         // gg.draw(getBoundsTop());

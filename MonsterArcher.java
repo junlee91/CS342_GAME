@@ -132,11 +132,11 @@ public class MonsterArcher extends GameObject{
         g.setColor(Color.MAGENTA);
         g.fillRect((int)x, (int)y, (int)width, (int)height);
 
-        Graphics2D gg = (Graphics2D)g;
-		gg.setColor(Color.MAGENTA);
-        gg.draw(getBounds());	
-        gg.draw(getVisionLeft());
-        gg.draw(getVisionRight());
+        // Graphics2D gg = (Graphics2D)g;
+		// gg.setColor(Color.MAGENTA);
+        // gg.draw(getBounds());	
+        // gg.draw(getVisionLeft());
+        // gg.draw(getVisionRight());
     }
 
     public Rectangle getBoundsBottom() {
