@@ -19,7 +19,20 @@ public class Monster extends GameObject{
 
     // --------- Motion BufferedImage ------------- //
     ImageLoader imageLoading = new ImageLoader();	
+    private BufferedImage[] MonsterRight = new BufferedImage[4];
+    private BufferedImage[] MonsterLeft = new BufferedImage[4];
 
+    private BufferedImage[] MonsterAttackRight = new BufferedImage[4];
+    private BufferedImage[] MonsterAttackLeft = new BufferedImage[4];
+    
+    private BufferedImage monsterJumpingRight = null;
+    private BufferedImage monsterJumpingLeft = null;
+
+    private ObjectMotion objectWalkRight;
+    private ObjectMotion objectWalkLeft;
+    private ObjectMotion objectAttackRight;
+    private ObjectMotion objectAttackLeft;
+    
 
     // -------------------------------------------- //
 

@@ -19,9 +19,15 @@ public class MonsterArcher extends GameObject{
     private ObjectHandler handler;
 
    // --------- Motion BufferedImage ------------- //
-    ImageLoader imageLoading = new ImageLoader();	
-
-
+    ImageLoader imageLoading = new ImageLoader();
+    private BufferedImage MonsterRight = null;
+    private BufferedImage MonsterLeft = null;
+    private BufferedImage[] MonsterAttackRight = new BufferedImage[4];
+    private BufferedImage[] MonsterAttackLeft = new BufferedImage[4];
+    
+    private ObjectMotion objectAttackRight;
+    private ObjectMotion objectAttackLeft;
+    
     // -------------------------------------------- //
 
     public MonsterArcher(float x, float y, ObjectHandler handler, ObjectID id){
