@@ -31,7 +31,7 @@ public class Arrow extends GameObject{
 		x += velX;
         y -= gravity*degree;
 
-        degree -= 3;
+        degree -= 2;
         CollisionDetection(ObjectList);
 	}
 
