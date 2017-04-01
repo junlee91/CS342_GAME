@@ -24,9 +24,11 @@ public class ObjectHandler
 	}
 	
 	public void Update(){
+
 		for(int i = 0; i < ObjectList.size(); i++){
 			
-			tempObject = ObjectList.get(i);			
+			tempObject = ObjectList.get(i);		
+
 			tempObject.Update(ObjectList);
 
 			if(tempObject.getY() > 1800){
@@ -55,6 +57,8 @@ public class ObjectHandler
 	public void removeObject(GameObject object){
 		this.ObjectList.remove(object);
 	}
+
+	private int MonsterCount = 0;
 
 	public void SetGameLayer(){
 		int width = Layer.getWidth();
@@ -92,12 +96,13 @@ public class ObjectHandler
 				{
 					// Enemy
 					addObject(new Monster(x*32, y*32, this, ObjectID.Monster));
+					MonsterCount++;
 				}
 
 				if(red == 255 && green == 0 && blue == 255)
 				{
 					// Enemy
-					addObject(new MonsterArcher(x*32, y*32, this, ObjectID.Monster));
+					addObject(new MonsterArcher(x*32, y*32, this, ObjectID.MonsterArcher));
 				}
 
 				if(red == 192 && green == 192 && blue == 192)
@@ -118,6 +123,11 @@ public class ObjectHandler
 	private boolean playerSword = false;
 	private boolean playerBow = false;
 	private int playerArrowCount = 0;
+
+	public boolean isLevelCleared(){
+		System.out.println(MonsterCount);
+		return (MonsterCount == 0);
+	}
 
 
 	public void setNextLevel(GameObject player){
@@ -173,8 +183,13 @@ public class ObjectHandler
 			}
 		}
 	}
+
+	public void KillMonster(){
+		MonsterCount--;
+	}
 	
 	private void LevelClear(){
+		MonsterCount = 0;
 		ObjectList.clear();
 	}
 

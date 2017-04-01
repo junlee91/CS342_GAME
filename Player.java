@@ -218,8 +218,10 @@ public class Player extends GameObject{
 								playerAttackRight.setMotionPerformed(true);
 							}
 
-							if( tempObject.isDead() )
+							if( tempObject.isDead() ){
 								handler.removeObject( tempObject );
+								handler.KillMonster();
+							}
 							
 						}
 					}
@@ -233,8 +235,10 @@ public class Player extends GameObject{
 								playerAttackLeft.setMotionPerformed(true);
 							}
 							
-							if( tempObject.isDead() )							
+							if( tempObject.isDead() ){							
 								handler.removeObject( tempObject );
+								handler.KillMonster();								
+							}
 						}
 					}
 				}
@@ -243,7 +247,10 @@ public class Player extends GameObject{
 			if(tempObject.getId() == ObjectID.Level){
 				if( getBounds().intersects(tempObject.getBounds()))
 				{
-					handler.setNextLevel(this);
+					if(handler.isLevelCleared())
+						handler.setNextLevel(this);
+					else
+						System.out.println("Player has not cleared the level");
 				}
 			}
 		}
