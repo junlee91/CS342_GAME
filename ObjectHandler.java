@@ -150,7 +150,7 @@ public class ObjectHandler
 		switch(LEVEL)
 		{
 			case 1:
-				Layer = imageLoading.LoadImage("/res/Map/Map_level2.png");
+				Layer = imageLoading.LoadImage("/res/Map/Map_level2(Maple).png");
 				Game.City = imageLoading.LoadImage("/res/Map/Forest.png");
 				SetGameLayer();
 				updatePlayerData();

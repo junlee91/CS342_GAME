@@ -154,10 +154,10 @@ public class MonsterArcher extends GameObject{
     }
 
     public Rectangle getVisionLeft(){
-        return new Rectangle((int)x-500,(int)y+100, (int)150, (int)height+500); 
+        return new Rectangle((int)x-700,(int)y+200, (int)300, (int)height+300); 
     }
 
     public Rectangle getVisionRight(){
-        return new Rectangle((int) ((int)x + 500),(int)y+100, (int)150, (int)height+500);        
+        return new Rectangle((int) ((int)x + 450),(int)y+200, (int)300, (int)height+300);        
     }
 }
