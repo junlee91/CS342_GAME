@@ -87,7 +87,7 @@ public class Game extends JPanel implements ActionListener, MouseListener
 		graphicSetting.translate(camera.getX(), camera.getY());			//------------- start	
 
 
-		for(int x = 0; x < City.getWidth() * 1; x += City.getWidth())
+		for(int x = 0; x < City.getWidth() * 2; x += City.getWidth())
 		{
 			g.drawImage(City, x, -50, this);
 		}
