@@ -31,10 +31,18 @@ Schedule and deliverable:
 	- Back Ground Music			
 						-- Tue 03/21 11:59pm (estimated 2 hours)
 										COMPLETE
-	- Sound Effect Implementation		
-						-- Wed 03/28 11:59pm (estimated 8 hours)
-															
+														
 	- Next Level Layer
 						-- Fri 03/24 11:59pm (estimated 2 hours)
 						 				COMPLETE
+									
+	- Sound Effect Implementation		
+						-- Sun 04/02 11:59pm (estimated 8 hours)
+	
+	- Level Clear Check 
+						-- Sun 04/02 11:59pm (estimated 8 hours)
+	
+	- Monster AI attack
+	  Monster Image Load
+	  Monster AI shooting			-- Sun 04/02 11:59pm (estimated 8 hours)
 										
