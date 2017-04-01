@@ -125,7 +125,6 @@ public class ObjectHandler
 	private int playerArrowCount = 0;
 
 	public boolean isLevelCleared(){
-		System.out.println(MonsterCount);
 		return (MonsterCount == 0);
 	}
 
