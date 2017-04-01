@@ -142,7 +142,7 @@ public class ObjectHandler
 		{
 			case 1:
 				Layer = imageLoading.LoadImage("/res/Map/Map_level2.png");
-				Game.City = imageLoading.LoadImage("/res/Map/City2.png");
+				Game.City = imageLoading.LoadImage("/res/Map/MapleCity.png");
 				SetGameLayer();
 				updatePlayerData();
 				break;
