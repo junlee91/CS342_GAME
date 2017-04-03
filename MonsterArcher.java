@@ -123,11 +123,11 @@ public class MonsterArcher extends GameObject{
 
         if( direction == -1){
             handler.addObject(new FireBall(getX()-30, getY(), handler, ObjectID.FireBall, direction*8));    
-            handler.addObject(new FireBall(getX()-30, getY()+10, handler, ObjectID.FireBall, direction*8));    
+            handler.addObject(new FireBall(getX()-30, getY()+10, handler, ObjectID.FireBall, direction*10));    
         }
         else{ 
             handler.addObject(new FireBall(getX()+width, getY(), handler, ObjectID.FireBall, direction*8));
-            handler.addObject(new FireBall(getX()+width, getY()+10, handler, ObjectID.FireBall, direction*8));            
+            handler.addObject(new FireBall(getX()+width, getY()+10, handler, ObjectID.FireBall, direction*10));            
         }
 
         time = 0;
