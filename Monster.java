@@ -49,6 +49,10 @@ public class Monster extends GameObject{
 
     private void loadMotionImage(){
         //imageLoading.LoadImage("/res/.............");
+        MonsterRight[0] = imageLoading.LoadImage("/res/Monster/Ghost_R.png");
+        
+        MonsterLeft[0] = imageLoading.LoadImage("/res/Monster/Ghost_L.png");
+        
     }
 
     public void Update(LinkedList<GameObject> ObjectList) {
@@ -190,8 +194,21 @@ public class Monster extends GameObject{
     }
 
     public void renderObject(Graphics g) {
-        g.setColor(Color.RED);
-        g.fillRect((int)x, (int)y, (int)width, (int)height);
+        
+        if( direction == 1 )
+        {
+            g.drawImage(MonsterRight[0], (int)x, (int)y, null);
+        }
+        else if( direction == -1 )
+        {
+            g.drawImage(MonsterLeft[0], (int)x, (int)y, null);            
+        }
+        
+        
+        
+        
+        //g.setColor(Color.RED);
+        //g.fillRect((int)x, (int)y, (int)width, (int)height);
 
         // Graphics2D gg = (Graphics2D)g;
 		// gg.setColor(Color.BLUE);
