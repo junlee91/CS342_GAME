@@ -55,6 +55,10 @@ public class Monster extends GameObject{
         MonsterRight[0] = imageLoading.LoadImage("/res/Monster/Ghost_R.png");
         
         MonsterLeft[0] = imageLoading.LoadImage("/res/Monster/Ghost_L.png");
+
+        MonsterAttackRight[0] = imageLoading.LoadImage("/res/Monster/Ghost_AR.png");
+
+        MonsterAttackLeft[0] = imageLoading.LoadImage("/res/Monster/Ghost_AL.png");
         
     }
 
@@ -216,17 +220,30 @@ public class Monster extends GameObject{
     }
 
     public void renderObject(Graphics g) {
-        
-        if( direction == 1 )
+
+        if( attackPlayer )
         {
-            g.drawImage(MonsterRight[0], (int)x, (int)y, null);
+            if( direction == 1)
+            {
+                g.drawImage(MonsterAttackRight[0], (int)x, (int)y, null);
+            }
+            else if( direction == -1)
+            {
+                g.drawImage(MonsterAttackLeft[0], (int)x, (int)y, null);                
+            }
         }
-        else if( direction == -1 )
+        else
         {
-            g.drawImage(MonsterLeft[0], (int)x, (int)y, null);            
+            if( direction == 1 )
+            {
+                g.drawImage(MonsterRight[0], (int)x, (int)y, null);
+            }
+            else if( direction == -1 )
+            {
+                g.drawImage(MonsterLeft[0], (int)x, (int)y, null);            
+            }
+        
         }
-        
-        
         
         
         //g.setColor(Color.RED);
