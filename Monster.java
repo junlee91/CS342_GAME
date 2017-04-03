@@ -14,8 +14,10 @@ public class Monster extends GameObject{
     private boolean playerLeftDetected = false;
     private boolean playerRightDetected = false;
     private boolean collideWithPlayer = false;
+    private boolean attackPlayer = false;
 
 	private ObjectHandler handler;
+    private GameObject player = null;
 
     // --------- Motion BufferedImage ------------- //
     ImageLoader imageLoading = new ImageLoader();	
@@ -131,23 +133,17 @@ public class Monster extends GameObject{
 
                 if( getAttackBoundsLeft().intersects(tempObject.getBounds()))
                 {
-                    //System.out.println("Monster attack left!!");
-
-                    tempObject.attacked( DamagePower );
-                    if( tempObject.isDead() ){
-                        //System.out.println("Game Over!!");
-                        //System.exit(0);
-                    }
+                    attackPlayer = true;
+                    player = tempObject;
                 }
                 else if(getAttackBoundsRight().intersects(tempObject.getBounds()))
                 {
-                    //System.out.println("Monster attack Right!!");     
-
-                    tempObject.attacked( DamagePower );        
-                    if( tempObject.isDead() ){
-                        //System.out.println("Game Over!!");
-                        //System.exit(0);
-                    }            
+                    attackPlayer = true;     
+                    player = tempObject;                                         
+                }
+                else
+                {
+                    attackPlayer = false;
                 }
             }
 
@@ -155,11 +151,33 @@ public class Monster extends GameObject{
     }
 
     private void MonsterAI(){
+        
+        if( attackPlayer )
+        {
+            if(direction == 1)
+            {
+                System.out.println("Monster attack Right!!");   
+
+            }
+            else if(direction == -1)
+            {
+                System.out.println("Monster attack left!!");
+            }
+
+            player.attacked( DamagePower );
+            if( player.isDead() )
+            {
+                System.out.println("Game Over!!");
+            }
+            
+        }
+
         if( collideWithPlayer )
         {
             velX = 0;
             return;
         }
+
 
         int move = (int)(Math.random() * 1000);
 
