@@ -15,6 +15,7 @@ public class Monster extends GameObject{
     private boolean playerRightDetected = false;
     private boolean collideWithPlayer = false;
     private boolean attackPlayer = false;
+    private int time = 0;
 
 	private ObjectHandler handler;
     private GameObject player = null;
@@ -144,6 +145,7 @@ public class Monster extends GameObject{
                 else
                 {
                     attackPlayer = false;
+                    time = 0;
                 }
             }
 
@@ -154,22 +156,24 @@ public class Monster extends GameObject{
         
         if( attackPlayer )
         {
-            if(direction == 1)
-            {
-                System.out.println("Monster attack Right!!");   
+            time++;
+            if( time % 30 == 0){
+                if(direction == 1)
+                {
+                    System.out.println("Monster attack Right!!");   
 
-            }
-            else if(direction == -1)
-            {
-                System.out.println("Monster attack left!!");
-            }
+                }
+                else if(direction == -1)
+                {             
+                    System.out.println("Monster attack left!!");
+                }
 
-            player.attacked( DamagePower );
-            if( player.isDead() )
-            {
-                System.out.println("Game Over!!");
+                player.attacked( DamagePower );
+                if( player.isDead() )
+                {
+                    System.out.println("Game Over!!");
+                }
             }
-            
         }
 
         if( collideWithPlayer )
