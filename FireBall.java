@@ -21,7 +21,8 @@ public class FireBall extends GameObject{
     }
 
     private void loadGraphicImage(){
-
+        fire_R = imageLoading.LoadImage("res/Gadet/FireBall.png");
+        fire_L = imageLoading.LoadImage("res/Gadet/FireBall.png");        
     }
 
     public void Update(LinkedList<GameObject> ObjectList) {
@@ -46,9 +47,14 @@ public class FireBall extends GameObject{
     }
 
 	public void renderObject(Graphics g) {
-        g.setColor(Color.MAGENTA);
-        g.fillRect((int)x, (int)y, (int)8, (int)8);
+        //g.setColor(Color.MAGENTA);
+        //g.fillRect((int)x, (int)y, (int)8, (int)8);
 
+        if( velX > 0 )
+            g.drawImage(fire_R, (int)x, (int)y, null);
+        else
+            g.drawImage(fire_L, (int)x, (int)y, null);
+            
     }
 
     public Rectangle getBounds() {

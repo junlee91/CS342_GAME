@@ -122,12 +122,12 @@ public class MonsterArcher extends GameObject{
         if( time%100 != 0 ) return;
 
         if( direction == -1){
-            handler.addObject(new FireBall(getX()-30, getY(), handler, ObjectID.FireBall, direction*10));    
-            handler.addObject(new FireBall(getX()-30, getY()+10, handler, ObjectID.FireBall, direction*10));    
+            handler.addObject(new FireBall(getX()-30, getY(), handler, ObjectID.FireBall, direction*8));    
+            handler.addObject(new FireBall(getX()-30, getY()+10, handler, ObjectID.FireBall, direction*8));    
         }
         else{ 
-            handler.addObject(new FireBall(getX()+width, getY(), handler, ObjectID.FireBall, direction*10));
-            handler.addObject(new FireBall(getX()+width, getY()+10, handler, ObjectID.FireBall, direction*10));            
+            handler.addObject(new FireBall(getX()+width, getY(), handler, ObjectID.FireBall, direction*8));
+            handler.addObject(new FireBall(getX()+width, getY()+10, handler, ObjectID.FireBall, direction*8));            
         }
 
         time = 0;
@@ -138,11 +138,11 @@ public class MonsterArcher extends GameObject{
         g.setColor(Color.MAGENTA);
         g.fillRect((int)x, (int)y, (int)width, (int)height);
 
-        // Graphics2D gg = (Graphics2D)g;
-		// gg.setColor(Color.MAGENTA);
-        // gg.draw(getBounds());	
-        // gg.draw(getVisionLeft());
-        // gg.draw(getVisionRight());
+        Graphics2D gg = (Graphics2D)g;
+		gg.setColor(Color.MAGENTA);
+        //gg.draw(getBounds());	
+        gg.draw(getVisionLeft());
+        gg.draw(getVisionRight());
     }
 
     public Rectangle getBoundsBottom() {
@@ -154,10 +154,10 @@ public class MonsterArcher extends GameObject{
     }
 
     public Rectangle getVisionLeft(){
-        return new Rectangle((int)x-700,(int)y+200, (int)300, (int)height+300); 
+        return new Rectangle((int)x-550,(int)y+200, (int)300, (int)height+300); 
     }
 
     public Rectangle getVisionRight(){
-        return new Rectangle((int) ((int)x + 450),(int)y+200, (int)300, (int)height+300);        
+        return new Rectangle((int) ((int)x + 350),(int)y+200, (int)300, (int)height+300);        
     }
 }
