@@ -7,7 +7,7 @@ import java.util.LinkedList;
 
 public class Monster extends GameObject{
 
-    private float width = 48, height = 69;	
+    private float width = 69, height = 88;	
 
 	private float gravity = 0.5f;
 	private final float MAX_SPEED = 10;
@@ -264,7 +264,7 @@ public class Monster extends GameObject{
             if( direction == 1)
             {
                 //  attack Right
-                objectAttackRight.drawMotion(g, (int)x, (int)y);
+                objectAttackRight.drawMotion(g, (int)x-20, (int)y);
             }
             else if( direction == -1)
             {
@@ -296,19 +296,15 @@ public class Monster extends GameObject{
         
         }
         
-        
-        //g.setColor(Color.RED);
-        //g.fillRect((int)x, (int)y, (int)width, (int)height);
-
-        // Graphics2D gg = (Graphics2D)g;
-		// gg.setColor(Color.BLUE);
-        // gg.draw(getBounds());	
-        // gg.draw(getVisionLeft());
-        // gg.draw(getVisionRight());
-        // gg.draw(getBoundsLeft());
-		// gg.draw(getBoundsRight());
-        // gg.draw(getBoundsTop());
-        // gg.draw(getBoundsBottom());
+        Graphics2D gg = (Graphics2D)g;
+		//gg.setColor(Color.BLUE);
+        //gg.draw(getBounds());	
+        //gg.draw(getVisionLeft());
+        //gg.draw(getVisionRight());
+        //gg.draw(getBoundsLeft());
+		//gg.draw(getBoundsRight());
+        //gg.draw(getBoundsTop());
+        //gg.draw(getBoundsBottom());
 
         // gg.setColor(Color.RED);
         // gg.draw(getAttackBoundsLeft());
@@ -344,11 +340,11 @@ public class Monster extends GameObject{
     }
 
     public Rectangle getAttackBoundsRight(){
-		return new Rectangle((int) ((int)x + width-10),(int)y+5, (int)40, (int)height-10); 
+		return new Rectangle((int) ((int)x + width),(int)y+5, (int)40, (int)height-10); 
 	}
 
 	public Rectangle getAttackBoundsLeft(){
-		return new Rectangle((int)x-30,(int)y+5, (int)40, (int)height-10); 
+		return new Rectangle((int)x-20,(int)y+5, (int)40, (int)height-10); 
 	}
 
 
