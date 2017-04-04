@@ -25,8 +25,10 @@ public class MonsterArcher extends GameObject{
     private BufferedImage[] MonsterAttackRight = new BufferedImage[4];
     private BufferedImage[] MonsterAttackLeft = new BufferedImage[4];
     
-    private ObjectMotion objectAttackRight;
     private ObjectMotion objectAttackLeft;
+    private ObjectMotion objectAttackRight;
+    private ObjectMotion objectLookLeft;
+    private ObjectMotion objectLookRight;
     
     // -------------------------------------------- //
 
@@ -38,10 +40,28 @@ public class MonsterArcher extends GameObject{
 	    setDamagePower(1);
 
         loadMotionImage();
+
+        objectAttackRight = new ObjectMotion(10, MonsterAttackRight[0],MonsterAttackRight[1], 
+        		MonsterAttackRight[2], MonsterAttackRight[3]);
+        objectAttackLeft  = new ObjectMotion(10, MonsterAttackLeft[0],MonsterAttackLeft[1],
+        		MonsterAttackLeft[2],MonsterAttackLeft[3]);
+        objectLookLeft  = new  ObjectMotion(20,MonsterAttackLeft[0]);
+        objectLookRight = new  ObjectMotion(20,MonsterAttackRight[0]);
+
+
     }
 
     private void loadMotionImage(){
-        //imageLoading.LoadImage("/res/.............");
+
+    	MonsterAttackRight[0] = imageLoading.LoadImage("/res/EnemyWizard/Attack/RightAttack/R_Attack_1.png");
+		MonsterAttackRight[1] = imageLoading.LoadImage("/res/EnemyWizard/Attack/RightAttack/R_Attack_2.png");
+		MonsterAttackRight[2] = imageLoading.LoadImage("/res/EnemyWizard/Attack/RightAttack/R_Attack_3.png");
+		MonsterAttackRight[3] = imageLoading.LoadImage("/res/EnemyWizard/Attack/RightAttack/R_Attack_4.png");
+
+		MonsterAttackLeft[0] = imageLoading.LoadImage("/res/EnemyWizard/Attack/LeftAttack/L_Attack_1.png");
+		MonsterAttackLeft[1] = imageLoading.LoadImage("/res/EnemyWizard/Attack/LeftAttack/L_Attack_2.png");
+		MonsterAttackLeft[2] = imageLoading.LoadImage("/res/EnemyWizard/Attack/LeftAttack/L_Attack_3.png");
+		MonsterAttackLeft[3] = imageLoading.LoadImage("/res/EnemyWizard/Attack/LeftAttack/L_Attack_4.png");
     }
 
     public void Update(LinkedList<GameObject> ObjectList){
@@ -57,6 +77,11 @@ public class MonsterArcher extends GameObject{
             if( velY > MAX_SPEED )
 				velY = MAX_SPEED;
         }
+
+        objectAttackRight.runMotion();
+        objectAttackLeft.runMotion();
+        objectLookLeft.runMotion();
+        objectLookRight.runMotion();
 
         CollisionDetection(ObjectList);
         MonsterAI();
@@ -94,6 +119,14 @@ public class MonsterArcher extends GameObject{
                 {
                     playerLeftDetected = false;
                     playerRightDetected = false;
+                    
+                    // set look direction
+                    if(tempObject.getX() - x > 0){
+                    	direction = 1;
+                    }
+                    else{
+                    	direction = -1;
+                    }  
                 }
             }
 
@@ -125,7 +158,7 @@ public class MonsterArcher extends GameObject{
             handler.addObject(new FireBall(getX()-30, getY(), handler, ObjectID.FireBall, direction*8));    
             handler.addObject(new FireBall(getX()-30, getY()+10, handler, ObjectID.FireBall, direction*10));    
         }
-        else{ 
+        else{
             handler.addObject(new FireBall(getX()+width, getY(), handler, ObjectID.FireBall, direction*8));
             handler.addObject(new FireBall(getX()+width, getY()+10, handler, ObjectID.FireBall, direction*10));            
         }
@@ -135,11 +168,29 @@ public class MonsterArcher extends GameObject{
 
 
     public void renderObject(Graphics g){
-        g.setColor(Color.MAGENTA);
-        g.fillRect((int)x, (int)y, (int)width, (int)height);
+        
+    	if(playerLeftDetected)
+    	{
+    		objectAttackLeft.drawMotion(g, (int)x-55, (int)y+10);
+    	}
+    	else if(playerRightDetected)
+    	{
+    		objectAttackRight.drawMotion(g, (int)x-15, (int)y+10);
+    	}
+    	else{
+    		if(direction == -1){
+	    		objectLookLeft.drawMotion(g, (int)x-55, (int)y+10);
+    		} 
+    		else{
+    			objectLookRight.drawMotion(g, (int)x-15, (int)y+10);
+    		}
+    	}
 
-        Graphics2D gg = (Graphics2D)g;
-		gg.setColor(Color.MAGENTA);
+        //g.setColor(Color.MAGENTA);
+        //g.fillRect((int)x, (int)y, (int)width, (int)height);
+
+        //Graphics2D gg = (Graphics2D)g;
+		//gg.setColor(Color.MAGENTA);
         //gg.draw(getBounds());	
         //gg.draw(getVisionLeft());
         //gg.draw(getVisionRight());
