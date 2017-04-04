@@ -37,10 +37,10 @@ public class NextLevel extends GameObject{
 		
 		if( handler.isLevelCleared() )
 		{
-			gateOpen.drawMotion(g, (int)x, (int)y-60);
+			gateOpen.drawMotion(g, (int)x-10, (int)y-83);
 		}
 		else
-			g.drawImage(Gate[0], (int)x, (int)y-60, null);
+			g.drawImage(Gate[0], (int)x-10, (int)y-83, null);
 
 		// Graphics2D gg = (Graphics2D)g;
 		// gg.setColor(Color.RED);
