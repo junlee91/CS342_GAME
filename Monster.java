@@ -35,9 +35,9 @@ public class Monster extends GameObject{
     private ObjectMotion objectWalkLeft;
     private ObjectMotion objectRunRight;
     private ObjectMotion objectRunLeft;    
+
     private ObjectMotion objectAttackRight;
-    private ObjectMotion objectAttackLeft;
-    
+    private ObjectMotion objectAttackLeft;    
 
     // -------------------------------------------- //
 
@@ -46,7 +46,7 @@ public class Monster extends GameObject{
         super(x, y, id);
 		this.handler = handler;
 
-        setHealthPoint(50);
+        setHealthPoint(40);
 	    setDamagePower(1);
 
         loadMotionImage();
@@ -55,14 +55,18 @@ public class Monster extends GameObject{
         objectWalkLeft = new ObjectMotion(14, MonsterLeft[1], MonsterLeft[2],MonsterLeft[3]);
 
         objectRunRight = new ObjectMotion(8, MonsterRight[0], 
-                    MonsterRight[1],MonsterRight[2],MonsterRight[3], MonsterRight[4]); 
+                                MonsterRight[1],MonsterRight[2],MonsterRight[3], MonsterRight[4]); 
 
         objectRunLeft = new ObjectMotion(8, MonsterLeft[0], MonsterLeft[1],MonsterLeft[2],
-                        MonsterLeft[3], MonsterLeft[4]);
+                                MonsterLeft[3], MonsterLeft[4]);
+
+        objectAttackRight = new ObjectMotion(10, MonsterAttackRight[0],MonsterAttackRight[1],MonsterAttackRight[2],MonsterAttackRight[3]);
+
+        objectAttackLeft = new ObjectMotion(10, MonsterAttackLeft[0],MonsterAttackLeft[1],MonsterAttackLeft[2],MonsterAttackLeft[3]);
     }
 
     private void loadMotionImage(){
-        //imageLoading.LoadImage("/res/.............");
+        
         MonsterRight[0] = imageLoading.LoadImage("/res/EnemyHuman/R_Motion/R_walk_1.png");
         MonsterRight[1] = imageLoading.LoadImage("/res/EnemyHuman/R_Motion/R_walk_2.png");
         MonsterRight[2] = imageLoading.LoadImage("/res/EnemyHuman/R_Motion/R_walk_3.png");
@@ -76,9 +80,16 @@ public class Monster extends GameObject{
         MonsterLeft[4] = imageLoading.LoadImage("/res/EnemyHuman/L_Motion/L_walk_5.png");
         
 
-        MonsterAttackRight[0] = imageLoading.LoadImage("/res/Monster/Ghost_AR.png");
+        MonsterAttackRight[0] = imageLoading.LoadImage("/res/EnemyHuman/.png");
+        MonsterAttackRight[1] = imageLoading.LoadImage("/res/EnemyHuman/.png");
+        MonsterAttackRight[2] = imageLoading.LoadImage("/res/EnemyHuman/.png");
+        MonsterAttackRight[3] = imageLoading.LoadImage("/res/EnemyHuman/.png");        
 
-        MonsterAttackLeft[0] = imageLoading.LoadImage("/res/Monster/Ghost_AL.png");
+        MonsterAttackLeft[0] = imageLoading.LoadImage("/res/EnemyHuman/.png");
+        MonsterAttackLeft[1] = imageLoading.LoadImage("/res/EnemyHuman/.png");
+        MonsterAttackLeft[2] = imageLoading.LoadImage("/res/EnemyHuman/.png");
+        MonsterAttackLeft[3] = imageLoading.LoadImage("/res/EnemyHuman/.png");
+        
         
     }
 
@@ -103,6 +114,8 @@ public class Monster extends GameObject{
         objectWalkRight.runMotion();
         objectRunLeft.runMotion();
         objectRunRight.runMotion();
+        objectAttackLeft.runMotion();
+        objectAttackRight.runMotion();
     }
 
     public void CollisionDetection(LinkedList<GameObject> ObjectList){
@@ -168,7 +181,7 @@ public class Monster extends GameObject{
                 }
                 else if(getAttackBoundsRight().intersects(tempObject.getBounds()))
                 {
-                    attackPlayer = false;// true;     
+                    attackPlayer = false; // true;     
                     player = tempObject;                                         
                 }
                 else
@@ -250,11 +263,11 @@ public class Monster extends GameObject{
         {
             if( direction == 1)
             {
-                g.drawImage(MonsterAttackRight[0], (int)x, (int)y, null);
+                //  attack Right
             }
             else if( direction == -1)
             {
-                g.drawImage(MonsterAttackLeft[0], (int)x, (int)y, null);                
+                //  attack Left
             }
         }
         else if( playerRightDetected )
