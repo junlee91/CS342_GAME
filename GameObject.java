@@ -18,6 +18,7 @@ public abstract class GameObject{  // TODO:: this will extend Polygon class late
 	protected boolean isShooting = false;
 	protected boolean hasSword = false;
 	protected boolean hasBow = false;
+	protected boolean isAttacked = false;
 
 	protected int direction = 1;    
 	protected int ArrowCount;
@@ -37,7 +38,8 @@ public abstract class GameObject{  // TODO:: this will extend Polygon class late
 	public void setHealthPoint(int point) { this.HealthPoint = point; }
 	public void setDamagePower(int power) { this.DamagePower = power; }
 	
-	public void attacked(int damage) { this.HealthPoint -= damage; }
+	public void attacked(int damage) { this.HealthPoint -= damage; isAttacked = true; }
+	public void setObjectAttacked(boolean status){ isAttacked = false; }
     public boolean isDead() { return (this.HealthPoint <= 0); }
 
     public float getX(){ 	return x;	}
