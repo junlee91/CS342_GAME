@@ -19,10 +19,10 @@ public class NextLevel extends GameObject{
 
 		this.handler = handler;
 
-		Gate[0] = imageLoading.LoadImage("");
-		Gate[1] = imageLoading.LoadImage("");
-		Gate[2] = imageLoading.LoadImage("");
-		Gate[3] = imageLoading.LoadImage("");
+		Gate[0] = imageLoading.LoadImage("/res/Gate/closed.png");
+		Gate[1] = imageLoading.LoadImage("/res/Gate/open1.png");
+		Gate[2] = imageLoading.LoadImage("/res/Gate/open2.png");
+		Gate[3] = imageLoading.LoadImage("/res/Gate/open3.png");
 		
 
 		gateOpen = new ObjectMotion(15, Gate[1], Gate[2], Gate[3]);
@@ -37,10 +37,10 @@ public class NextLevel extends GameObject{
 		
 		if( handler.isLevelCleared() )
 		{
-			gateOpen.drawMotion(g, (int)x, (int)y);
+			gateOpen.drawMotion(g, (int)x, (int)y-55);
 		}
 		else
-			g.drawImage(Gate[0], (int)x, (int)y, null);
+			g.drawImage(Gate[0], (int)x, (int)y-55, null);
 
 	}
 
