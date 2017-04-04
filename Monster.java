@@ -60,9 +60,9 @@ public class Monster extends GameObject{
         objectRunLeft = new ObjectMotion(8, MonsterLeft[0], MonsterLeft[1],MonsterLeft[2],
                                 MonsterLeft[3], MonsterLeft[4]);
 
-        objectAttackRight = new ObjectMotion(14, MonsterAttackRight[0],MonsterAttackRight[1],MonsterAttackRight[2],MonsterAttackRight[3]);
+        objectAttackRight = new ObjectMotion(8, MonsterAttackRight[0],MonsterAttackRight[1],MonsterAttackRight[2],MonsterAttackRight[3]);
 
-        objectAttackLeft = new ObjectMotion(14, MonsterAttackLeft[0],MonsterAttackLeft[1],MonsterAttackLeft[2],MonsterAttackLeft[3]);
+        objectAttackLeft = new ObjectMotion(8, MonsterAttackLeft[0],MonsterAttackLeft[1],MonsterAttackLeft[2],MonsterAttackLeft[3]);
     }
 
     private void loadMotionImage(){
@@ -264,12 +264,13 @@ public class Monster extends GameObject{
             if( direction == 1)
             {
                 //  attack Right
-                objectAttackRight.drawAttackMotion(g, (int)x, (int)y, this);
+                objectAttackRight.drawMotion(g, (int)x, (int)y);
             }
             else if( direction == -1)
             {
                 //  attack Left
-                objectAttackLeft.drawAttackMotion(g, (int)x, (int)y, this);
+                objectAttackLeft.drawMotion(g, (int)x, (int)y);
+                
             }
         }
         else if( playerRightDetected )
