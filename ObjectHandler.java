@@ -114,7 +114,7 @@ public class ObjectHandler
 				if(red == 255 && green == 255 && blue == 0)
 				{
 					// Next LEVEL
-					addObject(new NextLevel(x*32, y*32, ObjectID.Level));
+					addObject(new NextLevel(x*32, y*32, this, ObjectID.Level));
 				}
 			}
 		}
@@ -128,6 +128,10 @@ public class ObjectHandler
 		return (MonsterCount == 0);
 	}
 
+	private void LevelClear(){
+		MonsterCount = 0;
+		ObjectList.clear();
+	}
 
 	public void setNextLevel(GameObject player){
 
@@ -187,11 +191,6 @@ public class ObjectHandler
 		MonsterCount--;
 	}
 	
-	private void LevelClear(){
-		MonsterCount = 0;
-		ObjectList.clear();
-	}
-
 	// TODO:: Adding Ground Image
 	public void CreateBottomLayer(){
 		for(int i = 0; i < Game.WIDTH*2; i += 32)
