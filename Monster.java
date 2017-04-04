@@ -7,7 +7,7 @@ import java.util.LinkedList;
 
 public class Monster extends GameObject{
 
-    private float width = 48, height = 88;	
+    private float width = 48, height = 85;	
 
 	private float gravity = 0.5f;
 	private final float MAX_SPEED = 10;
@@ -275,23 +275,23 @@ public class Monster extends GameObject{
         }
         else if( playerRightDetected )
         {
-            objectRunRight.drawMotion(g, (int)x, (int)y);
+            objectRunRight.drawMotion(g, (int)x, (int)y+7);
         }
         else if( playerLeftDetected )
         {
-            objectRunLeft.drawMotion(g, (int)x, (int)y);            
+            objectRunLeft.drawMotion(g, (int)x, (int)y+7);            
         }
         else
         {
             if( direction == 1 )
             {
                 //g.drawImage(MonsterRight[0], (int)x, (int)y, null);
-                objectWalkRight.drawMotion(g,(int)x, (int)y);
+                objectWalkRight.drawMotion(g,(int)x, (int)y+7);
             }
             else if( direction == -1 )
             {
                 //g.drawImage(MonsterLeft[0], (int)x, (int)y, null);     
-                objectWalkLeft.drawMotion(g,(int)x, (int)y);                       
+                objectWalkLeft.drawMotion(g,(int)x, (int)y+7);                       
             }
         
         }
