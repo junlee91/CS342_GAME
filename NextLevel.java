@@ -37,14 +37,17 @@ public class NextLevel extends GameObject{
 		
 		if( handler.isLevelCleared() )
 		{
-			gateOpen.drawMotion(g, (int)x, (int)y-55);
+			gateOpen.drawMotion(g, (int)x, (int)y-60);
 		}
 		else
-			g.drawImage(Gate[0], (int)x, (int)y-55, null);
+			g.drawImage(Gate[0], (int)x, (int)y-60, null);
 
+		// Graphics2D gg = (Graphics2D)g;
+		// gg.setColor(Color.RED);
+		// gg.draw(getBounds());
 	}
 
 	public Rectangle getBounds() {
-		return new Rectangle ((int)x, (int)y, 32, 64);
+		return new Rectangle ((int)(x+40), (int)y, 32, 32);
 	}
 }
