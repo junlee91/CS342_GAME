@@ -22,8 +22,8 @@ public class Monster extends GameObject{
 
     // --------- Motion BufferedImage ------------- //
     ImageLoader imageLoading = new ImageLoader();	
-    private BufferedImage[] MonsterRight = new BufferedImage[4];
-    private BufferedImage[] MonsterLeft = new BufferedImage[4];
+    private BufferedImage[] MonsterRight = new BufferedImage[5];
+    private BufferedImage[] MonsterLeft = new BufferedImage[5];
 
     private BufferedImage[] MonsterAttackRight = new BufferedImage[4];
     private BufferedImage[] MonsterAttackLeft = new BufferedImage[4];
@@ -52,9 +52,18 @@ public class Monster extends GameObject{
 
     private void loadMotionImage(){
         //imageLoading.LoadImage("/res/.............");
-        MonsterRight[0] = imageLoading.LoadImage("/res/Monster/Ghost_R.png");
+        MonsterRight[0] = imageLoading.LoadImage("/res/EnemyHuman/R_Motion/R_walk_1.png");
+        MonsterRight[1] = imageLoading.LoadImage("/res/EnemyHuman/R_Motion/R_walk_2.png");
+        MonsterRight[2] = imageLoading.LoadImage("/res/EnemyHuman/R_Motion/R_walk_3.png");
+        MonsterRight[3] = imageLoading.LoadImage("/res/EnemyHuman/R_Motion/R_walk_4.png");
+        MonsterRight[4] = imageLoading.LoadImage("/res/EnemyHuman/R_Motion/R_walk_5.png");
+
+        MonsterLeft[0] = imageLoading.LoadImage("/res/EnemyHuman/L_Motion/L_walk_1.png");
+        MonsterLeft[1] = imageLoading.LoadImage("/res/EnemyHuman/L_Motion/L_walk_2.png");
+        MonsterLeft[2] = imageLoading.LoadImage("/res/EnemyHuman/L_Motion/L_walk_3.png");
+        MonsterLeft[3] = imageLoading.LoadImage("/res/EnemyHuman/L_Motion/L_walk_4.png");
+        MonsterLeft[4] = imageLoading.LoadImage("/res/EnemyHuman/L_Motion/L_walk_5.png");
         
-        MonsterLeft[0] = imageLoading.LoadImage("/res/Monster/Ghost_L.png");
 
         MonsterAttackRight[0] = imageLoading.LoadImage("/res/Monster/Ghost_AR.png");
 
