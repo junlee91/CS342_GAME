@@ -7,7 +7,7 @@ import java.util.LinkedList;
 
 public class Monster extends GameObject{
 
-    private float width = 32, height = 48;	
+    private float width = 48, height = 69;	
 
 	private float gravity = 0.5f;
 	private final float MAX_SPEED = 10;
@@ -33,6 +33,8 @@ public class Monster extends GameObject{
 
     private ObjectMotion objectWalkRight;
     private ObjectMotion objectWalkLeft;
+    private ObjectMotion objectRunRight;
+    private ObjectMotion objectRunLeft;    
     private ObjectMotion objectAttackRight;
     private ObjectMotion objectAttackLeft;
     
@@ -48,6 +50,15 @@ public class Monster extends GameObject{
 	    setDamagePower(1);
 
         loadMotionImage();
+
+        objectWalkRight = new ObjectMotion(14, MonsterRight[1],MonsterRight[2],MonsterRight[3]);
+        objectWalkLeft = new ObjectMotion(14, MonsterLeft[1], MonsterLeft[2],MonsterLeft[3]);
+
+        objectRunRight = new ObjectMotion(8, MonsterRight[0], 
+                    MonsterRight[1],MonsterRight[2],MonsterRight[3], MonsterRight[4]); 
+
+        objectRunLeft = new ObjectMotion(8, MonsterLeft[0], MonsterLeft[1],MonsterLeft[2],
+                        MonsterLeft[3], MonsterLeft[4]);
     }
 
     private void loadMotionImage(){
@@ -87,6 +98,11 @@ public class Monster extends GameObject{
 
         CollisionDetection(ObjectList);
         MonsterAI();
+
+        objectWalkLeft.runMotion();
+        objectWalkRight.runMotion();
+        objectRunLeft.runMotion();
+        objectRunRight.runMotion();
     }
 
     public void CollisionDetection(LinkedList<GameObject> ObjectList){
@@ -147,12 +163,12 @@ public class Monster extends GameObject{
 
                 if( getAttackBoundsLeft().intersects(tempObject.getBounds()))
                 {
-                    attackPlayer = true;
+                    attackPlayer = false; //true;
                     player = tempObject;
                 }
                 else if(getAttackBoundsRight().intersects(tempObject.getBounds()))
                 {
-                    attackPlayer = true;     
+                    attackPlayer = false;// true;     
                     player = tempObject;                                         
                 }
                 else
@@ -241,15 +257,25 @@ public class Monster extends GameObject{
                 g.drawImage(MonsterAttackLeft[0], (int)x, (int)y, null);                
             }
         }
+        else if( playerRightDetected )
+        {
+            objectRunRight.drawMotion(g, (int)x, (int)y);
+        }
+        else if( playerLeftDetected )
+        {
+            objectRunLeft.drawMotion(g, (int)x, (int)y);            
+        }
         else
         {
             if( direction == 1 )
             {
-                g.drawImage(MonsterRight[0], (int)x, (int)y, null);
+                //g.drawImage(MonsterRight[0], (int)x, (int)y, null);
+                objectWalkRight.drawMotion(g,(int)x, (int)y);
             }
             else if( direction == -1 )
             {
-                g.drawImage(MonsterLeft[0], (int)x, (int)y, null);            
+                //g.drawImage(MonsterLeft[0], (int)x, (int)y, null);     
+                objectWalkLeft.drawMotion(g,(int)x, (int)y);                       
             }
         
         }
