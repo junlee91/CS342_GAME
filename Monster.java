@@ -157,16 +157,19 @@ public class Monster extends GameObject{
                 if( getVisionLeft().intersects(tempObject.getBounds() )){
                     //System.out.println("Player detected Left!!!");
                     playerLeftDetected = true;
-                }
-                else if( getVisionRight().intersects(tempObject.getBounds() )){
-                    //System.out.println("Player detected Right!!!");    
-                    playerRightDetected = true;                
+                    direction = -1;
                 }
                 else
-                {
                     playerLeftDetected = false;
-                    playerRightDetected = false;
+                
+                if( getVisionRight().intersects(tempObject.getBounds() )){
+                    //System.out.println("Player detected Right!!!");    
+                    playerRightDetected = true;       
+                    direction = 1;         
                 }
+                else
+                    playerRightDetected = false;
+                
               
                 if( getBounds().intersects(tempObject.getBounds())){
                     collideWithPlayer = true;
@@ -196,6 +199,21 @@ public class Monster extends GameObject{
 
     private void MonsterAI(){
         
+        if( playerLeftDetected )
+        {
+            velX = (float)(-2); //direction = -1; 
+        }
+        else if( playerRightDetected )
+        {
+            velX = (float)(2); //direction = 1;         
+        }
+
+        if( collideWithPlayer )
+        {
+            velX = 0;
+            return;
+        }
+
         if( attackPlayer )
         {
             time++;
@@ -218,24 +236,10 @@ public class Monster extends GameObject{
             }
         }
 
-        if( collideWithPlayer )
-        {
-            velX = 0;
-            return;
-        }
-
 
         int move = (int)(Math.random() * 1000);
 
-        if( playerLeftDetected )
-        {
-            velX = (float)(-2); direction = -1;
-        }
-        else if( playerRightDetected )
-        {
-            velX = (float)(2); direction = 1;
-        }
-        else if( move < 10)
+        if( move < 10)
         {
             velX = (float)1;
         }
@@ -270,7 +274,6 @@ public class Monster extends GameObject{
             {
                 //  attack Left
                 objectAttackLeft.drawMotion(g, (int)x-28, (int)y);
-                
             }
         }
         else if( playerRightDetected )
