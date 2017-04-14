@@ -186,6 +186,9 @@ public class MonsterArcher extends GameObject{
     		}
     	}
 
+        g.setColor(Color.gray);
+		g.fillRect( (int)(getX()), (int)(getY()-20), (int)width, 10);
+
         //g.setColor(Color.MAGENTA);
         //g.fillRect((int)x, (int)y, (int)width, (int)height);
 

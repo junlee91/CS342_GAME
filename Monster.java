@@ -298,6 +298,9 @@ public class Monster extends GameObject{
             }
         
         }
+
+        g.setColor(Color.gray);
+		g.fillRect( (int)(getX()), (int)(getY()-20), (int)width, 10);
         
         Graphics2D gg = (Graphics2D)g;
 		//gg.setColor(Color.BLUE);

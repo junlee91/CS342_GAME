@@ -137,6 +137,7 @@ public class Player extends GameObject{
 		playerGNDShootRight.runMotion();
 		playerSKYShootLeft.runMotion();
 		playerSKYShootRight.runMotion();
+
 	}
 
 	// REMINDER!!: CollisionDetection is subject to change (different character)
@@ -352,7 +353,11 @@ public class Player extends GameObject{
 				}
 			}	
 		}
-	
+		g.setColor(Color.gray);
+		g.fillRect( (int)(getX()), (int)(getY()-20), (int)width, 10);
+
+		g.setColor(Color.green);
+		g.fillRect( (int)(getX()), (int)(getY()-20), (int)(width), 10);
 		// Graphics2D gg = (Graphics2D)g;
 		// gg.setColor(Color.RED);
 		// gg.draw(getBoundsLeft());
