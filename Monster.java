@@ -208,11 +208,6 @@ public class Monster extends GameObject{
             velX = (float)(2); //direction = 1;         
         }
 
-        if( collideWithPlayer )
-        {
-            velX = 0;
-            return;
-        }
 
         if( attackPlayer )
         {
@@ -229,6 +224,7 @@ public class Monster extends GameObject{
                 }
 
                 player.attacked( DamagePower );
+                
                 if( player.isDead() )
                 {
                     System.out.println("Game Over!!");
@@ -236,6 +232,11 @@ public class Monster extends GameObject{
             }
         }
 
+        if( collideWithPlayer )
+        {
+            velX = 0;
+            return;
+        }
 
         int move = (int)(Math.random() * 1000);
 
