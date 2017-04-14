@@ -15,6 +15,7 @@ public class Player extends GameObject{
 
 	private ObjectHandler handler;
 	private int damaged;
+	private int healthBar;
 
 	//------------ Motion arrayList  --------------//
 	ImageLoader imageLoading = new ImageLoader();	
@@ -51,8 +52,10 @@ public class Player extends GameObject{
 		super(x, y, id);
 		this.handler = handler;
 
-		setHealthPoint(100);
+		setHealthPoint((int)width);
 	    setDamagePower(10);
+
+		healthBar = (int)width;
 
 		loadMotionImage();
 
@@ -366,10 +369,10 @@ public class Player extends GameObject{
 		}
 
 		g.setColor(Color.gray);
-		g.fillRect( (int)(getX()), (int)(getY()-20), (int)width, 10);
+		g.fillRect( (int)(getX()), (int)(getY()-20), (int)healthBar, 10);
 
 		g.setColor(Color.green);
-		g.fillRect( (int)(getX()), (int)(getY()-20), (int)(width-damaged), 10);
+		g.fillRect( (int)(getX()), (int)(getY()-20), (int)(healthBar-damaged), 10);
 		// Graphics2D gg = (Graphics2D)g;
 		// gg.setColor(Color.RED);
 		// gg.draw(getBoundsLeft());
@@ -381,6 +384,12 @@ public class Player extends GameObject{
 		// gg.setColor(Color.BLUE);
 		// gg.draw(getAttackBoundsRight());
 		// gg.draw(getAttackBoundsLeft());
+	}
+
+
+	long map(long x, long in_min, long in_max, long out_min, long out_max)
+	{
+  		return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 	}
 
 	//---------------------- collision bounds subject to change ------------------------------------------//

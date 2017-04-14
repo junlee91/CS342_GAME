@@ -19,6 +19,8 @@ public class Monster extends GameObject{
 
 	private ObjectHandler handler;
     private GameObject player = null;
+    private int damaged;
+	private int healthBar;
 
     // --------- Motion BufferedImage ------------- //
     ImageLoader imageLoading = new ImageLoader();	
@@ -46,8 +48,10 @@ public class Monster extends GameObject{
         super(x, y, id);
 		this.handler = handler;
 
-        setHealthPoint(40);
+        setHealthPoint((int)width);
 	    setDamagePower(1);
+
+        healthBar = (int)width;
 
         loadMotionImage();
 
@@ -116,7 +120,18 @@ public class Monster extends GameObject{
         objectRunRight.runMotion();
         objectAttackLeft.runMotion();
         objectAttackRight.runMotion();
+
+        releventHealth();
     }
+
+    private void releventHealth(){
+
+		if( !isAttacked ) return;
+
+		damaged += damagedPoint;
+		
+		setObjectAttacked();
+	}
 
     public void CollisionDetection(LinkedList<GameObject> ObjectList){
         for(int i = 0; i < handler.ObjectList.size(); i++ ){
@@ -301,7 +316,10 @@ public class Monster extends GameObject{
         }
 
         g.setColor(Color.gray);
-		g.fillRect( (int)(getX()), (int)(getY()-20), (int)width, 10);
+		g.fillRect( (int)(getX()), (int)(getY()-20), (int)healthBar, 10);
+
+        g.setColor(Color.green);
+		g.fillRect( (int)(getX()), (int)(getY()-20), (int)(healthBar-damaged), 10);
         
         Graphics2D gg = (Graphics2D)g;
 		//gg.setColor(Color.BLUE);

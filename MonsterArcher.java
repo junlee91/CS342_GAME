@@ -17,6 +17,8 @@ public class MonsterArcher extends GameObject{
     private int time = 0;
 
     private ObjectHandler handler;
+    private int damaged;
+	private int healthBar;
 
    // --------- Motion BufferedImage ------------- //
     ImageLoader imageLoading = new ImageLoader();
@@ -36,8 +38,11 @@ public class MonsterArcher extends GameObject{
         super(x, y, id);
 		this.handler = handler;
 
-        setHealthPoint(50);
+        setHealthPoint((int)width);
 	    setDamagePower(1);
+
+        healthBar = (int)width;
+
 
         loadMotionImage();
 
@@ -187,7 +192,10 @@ public class MonsterArcher extends GameObject{
     	}
 
         g.setColor(Color.gray);
-		g.fillRect( (int)(getX()), (int)(getY()-20), (int)width, 10);
+		g.fillRect( (int)(getX()), (int)(getY()-20), (int)healthBar, 10);
+
+        g.setColor(Color.green);
+		g.fillRect( (int)(getX()), (int)(getY()-20), (int)(healthBar-damaged), 10);
 
         //g.setColor(Color.MAGENTA);
         //g.fillRect((int)x, (int)y, (int)width, (int)height);
