@@ -20,6 +20,8 @@ public class Arrow extends GameObject{
         this.velX = speed;
         this.handler = handler;
         loadGraphicImage();
+
+        setDamagePower(20);
     }
 
     private void loadGraphicImage(){
@@ -49,9 +51,15 @@ public class Arrow extends GameObject{
 
             if(tempObject.getId() == ObjectID.Monster){
                 if( getBounds().intersects(tempObject.getBounds())){
+
+                    tempObject.attacked( DamagePower );
                     handler.removeObject(this);
-                    handler.removeObject(tempObject);
-                    handler.KillMonster();
+                    
+                    if( tempObject.isDead() )
+                    {                        
+                        handler.removeObject(tempObject);
+                        handler.KillMonster();
+                    }
                 }
             }
         

@@ -17,6 +17,9 @@ public class FireBall extends GameObject{
         super(x, y, id);
         this.velX = speed;
         this.handler = handler;
+
+        setDamagePower(3);
+
         loadGraphicImage();
     }
 
@@ -43,6 +46,15 @@ public class FireBall extends GameObject{
                     handler.removeObject( this );
                 }
             }
+
+            if(tempObject.getId() == ObjectID.Player )
+            {
+                if( getBounds().intersects(tempObject.getBounds()))
+                {
+                    tempObject.attacked( DamagePower );
+                }
+            }
+
         }
     }
 

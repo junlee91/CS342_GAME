@@ -296,7 +296,6 @@ public class Player extends GameObject{
 									handler.KillMonster();								
 								}
 							}
-
 						}						
 					}
 				}
@@ -411,6 +410,13 @@ public class Player extends GameObject{
 			}	
 		}
 
+		if( isAttacked )
+		{
+			System.out.println("Attacked!!");
+			g.setColor(Color.RED);
+			g.fillRect((int)(getX()), (int)(getY()), (int)width, (int)height);
+		}
+
 		g.setColor(Color.gray);
 		g.fillRect( (int)(getX()), (int)(getY()-20), (int)healthBar, 10);
 
@@ -429,11 +435,6 @@ public class Player extends GameObject{
 		// gg.draw(getAttackBoundsLeft());
 	}
 
-
-	long map(long x, long in_min, long in_max, long out_min, long out_max)
-	{
-  		return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
-	}
 
 	//---------------------- collision bounds subject to change ------------------------------------------//
 	public Rectangle getBounds() {
