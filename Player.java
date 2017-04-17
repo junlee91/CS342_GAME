@@ -135,11 +135,11 @@ public class Player extends GameObject{
 		
 		if(!jumping)
 		{
-			boostJump += 0.1;
+			boost += 0.1;
 
-			if(boostJump > BOOST_MAX)
+			if(boost > BOOST_MAX)
 			{
-				boostJump = BOOST_MAX;
+				boost = BOOST_MAX;
 			}
 		}
 
@@ -441,7 +441,7 @@ public class Player extends GameObject{
 		g.fillRect( (int)(getX()), (int)(getY()-20), (int)(healthBar-damaged), 10);
 
 		g.setColor(lightBlue);
-		g.fillRect( (int)(getX()), (int)(getY()-40), (int)boostJump, 10);
+		g.fillRect( (int)(getX()), (int)(getY()-40), (int)boost, 10);
 		// Graphics2D gg = (Graphics2D)g;
 		// gg.setColor(Color.RED);
 		// gg.draw(getBoundsLeft());

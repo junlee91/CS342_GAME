@@ -26,7 +26,7 @@ public class KeyInput implements KeyListener{
 				
 				if(key == KeyEvent.VK_A && tempObject.isGoingLeft()) { 
 					tempObject.setVelX(-5); 
-					tempObject.setAttacking(false);					
+					tempObject.setAttacking(false);			
 				}
 				
 				
@@ -43,10 +43,14 @@ public class KeyInput implements KeyListener{
 
 				if( key == KeyEvent.VK_SPACE )
 				{
-					if(tempObject.isBoostAvailable()){
-						tempObject.setVelY(-12);
-						tempObject.boost();
+					if(tempObject.isJumping()){
+						if(tempObject.isBoostAvailable()){
+							tempObject.setVelY(-12);
+							tempObject.boost();
+						}
 					}
+
+
 				}
 
 				if(key == KeyEvent.VK_K)
@@ -83,8 +87,8 @@ public class KeyInput implements KeyListener{
 		
 			if(tempObject.getId() == ObjectID.Player)
 			{
-				if(key == KeyEvent.VK_D) tempObject.setVelX(0);
-				if(key == KeyEvent.VK_A) tempObject.setVelX(0);
+				if(key == KeyEvent.VK_D) { tempObject.setVelX(0); }
+				if(key == KeyEvent.VK_A) { tempObject.setVelX(0); }
 				if(key == KeyEvent.VK_S) tempObject.setPickUp(false);
 				
 				//tempObject.setAttacking(false);
