@@ -121,7 +121,6 @@ public class Monster extends GameObject{
         objectAttackLeft.runMotion();
         objectAttackRight.runMotion();
 
-        releventHealth();
     }
 
     private void releventHealth(){
@@ -213,7 +212,7 @@ public class Monster extends GameObject{
     }
 
     private void MonsterAI(){
-        
+
         if( playerLeftDetected )
         {
             velX = (float)(-2); //direction = -1; 
@@ -314,6 +313,15 @@ public class Monster extends GameObject{
             }
         
         }
+
+        if( isAttacked )
+		{
+			System.out.println("AHhh!!");
+			g.setColor(Color.RED);
+			g.fillRect((int)(getX()), (int)(getY()), (int)width, (int)height);
+		}
+
+        releventHealth();
 
         g.setColor(Color.gray);
 		g.fillRect( (int)(getX()), (int)(getY()-20), (int)healthBar, 10);

@@ -103,6 +103,7 @@ public class ObjectHandler
 				{
 					// Enemy
 					addObject(new MonsterArcher(x*32, y*32, this, ObjectID.MonsterArcher));
+					MonsterCount++;					
 				}
 
 				if(red == 192 && green == 192 && blue == 192)

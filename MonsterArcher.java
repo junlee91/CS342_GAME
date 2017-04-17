@@ -90,8 +90,6 @@ public class MonsterArcher extends GameObject{
 
         CollisionDetection(ObjectList);
         MonsterAI();
-        releventHealth();
-
     }
 
     private void releventHealth(){
@@ -202,6 +200,15 @@ public class MonsterArcher extends GameObject{
     			objectLookRight.drawMotion(g, (int)x-15, (int)y+10);
     		}
     	}
+
+        if( isAttacked )
+		{
+			// System.out.println("Attacked!!");
+			g.setColor(Color.RED);
+			g.fillRect((int)(getX()), (int)(getY()), (int)width, (int)height);
+		}
+
+        releventHealth();
 
         g.setColor(Color.gray);
 		g.fillRect( (int)(getX()), (int)(getY()-20), (int)healthBar, 10);

@@ -49,7 +49,7 @@ public class Arrow extends GameObject{
                 }
             }
 
-            if(tempObject.getId() == ObjectID.Monster){
+            if(tempObject.getId() == ObjectID.Monster || tempObject.getId() == ObjectID.MonsterArcher ){
                 if( getBounds().intersects(tempObject.getBounds())){
 
                     tempObject.attacked( DamagePower );

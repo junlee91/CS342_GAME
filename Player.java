@@ -142,7 +142,6 @@ public class Player extends GameObject{
 		playerSKYShootLeft.runMotion();
 		playerSKYShootRight.runMotion();
 
-		releventHealth();
 	}
 
 	private void releventHealth(){
@@ -229,7 +228,7 @@ public class Player extends GameObject{
 						{
 							if( !playerAttackRight.isMotionPerformed() ){
 								System.out.println("Attack Right!");
-								tempObject.attacked(DamagePower);
+								tempObject.attacked( DamagePower );
 								playerAttackRight.setMotionPerformed(true);
 							}
 
@@ -246,7 +245,7 @@ public class Player extends GameObject{
 						{
 							if( !playerAttackLeft.isMotionPerformed() ){
 								System.out.println("Attack Left!");							
-								tempObject.attacked(DamagePower);
+								tempObject.attacked( DamagePower );
 								playerAttackLeft.setMotionPerformed(true);
 							}
 							
@@ -412,10 +411,12 @@ public class Player extends GameObject{
 
 		if( isAttacked )
 		{
-			System.out.println("Attacked!!");
+			// System.out.println("Attacked!!");
 			g.setColor(Color.RED);
 			g.fillRect((int)(getX()), (int)(getY()), (int)width, (int)height);
 		}
+
+		releventHealth();
 
 		g.setColor(Color.gray);
 		g.fillRect( (int)(getX()), (int)(getY()-20), (int)healthBar, 10);
