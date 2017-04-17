@@ -125,7 +125,7 @@ public class ObjectHandler
 	private boolean playerBow = false;
 	private int playerArrowCount = 0;
 	private int healthPoint;
-	private float boostGage;
+	private float boostGauge;
 
 	public boolean isLevelCleared(){
 		return (MonsterCount == 0);
@@ -153,7 +153,7 @@ public class ObjectHandler
 		}
 
 		healthPoint = player.HealthPoint;
-		boostGage = player.boost;
+		boostGauge = player.boost;
 
 		LevelClear();
 
@@ -191,7 +191,7 @@ public class ObjectHandler
 				}
 
 				tempObject.damaged = (tempObject.HealthPoint - healthPoint);
-				tempObject.boost = boostGage;
+				tempObject.boost = boostGauge;
 			}
 		}
 	}
