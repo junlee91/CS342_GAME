@@ -19,6 +19,8 @@ public class Player extends GameObject{
 	private int healthBar;
 	private int boostBar;
 
+	Color lightBlue = new Color(0,0,182,155);
+
 	//------------ Motion arrayList  --------------//
 	ImageLoader imageLoading = new ImageLoader();	
 	//private BufferedImage[] characterStanding = new BufferedImage[2];
@@ -438,7 +440,7 @@ public class Player extends GameObject{
 		g.setColor(Color.green);
 		g.fillRect( (int)(getX()), (int)(getY()-20), (int)(healthBar-damaged), 10);
 
-		g.setColor(Color.blue);
+		g.setColor(lightBlue);
 		g.fillRect( (int)(getX()), (int)(getY()-40), (int)boostJump, 10);
 		// Graphics2D gg = (Graphics2D)g;
 		// gg.setColor(Color.RED);
