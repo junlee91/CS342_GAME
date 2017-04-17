@@ -259,6 +259,49 @@ public class Player extends GameObject{
 				}
 			}
 
+			if(tempObject.getId() == ObjectID.MonsterArcher ){
+				
+				if( isAttacking && hasSword )
+				{
+					if(direction == 1)
+					{
+						if( getAttackBoundsRight().intersects(tempObject.getBounds()))
+						{
+							if( !playerAttackRight.isMotionPerformed() ){
+								System.out.println("Attack Right!");
+								tempObject.attacked(DamagePower);
+								playerAttackRight.setMotionPerformed(true);
+							}
+
+							if( tempObject.isDead() ){
+								handler.removeObject( tempObject );
+								handler.KillMonster();
+							}
+						}
+					}
+					else if(direction == -1)
+					{
+						if( getAttackBoundsLeft().intersects(tempObject.getBounds()))
+						{
+							if( getAttackBoundsLeft().intersects(tempObject.getBounds()))
+							{
+								if( !playerAttackLeft.isMotionPerformed() ){
+									System.out.println("Attack Left!");							
+									tempObject.attacked(DamagePower);
+									playerAttackLeft.setMotionPerformed(true);
+								}
+								
+								if( tempObject.isDead() ){							
+									handler.removeObject( tempObject );
+									handler.KillMonster();								
+								}
+							}
+
+						}						
+					}
+				}
+			}
+
 			if(tempObject.getId() == ObjectID.Level){
 				if( getBounds().intersects(tempObject.getBounds()))
 				{

@@ -90,7 +90,19 @@ public class MonsterArcher extends GameObject{
 
         CollisionDetection(ObjectList);
         MonsterAI();
+        releventHealth();
+
     }
+
+    private void releventHealth(){
+
+		if( !isAttacked ) return;
+
+		damaged += damagedPoint;
+		
+		setObjectAttacked();
+	}
+
 
     public void CollisionDetection(LinkedList<GameObject> ObjectList){
         for(int i = 0; i < handler.ObjectList.size(); i++ ){

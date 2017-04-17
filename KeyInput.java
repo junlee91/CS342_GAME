@@ -41,6 +41,11 @@ public class KeyInput implements KeyListener{
 					tempObject.setVelY(-12);
 				}
 
+				if( key == KeyEvent.VK_SPACE )
+				{
+					tempObject.setVelY(-12);
+				}
+
 				if(key == KeyEvent.VK_K)
 				{
 					tempObject.setAttacking(true);
