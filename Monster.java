@@ -19,7 +19,6 @@ public class Monster extends GameObject{
 
 	private ObjectHandler handler;
     private GameObject player = null;
-    private int damaged;
 	private int healthBar;
 
     // --------- Motion BufferedImage ------------- //

@@ -25,6 +25,7 @@ public abstract class GameObject{  // TODO:: this will extend Polygon class late
 	protected int HealthPoint;
 	protected int DamagePower;
 	protected int damagedPoint;
+	protected int damaged;
 
 	protected float boost = 30;
 

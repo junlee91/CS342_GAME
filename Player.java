@@ -15,7 +15,6 @@ public class Player extends GameObject{
 	private final float BOOST_MAX = width;
 
 	private ObjectHandler handler;
-	private int damaged;
 	private int healthBar;
 	private int boostBar;
 
@@ -56,11 +55,11 @@ public class Player extends GameObject{
 		super(x, y, id);
 		this.handler = handler;
 
-		setHealthPoint((int)width);
-	    setDamagePower(10);
-
 		healthBar = (int)width;
 		boostBar = (int)width;
+		
+		setHealthPoint((int)width);
+	    setDamagePower(10);
 
 		loadMotionImage();
 
@@ -120,6 +119,7 @@ public class Player extends GameObject{
 	}
 
 	public void Update(LinkedList<GameObject> ObjectList) {
+
 		x += velX;
 		y += velY;
 

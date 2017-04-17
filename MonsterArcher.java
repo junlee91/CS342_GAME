@@ -17,7 +17,6 @@ public class MonsterArcher extends GameObject{
     private int time = 0;
 
     private ObjectHandler handler;
-    private int damaged;
 	private int healthBar;
 
    // --------- Motion BufferedImage ------------- //

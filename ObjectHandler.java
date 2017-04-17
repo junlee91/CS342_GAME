@@ -124,6 +124,8 @@ public class ObjectHandler
 	private boolean playerSword = false;
 	private boolean playerBow = false;
 	private int playerArrowCount = 0;
+	private int healthPoint;
+	private float boostGage;
 
 	public boolean isLevelCleared(){
 		return (MonsterCount == 0);
@@ -149,6 +151,9 @@ public class ObjectHandler
 			playerBow = true;
 			playerArrowCount = player.getArrowCount();
 		}
+
+		healthPoint = player.HealthPoint;
+		boostGage = player.boost;
 
 		LevelClear();
 
@@ -184,6 +189,9 @@ public class ObjectHandler
 					tempObject.hasBow = true;
 					tempObject.setArrow(playerArrowCount);
 				}
+
+				tempObject.damaged = (tempObject.HealthPoint - healthPoint);
+				tempObject.boost = boostGage;
 			}
 		}
 	}
