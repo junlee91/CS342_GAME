@@ -43,7 +43,10 @@ public class KeyInput implements KeyListener{
 
 				if( key == KeyEvent.VK_SPACE )
 				{
-					tempObject.setVelY(-12);
+					if(tempObject.isBoostAvailable()){
+						tempObject.setVelY(-12);
+						tempObject.boost();
+					}
 				}
 
 				if(key == KeyEvent.VK_K)

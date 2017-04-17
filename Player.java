@@ -12,10 +12,12 @@ public class Player extends GameObject{
 
 	private float gravity = 0.5f;
 	private final float MAX_SPEED = 10;
+	private final float BOOST_MAX = width;
 
 	private ObjectHandler handler;
 	private int damaged;
 	private int healthBar;
+	private int boostBar;
 
 	//------------ Motion arrayList  --------------//
 	ImageLoader imageLoading = new ImageLoader();	
@@ -56,6 +58,7 @@ public class Player extends GameObject{
 	    setDamagePower(10);
 
 		healthBar = (int)width;
+		boostBar = (int)width;
 
 		loadMotionImage();
 
@@ -126,6 +129,16 @@ public class Player extends GameObject{
 
 			if( velY > MAX_SPEED )
 				velY = MAX_SPEED;
+		}
+		
+		if(!jumping)
+		{
+			boostJump += 0.1;
+
+			if(boostJump > BOOST_MAX)
+			{
+				boostJump = BOOST_MAX;
+			}
 		}
 
 		CollisionDetection(ObjectList);
@@ -420,9 +433,13 @@ public class Player extends GameObject{
 
 		g.setColor(Color.gray);
 		g.fillRect( (int)(getX()), (int)(getY()-20), (int)healthBar, 10);
+		g.fillRect( (int)(getX()), (int)(getY()-40), (int)boostBar, 10);
 
 		g.setColor(Color.green);
 		g.fillRect( (int)(getX()), (int)(getY()-20), (int)(healthBar-damaged), 10);
+
+		g.setColor(Color.blue);
+		g.fillRect( (int)(getX()), (int)(getY()-40), (int)boostJump, 10);
 		// Graphics2D gg = (Graphics2D)g;
 		// gg.setColor(Color.RED);
 		// gg.draw(getBoundsLeft());

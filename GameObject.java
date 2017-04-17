@@ -26,6 +26,8 @@ public abstract class GameObject{  // TODO:: this will extend Polygon class late
 	protected int DamagePower;
 	protected int damagedPoint;
 
+	protected float boostJump = 30;
+
 	public GameObject(float x, float y, ObjectID id){
         this.x = x;
         this.y = y;
@@ -46,6 +48,9 @@ public abstract class GameObject{  // TODO:: this will extend Polygon class late
 	}
 	public void setObjectAttacked(){ isAttacked = false; damagedPoint = 0; }
     public boolean isDead() { return (this.HealthPoint <= 0); }
+
+	public void boost(){	boostJump -= 10;	}
+	public boolean isBoostAvailable(){ return (boostJump > 10); }
 
     public float getX(){ 	return x;	}
 	public float getY() { 	return y;	}
