@@ -374,11 +374,11 @@ public class Player extends GameObject{
 
 			if(direction == 1)
 			{
-				g.drawImage(characterDeathRight[randomImageIndex], (int)x, (int)y, null);
+				g.drawImage(characterDeathRight[randomImageIndex], (int)x-13, (int)y, null);
 			}
 			else if(direction == -1)
 			{
-				g.drawImage(characterDeathLeft[randomImageIndex], (int)x, (int)y, null);				
+				g.drawImage(characterDeathLeft[randomImageIndex], (int)x-13, (int)y, null);				
 			}
 
 			return;
