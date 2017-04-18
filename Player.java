@@ -15,8 +15,8 @@ public class Player extends GameObject{
 	private final float MAX_SPEED = 10;
 	private final float BOOST_MAX = width;
 	
-	//private boolean dead = false;
-	//private boolean deathImageSelected = false;
+	private boolean dead = false;
+	private boolean deathImageSelected = false;
 
 	private ObjectHandler handler;
 	private int healthBar;
@@ -46,7 +46,6 @@ public class Player extends GameObject{
 
 	private BufferedImage[] characterDeathLeft  = new BufferedImage[2];
 	private BufferedImage[] characterDeathRight = new BufferedImage[2];
-
 
 	private ObjectMotion playerWalkRight;
 	private ObjectMotion playerWalkLeft;
@@ -144,12 +143,12 @@ public class Player extends GameObject{
 		characterDeathRight[0] = imageLoading.LoadImage("/res/Hero/Death/R_deathDown.png");
 		characterDeathRight[1] = imageLoading.LoadImage("/res/Hero/Death/R_deathUp.png");
 
-
 	}
 	
 
-
 	public void Update(LinkedList<GameObject> ObjectList) {
+
+		if(dead) return;
 
 		x += velX;
 		y += velY;
@@ -203,6 +202,11 @@ public class Player extends GameObject{
 
 		for(int i = 0; i < handler.ObjectList.size(); i++){
 			GameObject tempObject = handler.ObjectList.get(i);
+
+			if(tempObject.getId() == ObjectID.Player)
+			{
+				if(tempObject.isDead()) dead = true;
+			}
 
 			if(tempObject.getId() == ObjectID.BottomLayer){
 				
@@ -357,8 +361,28 @@ public class Player extends GameObject{
 		}
 	}
 
-
+	int randomImageIndex = 0; // default
 	public void renderObject(Graphics g) {
+
+		if( isDead() )
+		{
+			width = height = 0;
+			if( !deathImageSelected ){
+				randomImageIndex = (int)(Math.random() * 2);
+				deathImageSelected = true;
+			}
+
+			if(direction == 1)
+			{
+				g.drawImage(characterDeathRight[randomImageIndex], (int)x, (int)y, null);
+			}
+			else if(direction == -1)
+			{
+				g.drawImage(characterDeathLeft[randomImageIndex], (int)x, (int)y, null);				
+			}
+
+			return;
+		}
 
 		if(jumping || (velY > 5))		// jumping motion
 		{

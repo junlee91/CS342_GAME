@@ -250,10 +250,6 @@ public class Monster extends GameObject{
 
                 player.attacked( DamagePower );
                 
-                if( player.isDead() )
-                {
-                    System.out.println("Game Over!!");
-                }
             }
         }
 
