@@ -19,6 +19,8 @@ public class KeyInput implements KeyListener{
 			
 			if(tempObject.getId() == ObjectID.Player)
 			{
+				// check if the player is alive over here 
+
 				if(key == KeyEvent.VK_D && tempObject.isGoingRight()) { 
 					tempObject.setVelX(5);  
 					tempObject.setAttacking(false);

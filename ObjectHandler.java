@@ -121,6 +121,7 @@ public class ObjectHandler
 		}
 	}	
 
+	private boolean playerAlive = true;
 	private boolean playerSword = false;
 	private boolean playerBow = false;
 	private int playerArrowCount = 0;

@@ -14,6 +14,9 @@ public class Player extends GameObject{
 	private float gravity = 0.5f;
 	private final float MAX_SPEED = 10;
 	private final float BOOST_MAX = width;
+	
+	private boolean dead = false;
+	private boolean deathImageSelected = false;
 
 	private ObjectHandler handler;
 	private int healthBar;
@@ -40,6 +43,10 @@ public class Player extends GameObject{
 
 	private BufferedImage[] characterDamagedRight = new BufferedImage[4];
 	private BufferedImage[] characterDamagedLeft  = new BufferedImage[4];
+
+	private BufferedImage[] characterDeathLeft  = new BufferedImage[2];
+	private BufferedImage[] characterDeathRight = new BufferedImage[2];
+
 
 	private ObjectMotion playerWalkRight;
 	private ObjectMotion playerWalkLeft;
@@ -100,10 +107,10 @@ public class Player extends GameObject{
 		// characterStanding[1] = imageLoading.LoadImage("/res/Hero/Stand/stand_3.png");
 
 		characterJumpingRight = imageLoading.LoadImage("/res/Hero/Jump/_J2.png");
-		characterJumpingLeft = imageLoading.LoadImage("/res/Hero/Jump/JL2.png");
+		characterJumpingLeft  = imageLoading.LoadImage("/res/Hero/Jump/JL2.png");
 
 		characterCrouchRight = imageLoading.LoadImage("/res/Hero/Pick Up/Crouch_R.png");
-		characterCrouchLeft = imageLoading.LoadImage("/res/Hero/Pick Up/Crouch_L.png");
+		characterCrouchLeft  = imageLoading.LoadImage("/res/Hero/Pick Up/Crouch_L.png");
 
 		characterAttackRight[0] = imageLoading.LoadImage("/res/Hero/Attack/Sword/R_Attack1.png");
 		characterAttackRight[1] = imageLoading.LoadImage("/res/Hero/Attack/Sword/R_Attack2.png");
@@ -131,7 +138,16 @@ public class Player extends GameObject{
 		characterDamagedLeft[2] = imageLoading.LoadImage("/res/Hero/Damage/L_damageAttack.png");
 		characterDamagedLeft[3] = imageLoading.LoadImage("/res/Hero/Damage/L_damageJump.png");
 
+		characterDeathLeft[0] = imageLoading.LoadImage("/res/Hero/Death/L_deathDown.png");
+		characterDeathLeft[1] = imageLoading.LoadImage("/res/Hero/Death/L_deathUp.png");
+		
+		characterDeathRight[0] = imageLoading.LoadImage("/res/Hero/Death/R_deathDown.png");
+		characterDeathRight[1] = imageLoading.LoadImage("/res/Hero/Death/R_deathUp.png");
+
+
 	}
+	
+
 
 	public void Update(LinkedList<GameObject> ObjectList) {
 
@@ -344,139 +360,148 @@ public class Player extends GameObject{
 
 	public void renderObject(Graphics g) {
 
-		if(jumping || (velY > 5))		// jumping motion
-		{
-			stance = 3;
-			if( velX > 0)				// jumping Right
-			{					
-				g.drawImage(characterJumpingRight, (int)x, (int)y, null);
-			}
-			else if( velX < 0)			// jumping Left
-			{				
-				g.drawImage(characterJumpingLeft, (int)x, (int)y, null);
-			}
-			else
+		// if(!dead)
+		// {
+			if(jumping || (velY > 5))		// jumping motion
 			{
-				if( isShooting && hasBow ) 
-				{
-					//System.out.println("Shoot!");
-					if( direction == 1)
-					{
-						playerSKYShootRight.drawMotion(g, (int)x, (int)y);
-					}
-					else if( direction == -1)
-					{
-						playerSKYShootLeft.drawMotion(g, (int)x-20, (int)y);						
-					}
+				stance = 3;
+				if( velX > 0)				// jumping Right
+				{					
+					g.drawImage(characterJumpingRight, (int)x, (int)y, null);
+				}
+				else if( velX < 0)			// jumping Left
+				{				
+					g.drawImage(characterJumpingLeft, (int)x, (int)y, null);
 				}
 				else
 				{
-					if(direction == 1)			// falling Right
-						g.drawImage(characterJumpingRight, (int)x, (int)y, null);
-					else if(direction == -1)	// falling Left
-						g.drawImage(characterJumpingLeft, (int)x, (int)y, null);
+					if( isShooting && hasBow ) 
+					{
+						//System.out.println("Shoot!");
+						if( direction == 1)
+						{
+							playerSKYShootRight.drawMotion(g, (int)x, (int)y);
+						}
+						else if( direction == -1)
+						{
+							playerSKYShootLeft.drawMotion(g, (int)x-20, (int)y);						
+						}
+					}
+					else
+					{
+						if(direction == 1)			// falling Right
+							g.drawImage(characterJumpingRight, (int)x, (int)y, null);
+						else if(direction == -1)	// falling Left
+							g.drawImage(characterJumpingLeft, (int)x, (int)y, null);
+					}
 				}
 			}
-		}
-		else								// moving motion
-		{
-			if( velX != 0){
-				stance = 1;
-				if( direction == 1 )		// going Right
-				{
-					playerWalkRight.drawMotion(g, (int)x, (int)y);
-				}
-				else if( direction == -1 )	// going Left
-				{
-					playerWalkLeft.drawMotion(g, (int)x, (int)y);
-				}
-			}	
-			else						// standing
-			{	
-				if( pickUp )
-				{
-					stance = 0;
-					if( direction == 1 )
-					{
-						g.drawImage(characterCrouchRight, (int)x, (int)y, null);						
-					}
-					else if( direction == -1 )
-					{
-						g.drawImage(characterCrouchLeft, (int)x, (int)y, null);
-					}
-				}
-				else if( isAttacking && hasSword )
-				{	
-					stance = 2;									
-					if( direction == 1 )
-					{
-						playerAttackRight.drawAttackMotion(g, (int)x, (int)y, this);
-					}
-					else if( direction == -1 )
-					{
-						playerAttackLeft.drawAttackMotion(g, (int)x-30, (int)y, this);
-					}
-				}
-				else if( isShooting && hasBow ) 
-				{
-					//System.out.println("Shoot!");
-					stance = 0;
-					if( direction == 1)
-					{
-						playerGNDShootRight.drawMotion(g, (int)x, (int)y+10);
-					}
-					else if( direction == -1)
-					{
-						playerGNDShootLeft.drawMotion(g, (int)x-20, (int)y+10);						
-					}
-				}
-				else{
+			else								// moving motion
+			{
+				if( velX != 0){
 					stance = 1;
 					if( direction == 1 )		// going Right
 					{
-						g.drawImage(characterRight[2], (int)x, (int)y, null);
+						playerWalkRight.drawMotion(g, (int)x, (int)y);
 					}
 					else if( direction == -1 )	// going Left
 					{
-						g.drawImage(characterLeft[3], (int)x, (int)y, null);						
+						playerWalkLeft.drawMotion(g, (int)x, (int)y);
+					}
+				}	
+				else						// standing
+				{	
+					if( pickUp )
+					{
+						stance = 0;
+						if( direction == 1 )
+						{
+							g.drawImage(characterCrouchRight, (int)x, (int)y, null);						
+						}
+						else if( direction == -1 )
+						{
+							g.drawImage(characterCrouchLeft, (int)x, (int)y, null);
+						}
+					}
+					else if( isAttacking && hasSword )
+					{	
+						stance = 2;									
+						if( direction == 1 )
+						{
+							playerAttackRight.drawAttackMotion(g, (int)x, (int)y, this);
+						}
+						else if( direction == -1 )
+						{
+							playerAttackLeft.drawAttackMotion(g, (int)x-30, (int)y, this);
+						}
+					}
+					else if( isShooting && hasBow ) 
+					{
+						//System.out.println("Shoot!");
+						stance = 0;
+						if( direction == 1)
+						{
+							playerGNDShootRight.drawMotion(g, (int)x, (int)y+10);
+						}
+						else if( direction == -1)
+						{
+							playerGNDShootLeft.drawMotion(g, (int)x-20, (int)y+10);						
+						}
+					}
+					else{
+						stance = 1;
+						if( direction == 1 )		// going Right
+						{
+							g.drawImage(characterRight[2], (int)x, (int)y, null);
+						}
+						else if( direction == -1 )	// going Left
+						{
+							g.drawImage(characterLeft[3], (int)x, (int)y, null);						
+						}
+					}
+				}	
+			}
+
+			if( isAttacked )
+			{
+				if(direction == 1) // facing right
+				{
+					switch(stance)
+					{
+						case 2: g.drawImage(characterDamagedRight[stance], (int)x+3, (int)y, null); break; // attack
+						default: g.drawImage(characterDamagedRight[stance], (int)x, (int)y, null); break; 
 					}
 				}
-			}	
-		}
-
-		if( isAttacked )
-		{
-			if(direction == 1) // facing right
-			{
-				switch(stance)
-				{
-					case 2: g.drawImage(characterDamagedRight[stance], (int)x+3, (int)y, null); break; // attack
-					default: g.drawImage(characterDamagedRight[stance], (int)x, (int)y, null); break; 
+				else  // facing left 
+				{ 
+					switch(stance)
+					{					
+						case 2: g.drawImage(characterDamagedLeft[stance], (int)x-25, (int)y, null); break;
+						default: g.drawImage(characterDamagedLeft[stance], (int)x, (int)y, null); break; 
+					}
 				}
 			}
-			else  // facing left 
-			{ 
-				switch(stance)
-				{					
-					case 2: g.drawImage(characterDamagedLeft[stance], (int)x-25, (int)y, null); break;
-					default: g.drawImage(characterDamagedLeft[stance], (int)x, (int)y, null); break; 
-				}
-			}
-			// g.setColor(Color.RED);
-			// g.fillRect((int)(getX()), (int)(getY()), (int)width, (int)height);
-		}
 
-		releventHealth();
+			releventHealth();
 
-		g.setColor(Color.gray);
-		g.fillRect( (int)(getX()), (int)(getY()-20), (int)healthBar, 10);
-		g.fillRect( (int)(getX()), (int)(getY()-40), (int)boostBar, 10);
+			g.setColor(Color.gray);
+			g.fillRect( (int)(getX()), (int)(getY()-20), (int)healthBar, 10);
+			g.fillRect( (int)(getX()), (int)(getY()-40), (int)boostBar, 10);
 
-		g.setColor(Color.green);
-		g.fillRect( (int)(getX()), (int)(getY()-20), (int)(healthBar-damaged), 10);
+			g.setColor(Color.green);
+			g.fillRect( (int)(getX()), (int)(getY()-20), (int)(healthBar-damaged), 10);
 
-		g.setColor(lightBlue);
-		g.fillRect( (int)(getX()), (int)(getY()-40), (int)boost, 10);
+			g.setColor(lightBlue);
+			g.fillRect( (int)(getX()), (int)(getY()-40), (int)boost, 10);
+		
+		// }
+		// else
+		// {
+		//  g.drawImage(characterDamagedRight[stance], (int)x, (int)y, null);
+		// }
+
+
+		
 		// Graphics2D gg = (Graphics2D)g;
 		// gg.setColor(Color.RED);
 		// gg.draw(getBoundsLeft());
