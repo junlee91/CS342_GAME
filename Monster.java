@@ -8,7 +8,7 @@ import java.util.LinkedList;
 public class Monster extends GameObject{
 
     private float width = 48, height = 85;	
-
+    private int stance = 0;
 	private float gravity = 0.5f;
 	private final float MAX_SPEED = 10;
     private boolean playerLeftDetected = false;
@@ -28,6 +28,9 @@ public class Monster extends GameObject{
 
     private BufferedImage[] MonsterAttackRight = new BufferedImage[5];
     private BufferedImage[] MonsterAttackLeft = new BufferedImage[5];
+
+	private BufferedImage[] MonsterDamageRight = new BufferedImage[2];
+	private BufferedImage[] MonsterDamageLeft  = new BufferedImage[2];
     
     private BufferedImage monsterJumpingRight = null;
     private BufferedImage monsterJumpingLeft = null;
@@ -66,6 +69,7 @@ public class Monster extends GameObject{
         objectAttackRight = new ObjectMotion(6, MonsterAttackRight[0],MonsterAttackRight[1],MonsterAttackRight[2],MonsterAttackRight[3],MonsterAttackRight[4]);
 
         objectAttackLeft = new ObjectMotion(6, MonsterAttackLeft[0],MonsterAttackLeft[1],MonsterAttackLeft[2],MonsterAttackLeft[3], MonsterAttackLeft[4]);
+
     }
 
     private void loadMotionImage(){
@@ -95,6 +99,10 @@ public class Monster extends GameObject{
         MonsterAttackLeft[3] = imageLoading.LoadImage("/res/EnemyHuman/Attack/LeftAttack/L4_attack.png");
         MonsterAttackLeft[4] = imageLoading.LoadImage("/res/EnemyHuman/Attack/LeftAttack/L5_attack.png");
         
+		MonsterDamageLeft[0]  = imageLoading.LoadImage("/res/EnemyHuman/Damaged/L_DamageStand.png");
+		MonsterDamageLeft[1]  = imageLoading.LoadImage("/res/EnemyHuman/Damaged/L_DamageAttack.png");
+        MonsterDamageRight[0] = imageLoading.LoadImage("/res/EnemyHuman/Damaged/R_DamageStand.png");
+        MonsterDamageRight[1] = imageLoading.LoadImage("/res/EnemyHuman/Damaged/R_DamageAttack.png");
     }
 
     public void Update(LinkedList<GameObject> ObjectList) {
@@ -215,16 +223,19 @@ public class Monster extends GameObject{
 
         if( playerLeftDetected )
         {
+        	stance = 0;
             velX = (float)(-2); //direction = -1; 
         }
         else if( playerRightDetected )
         {
+        	stance = 0;
             velX = (float)(2); //direction = 1;         
         }
 
 
         if( attackPlayer )
         {
+        	stance = 1;
             time++;
             if( time % 30 == 0){
                 if(direction == 1)
@@ -248,6 +259,7 @@ public class Monster extends GameObject{
 
         if( collideWithPlayer )
         {
+        	stance = 1;
             velX = 0;
             return;
         }
@@ -256,10 +268,12 @@ public class Monster extends GameObject{
 
         if( move < 10)
         {
+        	stance = 0;
             velX = (float)1;
         }
         else if( move > 990)
         {
+        	stance = 0;
             velX = (float)(-1);
         }
         else if( move == 10 && falling)
@@ -301,6 +315,7 @@ public class Monster extends GameObject{
         }
         else
         {
+        	stance = 0;
             if( direction == 1 )
             {
                 //g.drawImage(MonsterRight[0], (int)x, (int)y, null);
@@ -316,9 +331,26 @@ public class Monster extends GameObject{
 
         if( isAttacked )
 		{
+			if(direction == 1) // facing right
+			{
+				switch(stance)
+				{
+					case 1: g.drawImage(MonsterDamageRight[stance], (int)x+3, (int)y, null); break;
+					default: g.drawImage(MonsterDamageRight[stance], (int)x, (int)y, null); break;
+				}
+			}
+			else  // facing left 
+			{ 
+				switch(stance)
+				{
+					case 1: g.drawImage(MonsterDamageLeft[stance], (int)x-28, (int)y, null); break;
+					default: g.drawImage(MonsterDamageLeft[stance], (int)x, (int)y, null); break;
+				}
+			}
+
 			System.out.println("AHhh!!");
-			g.setColor(Color.RED);
-			g.fillRect((int)(getX()), (int)(getY()), (int)width, (int)height);
+			// g.setColor(Color.RED);
+			// g.fillRect((int)(getX()), (int)(getY()), (int)width, (int)height);
 		}
 
         releventHealth();

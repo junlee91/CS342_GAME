@@ -204,7 +204,7 @@ public class MonsterArcher extends GameObject{
 		{
 			// System.out.println("Attacked!!");
 			g.setColor(Color.RED);
-			g.fillRect((int)(getX()), (int)(getY()), (int)width, (int)height);
+			g.fillRect((int)(getX()), (int)(getY()), (int)width, (int)height+20);
 		}
 
         releventHealth();

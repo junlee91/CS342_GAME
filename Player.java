@@ -448,12 +448,22 @@ public class Player extends GameObject{
 		{
 			if(direction == 1) // facing right
 			{
-				g.drawImage(characterDamagedRight[stance], (int)x, (int)y, null);
+				switch(stance)
+				{
+					case 2: g.drawImage(characterDamagedRight[stance], (int)x+3, (int)y, null); break; // attack
+					default: g.drawImage(characterDamagedRight[stance], (int)x, (int)y, null); break; 
+				}
 			}
 			else  // facing left 
 			{ 
-				g.drawImage(characterDamagedLeft[stance], (int)x, (int)y, null);
+				switch(stance)
+				{					
+					case 2: g.drawImage(characterDamagedLeft[stance], (int)x-25, (int)y, null); break;
+					default: g.drawImage(characterDamagedLeft[stance], (int)x, (int)y, null); break; 
+				}
 			}
+			// g.setColor(Color.RED);
+			// g.fillRect((int)(getX()), (int)(getY()), (int)width, (int)height);
 		}
 
 		releventHealth();
