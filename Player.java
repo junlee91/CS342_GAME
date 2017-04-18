@@ -15,8 +15,8 @@ public class Player extends GameObject{
 	private final float MAX_SPEED = 10;
 	private final float BOOST_MAX = width;
 	
-	private boolean dead = false;
-	private boolean deathImageSelected = false;
+	//private boolean dead = false;
+	//private boolean deathImageSelected = false;
 
 	private ObjectHandler handler;
 	private int healthBar;
@@ -360,145 +360,138 @@ public class Player extends GameObject{
 
 	public void renderObject(Graphics g) {
 
-		// if(!dead)
-		// {
-			if(jumping || (velY > 5))		// jumping motion
+		if(jumping || (velY > 5))		// jumping motion
+		{
+			stance = 3;
+			if( velX > 0)				// jumping Right
+			{					
+				g.drawImage(characterJumpingRight, (int)x, (int)y, null);
+			}
+			else if( velX < 0)			// jumping Left
+			{				
+				g.drawImage(characterJumpingLeft, (int)x, (int)y, null);
+			}
+			else
 			{
-				stance = 3;
-				if( velX > 0)				// jumping Right
-				{					
-					g.drawImage(characterJumpingRight, (int)x, (int)y, null);
-				}
-				else if( velX < 0)			// jumping Left
-				{				
-					g.drawImage(characterJumpingLeft, (int)x, (int)y, null);
+				if( isShooting && hasBow ) 
+				{
+					//System.out.println("Shoot!");
+					if( direction == 1)
+					{
+						playerSKYShootRight.drawMotion(g, (int)x, (int)y);
+					}
+					else if( direction == -1)
+					{
+						playerSKYShootLeft.drawMotion(g, (int)x-20, (int)y);						
+					}
 				}
 				else
 				{
-					if( isShooting && hasBow ) 
-					{
-						//System.out.println("Shoot!");
-						if( direction == 1)
-						{
-							playerSKYShootRight.drawMotion(g, (int)x, (int)y);
-						}
-						else if( direction == -1)
-						{
-							playerSKYShootLeft.drawMotion(g, (int)x-20, (int)y);						
-						}
-					}
-					else
-					{
-						if(direction == 1)			// falling Right
-							g.drawImage(characterJumpingRight, (int)x, (int)y, null);
-						else if(direction == -1)	// falling Left
-							g.drawImage(characterJumpingLeft, (int)x, (int)y, null);
-					}
+					if(direction == 1)			// falling Right
+						g.drawImage(characterJumpingRight, (int)x, (int)y, null);
+					else if(direction == -1)	// falling Left
+						g.drawImage(characterJumpingLeft, (int)x, (int)y, null);
 				}
 			}
-			else								// moving motion
-			{
-				if( velX != 0){
+		}
+		else								// moving motion
+		{
+			if( velX != 0){
+				stance = 1;
+				if( direction == 1 )		// going Right
+				{
+					playerWalkRight.drawMotion(g, (int)x, (int)y);
+				}
+				else if( direction == -1 )	// going Left
+				{
+					playerWalkLeft.drawMotion(g, (int)x, (int)y);
+				}
+			}	
+			else						// standing
+			{	
+				if( pickUp )
+				{
+					stance = 0;
+					if( direction == 1 )
+					{
+						g.drawImage(characterCrouchRight, (int)x, (int)y, null);						
+					}
+					else if( direction == -1 )
+					{
+						g.drawImage(characterCrouchLeft, (int)x, (int)y, null);
+					}
+				}
+				else if( isAttacking && hasSword )
+				{	
+					stance = 2;									
+					if( direction == 1 )
+					{
+						playerAttackRight.drawAttackMotion(g, (int)x, (int)y, this);
+					}
+					else if( direction == -1 )
+					{
+						playerAttackLeft.drawAttackMotion(g, (int)x-30, (int)y, this);
+					}
+				}
+				else if( isShooting && hasBow ) 
+				{
+					//System.out.println("Shoot!");
+					stance = 0;
+					if( direction == 1)
+					{
+						playerGNDShootRight.drawMotion(g, (int)x, (int)y+10);
+					}
+					else if( direction == -1)
+					{
+						playerGNDShootLeft.drawMotion(g, (int)x-20, (int)y+10);						
+					}
+				}
+				else{
 					stance = 1;
 					if( direction == 1 )		// going Right
 					{
-						playerWalkRight.drawMotion(g, (int)x, (int)y);
+						g.drawImage(characterRight[2], (int)x, (int)y, null);
 					}
 					else if( direction == -1 )	// going Left
 					{
-						playerWalkLeft.drawMotion(g, (int)x, (int)y);
+						g.drawImage(characterLeft[3], (int)x, (int)y, null);						
 					}
-				}	
-				else						// standing
-				{	
-					if( pickUp )
-					{
-						stance = 0;
-						if( direction == 1 )
-						{
-							g.drawImage(characterCrouchRight, (int)x, (int)y, null);						
-						}
-						else if( direction == -1 )
-						{
-							g.drawImage(characterCrouchLeft, (int)x, (int)y, null);
-						}
-					}
-					else if( isAttacking && hasSword )
-					{	
-						stance = 2;									
-						if( direction == 1 )
-						{
-							playerAttackRight.drawAttackMotion(g, (int)x, (int)y, this);
-						}
-						else if( direction == -1 )
-						{
-							playerAttackLeft.drawAttackMotion(g, (int)x-30, (int)y, this);
-						}
-					}
-					else if( isShooting && hasBow ) 
-					{
-						//System.out.println("Shoot!");
-						stance = 0;
-						if( direction == 1)
-						{
-							playerGNDShootRight.drawMotion(g, (int)x, (int)y+10);
-						}
-						else if( direction == -1)
-						{
-							playerGNDShootLeft.drawMotion(g, (int)x-20, (int)y+10);						
-						}
-					}
-					else{
-						stance = 1;
-						if( direction == 1 )		// going Right
-						{
-							g.drawImage(characterRight[2], (int)x, (int)y, null);
-						}
-						else if( direction == -1 )	// going Left
-						{
-							g.drawImage(characterLeft[3], (int)x, (int)y, null);						
-						}
-					}
-				}	
-			}
+				}
+			}	
+		}
 
-			if( isAttacked )
+		if( isAttacked )
+		{
+			if(direction == 1) // facing right
 			{
-				if(direction == 1) // facing right
+				switch(stance)
 				{
-					switch(stance)
-					{
-						case 2: g.drawImage(characterDamagedRight[stance], (int)x+3, (int)y, null); break; // attack
-						default: g.drawImage(characterDamagedRight[stance], (int)x, (int)y, null); break; 
-					}
-				}
-				else  // facing left 
-				{ 
-					switch(stance)
-					{					
-						case 2: g.drawImage(characterDamagedLeft[stance], (int)x-25, (int)y, null); break;
-						default: g.drawImage(characterDamagedLeft[stance], (int)x, (int)y, null); break; 
-					}
+					case 2: g.drawImage(characterDamagedRight[stance], (int)x+3, (int)y, null); break; // attack
+					default: g.drawImage(characterDamagedRight[stance], (int)x, (int)y, null); break; 
 				}
 			}
+			else  // facing left 
+			{ 
+				switch(stance)
+				{					
+					case 2: g.drawImage(characterDamagedLeft[stance], (int)x-25, (int)y, null); break;
+					default: g.drawImage(characterDamagedLeft[stance], (int)x, (int)y, null); break; 
+				}
+			}
+		}
 
-			releventHealth();
+		releventHealth();
 
-			g.setColor(Color.gray);
-			g.fillRect( (int)(getX()), (int)(getY()-20), (int)healthBar, 10);
-			g.fillRect( (int)(getX()), (int)(getY()-40), (int)boostBar, 10);
+		g.setColor(Color.gray);
+		g.fillRect( (int)(getX()), (int)(getY()-20), (int)healthBar, 10);
+		g.fillRect( (int)(getX()), (int)(getY()-40), (int)boostBar, 10);
 
-			g.setColor(Color.green);
-			g.fillRect( (int)(getX()), (int)(getY()-20), (int)(healthBar-damaged), 10);
+		g.setColor(Color.green);
+		g.fillRect( (int)(getX()), (int)(getY()-20), (int)(healthBar-damaged), 10);
 
-			g.setColor(lightBlue);
-			g.fillRect( (int)(getX()), (int)(getY()-40), (int)boost, 10);
-		
-		// }
-		// else
-		// {
-		//  g.drawImage(characterDamagedRight[stance], (int)x, (int)y, null);
-		// }
+		g.setColor(lightBlue);
+		g.fillRect( (int)(getX()), (int)(getY()-40), (int)boost, 10);
+
 
 
 		
