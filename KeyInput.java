@@ -33,8 +33,11 @@ public class KeyInput implements KeyListener{
 				if(key == KeyEvent.VK_S )
 				{
 					tempObject.setPickUp(true);
+					// temporary here used for charging
+					
 				}
 				
+
 				if((key == KeyEvent.VK_W || key == KeyEvent.VK_SPACE ) && !tempObject.isJumping() && tempObject.getVelY() <= 5 )
 				{
 					tempObject.setJumping(true);
