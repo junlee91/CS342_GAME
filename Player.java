@@ -8,7 +8,8 @@ import java.util.LinkedList;
 
 public class Player extends GameObject{
 
-	private float width = 48, height = 69;	
+	private float width = 48, height = 69;
+	private int stance = 1; 	
 
 	private float gravity = 0.5f;
 	private final float MAX_SPEED = 10;
@@ -36,7 +37,9 @@ public class Player extends GameObject{
 	private BufferedImage[] characterGNDShootingRight = new BufferedImage[1];	
 	private BufferedImage[] characterSKYShootingLeft = new BufferedImage[1];
 	private BufferedImage[] characterSKYShootingRight = new BufferedImage[1];
-	
+
+	private BufferedImage[] characterDamagedRight = new BufferedImage[4];
+	private BufferedImage[] characterDamagedLeft  = new BufferedImage[4];
 
 	private ObjectMotion playerWalkRight;
 	private ObjectMotion playerWalkLeft;
@@ -49,6 +52,8 @@ public class Player extends GameObject{
 
 	private ObjectMotion playerSKYShootRight;
 	private ObjectMotion playerSKYShootLeft;
+
+
 	//--------------------------------------------//
 
 	public Player(float x, float y, ObjectHandler handler, ObjectID id) {
@@ -78,7 +83,6 @@ public class Player extends GameObject{
 		playerGNDShootRight = new ObjectMotion(7, characterGNDShootingRight[0]);
 		playerSKYShootLeft = new ObjectMotion(7, characterSKYShootingLeft[0]);
 		playerSKYShootRight = new ObjectMotion(7, characterSKYShootingRight[0]);
-
 	}
 
 	private void loadMotionImage(){
@@ -116,6 +120,17 @@ public class Player extends GameObject{
 
 		characterSKYShootingLeft[0] = imageLoading.LoadImage("/res/Hero/Attack/CrossBow/L_Jmp_shot1.png");
 		characterSKYShootingRight[0] = imageLoading.LoadImage("/res/Hero/Attack/CrossBow/R_Jmp_shot1.png");
+
+		characterDamagedRight[0] = imageLoading.LoadImage("/res/Hero/Damage/R_damageSit.png");
+		characterDamagedRight[1] = imageLoading.LoadImage("/res/Hero/Damage/R_damageStand.png");
+		characterDamagedRight[2] = imageLoading.LoadImage("/res/Hero/Damage/R_damageAttack.png");
+		characterDamagedRight[3] = imageLoading.LoadImage("/res/Hero/Damage/R_damageJump.png");
+		
+		characterDamagedLeft[0] = imageLoading.LoadImage("/res/Hero/Damage/L_damageSit.png");
+		characterDamagedLeft[1] = imageLoading.LoadImage("/res/Hero/Damage/L_damageStand.png");
+		characterDamagedLeft[2] = imageLoading.LoadImage("/res/Hero/Damage/L_damageAttack.png");
+		characterDamagedLeft[3] = imageLoading.LoadImage("/res/Hero/Damage/L_damageJump.png");
+
 	}
 
 	public void Update(LinkedList<GameObject> ObjectList) {
@@ -156,7 +171,6 @@ public class Player extends GameObject{
 		playerGNDShootRight.runMotion();
 		playerSKYShootLeft.runMotion();
 		playerSKYShootRight.runMotion();
-
 	}
 
 	private void releventHealth(){
@@ -332,6 +346,7 @@ public class Player extends GameObject{
 
 		if(jumping || (velY > 5))		// jumping motion
 		{
+			stance = 3;
 			if( velX > 0)				// jumping Right
 			{					
 				g.drawImage(characterJumpingRight, (int)x, (int)y, null);
@@ -366,6 +381,7 @@ public class Player extends GameObject{
 		else								// moving motion
 		{
 			if( velX != 0){
+				stance = 1;
 				if( direction == 1 )		// going Right
 				{
 					playerWalkRight.drawMotion(g, (int)x, (int)y);
@@ -379,6 +395,7 @@ public class Player extends GameObject{
 			{	
 				if( pickUp )
 				{
+					stance = 0;
 					if( direction == 1 )
 					{
 						g.drawImage(characterCrouchRight, (int)x, (int)y, null);						
@@ -389,7 +406,8 @@ public class Player extends GameObject{
 					}
 				}
 				else if( isAttacking && hasSword )
-				{										
+				{	
+					stance = 2;									
 					if( direction == 1 )
 					{
 						playerAttackRight.drawAttackMotion(g, (int)x, (int)y, this);
@@ -402,6 +420,7 @@ public class Player extends GameObject{
 				else if( isShooting && hasBow ) 
 				{
 					//System.out.println("Shoot!");
+					stance = 0;
 					if( direction == 1)
 					{
 						playerGNDShootRight.drawMotion(g, (int)x, (int)y+10);
@@ -412,13 +431,14 @@ public class Player extends GameObject{
 					}
 				}
 				else{
+					stance = 1;
 					if( direction == 1 )		// going Right
 					{
-						g.drawImage(characterRight[0], (int)x, (int)y, null);
+						g.drawImage(characterRight[2], (int)x, (int)y, null);
 					}
 					else if( direction == -1 )	// going Left
 					{
-						g.drawImage(characterLeft[0], (int)x, (int)y, null);						
+						g.drawImage(characterLeft[3], (int)x, (int)y, null);						
 					}
 				}
 			}	
@@ -426,9 +446,14 @@ public class Player extends GameObject{
 
 		if( isAttacked )
 		{
-			// System.out.println("Attacked!!");
-			g.setColor(Color.RED);
-			g.fillRect((int)(getX()), (int)(getY()), (int)width, (int)height);
+			if(direction == 1) // facing right
+			{
+				g.drawImage(characterDamagedRight[stance], (int)x, (int)y, null);
+			}
+			else  // facing left 
+			{ 
+				g.drawImage(characterDamagedLeft[stance], (int)x, (int)y, null);
+			}
 		}
 
 		releventHealth();

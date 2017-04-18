@@ -35,13 +35,13 @@ public class KeyInput implements KeyListener{
 					tempObject.setPickUp(true);
 				}
 				
-				if(key == KeyEvent.VK_W && !tempObject.isJumping() && tempObject.getVelY() <= 5 )
+				if((key == KeyEvent.VK_W || key == KeyEvent.VK_SPACE ) && !tempObject.isJumping() && tempObject.getVelY() <= 5 )
 				{
 					tempObject.setJumping(true);
 					tempObject.setVelY(-12);
 				}
 
-				if( key == KeyEvent.VK_SPACE )
+				if( key == KeyEvent.VK_SPACE || key == KeyEvent.VK_W )
 				{
 					if(tempObject.isJumping()){
 						if(tempObject.isBoostAvailable()){
@@ -49,7 +49,6 @@ public class KeyInput implements KeyListener{
 							tempObject.boost();
 						}
 					}
-
 
 				}
 

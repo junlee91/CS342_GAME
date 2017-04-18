@@ -26,8 +26,8 @@ public class Monster extends GameObject{
     private BufferedImage[] MonsterRight = new BufferedImage[5];
     private BufferedImage[] MonsterLeft = new BufferedImage[5];
 
-    private BufferedImage[] MonsterAttackRight = new BufferedImage[4];
-    private BufferedImage[] MonsterAttackLeft = new BufferedImage[4];
+    private BufferedImage[] MonsterAttackRight = new BufferedImage[5];
+    private BufferedImage[] MonsterAttackLeft = new BufferedImage[5];
     
     private BufferedImage monsterJumpingRight = null;
     private BufferedImage monsterJumpingLeft = null;
@@ -63,9 +63,9 @@ public class Monster extends GameObject{
         objectRunLeft = new ObjectMotion(8, MonsterLeft[0], MonsterLeft[1],MonsterLeft[2],
                                 MonsterLeft[3], MonsterLeft[4]);
 
-        objectAttackRight = new ObjectMotion(6, MonsterAttackRight[0],MonsterAttackRight[1],MonsterAttackRight[2],MonsterAttackRight[3]);
+        objectAttackRight = new ObjectMotion(6, MonsterAttackRight[0],MonsterAttackRight[1],MonsterAttackRight[2],MonsterAttackRight[3],MonsterAttackRight[4]);
 
-        objectAttackLeft = new ObjectMotion(6, MonsterAttackLeft[0],MonsterAttackLeft[1],MonsterAttackLeft[2],MonsterAttackLeft[3]);
+        objectAttackLeft = new ObjectMotion(6, MonsterAttackLeft[0],MonsterAttackLeft[1],MonsterAttackLeft[2],MonsterAttackLeft[3], MonsterAttackLeft[4]);
     }
 
     private void loadMotionImage(){
@@ -86,13 +86,14 @@ public class Monster extends GameObject{
         MonsterAttackRight[0] = imageLoading.LoadImage("/res/EnemyHuman/Attack/RightAttack/R1_attack.png");
         MonsterAttackRight[1] = imageLoading.LoadImage("/res/EnemyHuman/Attack/RightAttack/R2_attack.png");
         MonsterAttackRight[2] = imageLoading.LoadImage("/res/EnemyHuman/Attack/RightAttack/R3_attack.png");
-        MonsterAttackRight[3] = imageLoading.LoadImage("/res/EnemyHuman/Attack/RightAttack/R4_attack.png");        
+        MonsterAttackRight[3] = imageLoading.LoadImage("/res/EnemyHuman/Attack/RightAttack/R4_attack.png");   
+        MonsterAttackRight[4] = imageLoading.LoadImage("/res/EnemyHuman/Attack/RightAttack/R5_attack.png");      
 
         MonsterAttackLeft[0] = imageLoading.LoadImage("/res/EnemyHuman/Attack/LeftAttack/L1_attack.png");
         MonsterAttackLeft[1] = imageLoading.LoadImage("/res/EnemyHuman/Attack/LeftAttack/L2_attack.png");
         MonsterAttackLeft[2] = imageLoading.LoadImage("/res/EnemyHuman/Attack/LeftAttack/L3_attack.png");
         MonsterAttackLeft[3] = imageLoading.LoadImage("/res/EnemyHuman/Attack/LeftAttack/L4_attack.png");
-        
+        MonsterAttackLeft[4] = imageLoading.LoadImage("/res/EnemyHuman/Attack/LeftAttack/L5_attack.png");
         
     }
 
