@@ -19,6 +19,7 @@ public abstract class GameObject{  // TODO:: this will extend Polygon class late
 	protected boolean hasSword = false;
 	protected boolean hasBow = false;
 	protected boolean isAttacked = false;
+	protected boolean isDead = false;
 
 	protected int direction = 1;    
 	protected int ArrowCount;
@@ -82,7 +83,6 @@ public abstract class GameObject{  // TODO:: this will extend Polygon class late
 
 	public void setAttacking(boolean status) { this.isAttacking = status; }
 	public void setShooting(boolean status) { this.isShooting = status; }
-
 
 	public boolean HasBow(){ return hasBow; }
 

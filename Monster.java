@@ -252,6 +252,7 @@ public class Monster extends GameObject{
                 
                 if( player.isDead() )
                 {
+                	// player.
                     System.out.println("Game Over!!");
                 }
             }
