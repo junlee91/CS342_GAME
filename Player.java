@@ -165,7 +165,7 @@ public class Player extends GameObject{
 		
 		if(!jumping)
 		{
-			boost += 0.1;
+			boost += 0.2;
 
 			if(boost > BOOST_MAX)
 			{

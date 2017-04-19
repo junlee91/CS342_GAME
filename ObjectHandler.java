@@ -192,6 +192,7 @@ public class ObjectHandler
 				}
 
 				tempObject.damaged = (tempObject.HealthPoint - healthPoint);
+				tempObject.setHealthPoint(healthPoint);
 				tempObject.boost = boostGauge;
 			}
 		}
