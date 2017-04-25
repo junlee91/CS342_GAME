@@ -51,7 +51,7 @@ public class Monster extends GameObject{
 		this.handler = handler;
 
         setHealthPoint((int)width);
-	    setDamagePower(1);
+	    setDamagePower(3);
 
         healthBar = (int)width;
 
