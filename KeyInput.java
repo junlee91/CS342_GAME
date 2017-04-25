@@ -35,8 +35,12 @@ public class KeyInput implements KeyListener{
 				if(key == KeyEvent.VK_S )
 				{
 					tempObject.setPickUp(true);
-					// temporary here used for charging
-					
+					// temporary here used for charging	
+				}
+
+				if( key == KeyEvent.VK_R )
+				{
+					handler.reset();
 				}
 				
 
@@ -66,7 +70,7 @@ public class KeyInput implements KeyListener{
 				{
 					if( tempObject.HasBow() && tempObject.getVelX() == 0 && tempObject.isArrowAvailable() ){
 						tempObject.setShooting(true);
-						tempObject.MinusArrow();
+						//tempObject.MinusArrow();
 						System.out.println("Shoot!");
 
 						if( tempObject.getDirection() > 0)

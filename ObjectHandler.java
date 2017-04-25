@@ -19,8 +19,9 @@ public class ObjectHandler
 		imageLoading = new ImageLoader();
 		LEVEL = 1;
 
-		Game.City = imageLoading.LoadImage("/res/Map/Forest.png");
-		Layer = imageLoading.LoadImage("/res/Map/Forest_Level.png");
+		Game.City = imageLoading.LoadImage("/res/Map/Forest_Tutorial.jpg");
+		Layer = imageLoading.LoadImage("/res/Map/Forest_Tutorial_Level.png");
+				
 	}
 	
 	public void Update(){
@@ -161,12 +162,17 @@ public class ObjectHandler
 		switch(LEVEL)
 		{
 			case 1:
-				Layer = imageLoading.LoadImage("/res/Map/City_Level.png");
-				Game.City = imageLoading.LoadImage("/res/Map/City.png");
+				Game.City = imageLoading.LoadImage("/res/Map/Forest.png");
+				Layer = imageLoading.LoadImage("/res/Map/Forest_Level.png");
 				SetGameLayer();
 				updatePlayerData();
 				break;
-			case 2: break;
+			case 2: 
+				Layer = imageLoading.LoadImage("/res/Map/City_Level.png");
+				Game.City = imageLoading.LoadImage("/res/Map/City.png");
+				SetGameLayer();				
+				updatePlayerData();
+				break;
 			case 3: break;
 		}
 
@@ -203,6 +209,15 @@ public class ObjectHandler
 	}
 
 	
+	public void reset()
+	{	
+		LevelClear();
+		LEVEL = 1;
+		Game.City = imageLoading.LoadImage("/res/Map/Forest_Tutorial.jpg");
+		Layer = imageLoading.LoadImage("/res/Map/Forest_Tutorial_Level.png");
+		SetGameLayer();
+	}
+
 	// TODO:: Adding Ground Image
 	public void CreateBottomLayer(){
 		for(int i = 0; i < Game.WIDTH*2; i += 32)
