@@ -212,10 +212,12 @@ public class ObjectHandler
 	public void reset()
 	{	
 		LevelClear();
-		LEVEL = 1;
-		Game.City = imageLoading.LoadImage("/res/Map/Forest_Tutorial.jpg");
-		Layer = imageLoading.LoadImage("/res/Map/Forest_Tutorial_Level.png");
 		SetGameLayer();
+		playerSword = true;
+		//playerBow = true;
+		healthPoint = 48;
+		updatePlayerData();
+		
 	}
 
 	// TODO:: Adding Ground Image
