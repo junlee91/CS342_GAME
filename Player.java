@@ -517,7 +517,7 @@ public class Player extends GameObject{
 		g.fillRect( (int)(getX()), (int)(getY()-40), (int)boost, 10);
 
 
-
+		
 		
 		// Graphics2D gg = (Graphics2D)g;
 		// gg.setColor(Color.RED);

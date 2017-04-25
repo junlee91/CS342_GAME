@@ -201,6 +201,7 @@ public class ObjectHandler
 	public void KillMonster(){
 		MonsterCount--;
 	}
+
 	
 	// TODO:: Adding Ground Image
 	public void CreateBottomLayer(){
