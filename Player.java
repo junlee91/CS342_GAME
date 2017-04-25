@@ -70,7 +70,7 @@ public class Player extends GameObject{
 		boostBar = (int)width;
 		
 		setHealthPoint((int)width);
-	    setDamagePower(10);
+	    setDamagePower(15);
 
 		loadMotionImage();
 
