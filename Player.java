@@ -278,6 +278,11 @@ public class Player extends GameObject{
 							damaged = 0;
 							healthBar = (int)width;
 						}
+						else
+						{
+							setHeal(10);
+						}
+
 					}
 				}
 			}
