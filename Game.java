@@ -82,13 +82,14 @@ public class Game extends JPanel implements ActionListener, MouseListener
 
 	JButton buttonCreation(String image)
 	{
-		  JButton temp = new JButton(new ImageIcon(image));
-	      temp.setContentAreaFilled(false);
-	      temp.setBorder(null);
-	      temp.setFocusPainted(false);
-	      temp.setBorderPainted(false);
-	      temp.setBackground(Color.black);
-	      return temp;
+		JButton temp = new JButton(new ImageIcon(image));
+		temp.setContentAreaFilled(false);
+		temp.setBorder(null);
+		temp.setFocusPainted(false);
+		temp.setBorderPainted(false);
+		temp.setBackground(Color.black);
+		temp.setBounds   (1000, 500, 100, 100);
+		return temp;
 	}
 
 
