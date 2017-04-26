@@ -136,8 +136,15 @@ public class Game extends JPanel implements ActionListener, MouseListener
 	public void mouseReleased  (MouseEvent click) {}
 	public void mouseClicked   (MouseEvent click) {}
 	public void mousePressed   (MouseEvent click) {} 
-	public void mouseEntered   (MouseEvent click) {} 
-	public void mouseExited    (MouseEvent click) {}
+	
+	
+	public void mouseEntered   (MouseEvent click) {
+
+	} 
+	
+	public void mouseExited    (MouseEvent click) {
+
+	}
 
 
 	public void unitTest()

@@ -21,7 +21,7 @@ public class Arrow extends GameObject{
         this.handler = handler;
         loadGraphicImage();
 
-        setDamagePower(20);
+        setDamagePower(7);
     }
 
     private void loadGraphicImage(){

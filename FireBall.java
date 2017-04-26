@@ -18,7 +18,7 @@ public class FireBall extends GameObject{
         this.velX = speed;
         this.handler = handler;
 
-        setDamagePower(3);
+        setDamagePower(5);
 
         loadGraphicImage();
     }
