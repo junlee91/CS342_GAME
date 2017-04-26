@@ -13,7 +13,10 @@ import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import javax.swing.Timer;
 
-
+import javax.swing.JButton;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import java.awt.Color;
 
 public class Game extends JPanel implements ActionListener, MouseListener
 {
@@ -39,7 +42,7 @@ public class Game extends JPanel implements ActionListener, MouseListener
 	 */
 	
 	public static BufferedImage City = null;
-	
+	private JButton dispControlBtn;
 	private Thread thread;
 	private MusicPlayer bgm;
 	
@@ -53,7 +56,19 @@ public class Game extends JPanel implements ActionListener, MouseListener
 		camera = new Camera(0,0);				
 		handler = new ObjectHandler();			// create handler for objects
 		//unitTest();
-	
+
+		dispControlBtn = buttonCreation("/res/Icon/ControllerIcon.png");
+		// dispControlBtn.addMouseListener(new MouseListener()
+		// {
+		// 	public void mouseEntered(MouseEvent e)
+		// 	{
+
+		// 	}
+		// });
+
+		
+		this.add(dispControlBtn);
+
 		handler.SetGameLayer();
 		
 		this.setFocusable(true);
@@ -63,6 +78,19 @@ public class Game extends JPanel implements ActionListener, MouseListener
 		thread.start();
 		refresh.start();
 	}
+
+
+	JButton buttonCreation(String image)
+	{
+		  JButton temp = new JButton(new ImageIcon(image));
+	      temp.setContentAreaFilled(false);
+	      temp.setBorder(null);
+	      temp.setFocusPainted(false);
+	      temp.setBorderPainted(false);
+	      temp.setBackground(Color.black);
+	      return temp;
+	}
+
 
 	public void paintComponent(Graphics g)
 	{
