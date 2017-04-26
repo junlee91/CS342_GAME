@@ -17,6 +17,8 @@ import javax.swing.JButton;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import java.awt.Color;
+import javax.swing.JLabel;
+import java.awt.event.MouseAdapter;
 
 public class Game extends JPanel implements ActionListener, MouseListener
 {
@@ -42,33 +44,42 @@ public class Game extends JPanel implements ActionListener, MouseListener
 	 */
 	
 	public static BufferedImage City = null;
-	private JButton dispControlBtn;
+	private JLabel dispControlBtn;
 	private Thread thread;
 	private MusicPlayer bgm;
 	
+public ImageIcon image;
+
 	public Game()
 	{
 		// insert JPanel Game screen here!!
 		bgm = new MusicPlayer("/res/audio/MapleStory_BGM_Dragon_Dream.wav", 
 							  "/res/audio/Talesweaver Title.wav");	// add multiple music args
 		thread = new Thread(bgm);				// thread for MusicPlayer
-
 		camera = new Camera(0,0);				
 		handler = new ObjectHandler();			// create handler for objects
 		//unitTest();
 
-		dispControlBtn = buttonCreation("/res/Icon/ControllerIcon.png");
-		// dispControlBtn.addMouseListener(new MouseListener()
-		// {
-		// 	public void mouseEntered(MouseEvent e)
-		// 	{
 
-		// 	}
-		// });
+// ------------------------------------------------------------------
 
+		image = new ImageIcon("/res/Icon/test.jpg");
+		JLabel nameLabel = new JLabel("CONTROLS");
 		
-		this.add(dispControlBtn);
+		//nameLabel.setIcon(image);
+		nameLabel.setBackground(Color.GRAY);
+		nameLabel.setOpaque(false);
+		nameLabel.addMouseListener(new MouseAdapter() {
+		
+		public void mouseEntered(MouseEvent arg0) {
+			System.out.println("You found me\n");
+		}
+		});
 
+		this.add(nameLabel);
+
+ // -------------------------------------
+	
 		handler.SetGameLayer();
 		
 		this.setFocusable(true);
@@ -78,20 +89,6 @@ public class Game extends JPanel implements ActionListener, MouseListener
 		thread.start();
 		refresh.start();
 	}
-
-
-	JButton buttonCreation(String image)
-	{
-		JButton temp = new JButton(new ImageIcon(image));
-		temp.setContentAreaFilled(false);
-		temp.setBorder(null);
-		temp.setFocusPainted(false);
-		temp.setBorderPainted(false);
-		temp.setBackground(Color.black);
-		temp.setBounds   (1000, 500, 100, 100);
-		return temp;
-	}
-
 
 	public void paintComponent(Graphics g)
 	{
