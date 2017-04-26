@@ -48,7 +48,8 @@ public class Game extends JPanel implements ActionListener, MouseListener
 	private Thread thread;
 	private MusicPlayer bgm;
 	
-public ImageIcon image;
+	public ImageIcon image;
+	//public Image contIcon;
 
 	public Game()
 	{
@@ -61,24 +62,29 @@ public ImageIcon image;
 		//unitTest();
 
 
-// ------------------------------------------------------------------
+// ----------------------------------------------------------
 
-		image = new ImageIcon("/res/Icon/test.jpg");
-		JLabel nameLabel = new JLabel("CONTROLS");
-		
-		//nameLabel.setIcon(image);
+		image = new ImageIcon("res/Icon/ControllerIcon.png");
+		JLabel nameLabel = new JLabel();
+		nameLabel.setIcon(image);
 		nameLabel.setBackground(Color.GRAY);
 		nameLabel.setOpaque(false);
-		nameLabel.addMouseListener(new MouseAdapter() {
-		
-		public void mouseEntered(MouseEvent arg0) {
-			System.out.println("You found me\n");
-		}
+
+
+		// nameLabel.setBounds (200, 200, 100, 100);
+		nameLabel.setHorizontalAlignment(JLabel.RIGHT);
+
+		nameLabel.addMouseListener(new MouseAdapter() 
+		{
+			public void mouseEntered(MouseEvent arg0) {
+				System.out.println("You found me\n");
+				// make changes here to show image
+			}
 		});
 
 		this.add(nameLabel);
 
- // -------------------------------------
+ // ---------------------------------------------------------
 	
 		handler.SetGameLayer();
 		
