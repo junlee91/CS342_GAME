@@ -118,6 +118,12 @@ public class ObjectHandler
 					// Next LEVEL
 					addObject(new NextLevel(x*32, y*32, this, ObjectID.Level));
 				}
+
+				if(red == 192 && green == 192 && blue == 0)
+				{
+					// add potion
+					addObject(new Potion(x*32, y*32, ObjectID.Potion));
+				}
 			}
 		}
 	}	
@@ -218,6 +224,15 @@ public class ObjectHandler
 		healthPoint = 48;
 		updatePlayerData();
 		
+	}
+
+	public boolean hasSword()
+	{
+		return playerSword;
+	}
+	public boolean hasBow()
+	{
+		return playerBow;
 	}
 
 	// TODO:: Adding Ground Image

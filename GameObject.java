@@ -96,4 +96,6 @@ public abstract class GameObject{  // TODO:: this will extend Polygon class late
 
 	public boolean isArrowAvailable() { return (ArrowCount > 0); }
 
+	public void setHeal(int heal){ this.HealthPoint += heal; }
+
 } 

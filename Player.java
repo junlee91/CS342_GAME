@@ -58,8 +58,6 @@ public class Player extends GameObject{
 
 	private ObjectMotion playerSKYShootRight;
 	private ObjectMotion playerSKYShootLeft;
-
-
 	//--------------------------------------------//
 
 	public Player(float x, float y, ObjectHandler handler, ObjectID id) {
@@ -142,7 +140,6 @@ public class Player extends GameObject{
 		
 		characterDeathRight[0] = imageLoading.LoadImage("/res/Hero/Death/R_deathDown.png");
 		characterDeathRight[1] = imageLoading.LoadImage("/res/Hero/Death/R_deathUp.png");
-
 	}
 	
 
@@ -261,8 +258,26 @@ public class Player extends GameObject{
 					if( pickUp && !hasBow ){
 						System.out.println("Picked up BOW!!!!!!");
 						handler.removeObject( tempObject );
-						setArrow(10);
+						setArrow(10);							// set 10 arrows
 						hasBow = true;
+					}
+				}
+			}
+
+			if(tempObject.getId() == ObjectID.Potion ){
+				if( getBounds().intersects(tempObject.getBounds()))
+				{
+					if( pickUp ){
+						System.out.println("Potion !!!!");
+						handler.removeObject( tempObject );
+						
+						damaged -= 10;
+
+						if(healthBar - damaged >= (int)width)
+						{
+							damaged = 0;
+							healthBar = (int)width;
+						}
 					}
 				}
 			}
