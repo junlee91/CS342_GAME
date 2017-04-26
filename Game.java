@@ -13,11 +13,8 @@ import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import javax.swing.Timer;
 
-import javax.swing.JButton;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import java.awt.Color;
 import javax.swing.JLabel;
+import javax.swing.ImageIcon;
 import java.awt.event.MouseAdapter;
 
 public class Game extends JPanel implements ActionListener, MouseListener
@@ -28,6 +25,7 @@ public class Game extends JPanel implements ActionListener, MouseListener
 	// This is for TDD unit testing <Note this needs to change -J>
 	public Test test;
 
+	ImageIcon image;
 	Camera camera;
 	ObjectHandler handler;
 	/*
@@ -47,8 +45,6 @@ public class Game extends JPanel implements ActionListener, MouseListener
 	private JLabel dispControlBtn;
 	private Thread thread;
 	private MusicPlayer bgm;
-	
-	public ImageIcon image;
 	//public Image contIcon;
 
 	public Game()
@@ -67,12 +63,10 @@ public class Game extends JPanel implements ActionListener, MouseListener
 		image = new ImageIcon("res/Icon/ControllerIcon.png");
 		JLabel nameLabel = new JLabel();
 		nameLabel.setIcon(image);
-		nameLabel.setBackground(Color.GRAY);
 		nameLabel.setOpaque(false);
 
-
 		// nameLabel.setBounds (200, 200, 100, 100);
-		nameLabel.setHorizontalAlignment(JLabel.RIGHT);
+		// nameLabel.setHorizontalAlignment(JLabel.RIGHT);
 
 		nameLabel.addMouseListener(new MouseAdapter() 
 		{
@@ -128,6 +122,9 @@ public class Game extends JPanel implements ActionListener, MouseListener
 		handler.renderObject(g);	
 
 		graphicSetting.translate(-camera.getX(), -camera.getY());		//--------------- end
+
+
+
 	}
 
 	public void actionPerformed(ActionEvent event){
