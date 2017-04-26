@@ -51,7 +51,7 @@ public class Monster extends GameObject{
 		this.handler = handler;
 
         setHealthPoint((int)width);
-	    setDamagePower(8);
+	    setDamagePower(5);
 
         healthBar = (int)width;
 
@@ -237,7 +237,7 @@ public class Monster extends GameObject{
         {
         	stance = 1;
             time++;
-            if( time % 30 == 0){
+            if( time % 50 == 0){
                 if(direction == 1)
                 {
                     System.out.println("Monster attack Right!!");   
