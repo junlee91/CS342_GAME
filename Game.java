@@ -58,16 +58,8 @@ public class Game extends JPanel implements ActionListener, MouseListener
 		thread = new Thread(bgm);				// thread for MusicPlayer
 		camera = new Camera(0,0);				
 		handler = new ObjectHandler();			// create handler for objects
-
-
-		handler.SetGameLayer();
-		
-		this.setFocusable(true);
-		this.addMouseListener(this);
-		this.addKeyListener(new KeyInput(handler));
-
-// ----------------------------------------------------------
 		image = new ImageIcon("res/Icon/ControllerIcon.png");
+		
 		JLabel nameLabel = new JLabel();
 		nameLabel.setIcon(image);
 		nameLabel.setOpaque(false);
@@ -91,7 +83,6 @@ public class Game extends JPanel implements ActionListener, MouseListener
 			showControls = ImageIO.read(new File("res/Icon/DisplayController.png"));
 		}
 		catch(IOException imageError){}
- // ---------------------------------------------------------
 	
 		handler.SetGameLayer();
 		
