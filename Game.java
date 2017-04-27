@@ -24,9 +24,6 @@ public class Game extends JPanel implements ActionListener, MouseListener
 {
 	private Timer refresh = new Timer(10, this);  // 360 frames per seconds
 	public static int WIDTH = 1800, HEIGHT = 750; // size of frame
-	
-	// This is for TDD unit testing <Note this needs to change -J>
-	public Test test;
 
 	Camera camera;
 	ObjectHandler handler;
@@ -39,17 +36,16 @@ public class Game extends JPanel implements ActionListener, MouseListener
 	 *      2. renderObject(Graphics g)
 	 *      	: this will set color into new position.
 	 *      
-	 *      hierarchy: Game -> handler -> GameObject -> [Player or Layer] 
-	 *     
+	 *      hierarchy: Game -> handler -> GameObject 	 *     
 	 */
 	
 	public static BufferedImage City = null;
+	static boolean showControl = false;
+	static int controlXPos;
 	private JLabel dispControlBtn;
 	private Thread thread;
 	private MusicPlayer bgm;
-	
 	public ImageIcon image;
-	//public Image contIcon;
 
 	public Game()
 	{
@@ -59,10 +55,12 @@ public class Game extends JPanel implements ActionListener, MouseListener
 		thread = new Thread(bgm);				// thread for MusicPlayer
 		camera = new Camera(0,0);				
 		handler = new ObjectHandler();			// create handler for objects
-		//unitTest();
 
-
-// ----------------------------------------------------------
+		handler.SetGameLayer();
+		
+		this.setFocusable(true);
+		this.addMouseListener(this);
+		this.addKeyListener(new KeyInput(handler));
 
 		image = new ImageIcon("res/Icon/ControllerIcon.png");
 		JLabel nameLabel = new JLabel();
@@ -70,29 +68,20 @@ public class Game extends JPanel implements ActionListener, MouseListener
 		nameLabel.setBackground(Color.GRAY);
 		nameLabel.setOpaque(false);
 
-
-		// nameLabel.setBounds (200, 200, 100, 100);
 		nameLabel.setHorizontalAlignment(JLabel.RIGHT);
 
 		nameLabel.addMouseListener(new MouseAdapter() 
 		{
 			public void mouseEntered(MouseEvent arg0) {
-				System.out.println("You found me\n");
-				// make changes here to show image
+				showControl = true;
+			}
+			public void mouseExited(MouseEvent arg0){
+				showControl = false;
 			}
 		});
-
 		this.add(nameLabel);
-
- // ---------------------------------------------------------
-	
-		handler.SetGameLayer();
 		
-		this.setFocusable(true);
-		this.addMouseListener(this);
-		this.addKeyListener(new KeyInput(handler));
-		
-		thread.start();
+		//thread.start();	// music thread
 		refresh.start();
 	}
 
@@ -140,16 +129,8 @@ public class Game extends JPanel implements ActionListener, MouseListener
 	public void mouseReleased  (MouseEvent click) {}
 	public void mouseClicked   (MouseEvent click) {}
 	public void mousePressed   (MouseEvent click) {} 
-	
-	
-	public void mouseEntered   (MouseEvent click) {
-
-	} 
-	
-	public void mouseExited    (MouseEvent click) {
-
-	}
-
+	public void mouseEntered   (MouseEvent click) {}
+	public void mouseExited    (MouseEvent click) {}
 
 	public void unitTest()
 	{
