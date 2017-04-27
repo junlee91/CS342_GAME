@@ -145,8 +145,6 @@ public class Player extends GameObject{
 
 	public void Update(LinkedList<GameObject> ObjectList) {
 
-		if(dead) return;
-
 		x += velX;
 		y += velY;
 
@@ -199,11 +197,6 @@ public class Player extends GameObject{
 
 		for(int i = 0; i < handler.ObjectList.size(); i++){
 			GameObject tempObject = handler.ObjectList.get(i);
-
-			if(tempObject.getId() == ObjectID.Player)
-			{
-				if(tempObject.isDead()) dead = true;
-			}
 
 			if(tempObject.getId() == ObjectID.BottomLayer){
 				
@@ -384,9 +377,9 @@ public class Player extends GameObject{
 	int randomImageIndex = 0; // default
 	public void renderObject(Graphics g) {
 
-		if( isDead() )
+		if( isDead() || dead )
 		{
-			width = height = 0;
+			//width = height = 0;
 			if( !deathImageSelected ){
 				randomImageIndex = (int)(Math.random() * 2);
 				deathImageSelected = true;
@@ -400,6 +393,8 @@ public class Player extends GameObject{
 			{
 				g.drawImage(characterDeathLeft[randomImageIndex], (int)x-13, (int)y, null);				
 			}
+
+			dead = true;
 
 			return;
 		}
@@ -537,8 +532,6 @@ public class Player extends GameObject{
 		g.fillRect( (int)(getX()), (int)(getY()-40), (int)boost, 10);
 
 
-		
-		
 		// Graphics2D gg = (Graphics2D)g;
 		// gg.setColor(Color.RED);
 		// gg.draw(getBoundsLeft());

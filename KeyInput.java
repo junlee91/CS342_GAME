@@ -18,66 +18,68 @@ public class KeyInput implements KeyListener{
 			GameObject tempObject = handler.ObjectList.get(i);
 			
 			if(tempObject.getId() == ObjectID.Player)
-			{
+			{				
 				// check if the player is alive over here 
+				if(!tempObject.isDead()){
 
-				if(key == KeyEvent.VK_D && tempObject.isGoingRight()) { 
-					tempObject.setVelX(5);  
-					tempObject.setAttacking(false);
-				}
-				
-				if(key == KeyEvent.VK_A && tempObject.isGoingLeft()) { 
-					tempObject.setVelX(-5); 
-					tempObject.setAttacking(false);			
-				}
-				
-				
-				if(key == KeyEvent.VK_S )
-				{
-					tempObject.setPickUp(true);
-					// temporary here used for charging	
-				}
-
-				if( key == KeyEvent.VK_R )
-				{
-					handler.reset();
-				}
-				
-
-				if((key == KeyEvent.VK_W || key == KeyEvent.VK_SPACE ) && !tempObject.isJumping() && tempObject.getVelY() <= 5 )
-				{
-					tempObject.setJumping(true);
-					tempObject.setVelY(-12);
-				}
-
-				if( key == KeyEvent.VK_SPACE || key == KeyEvent.VK_W )
-				{
-					if(tempObject.isJumping()){
-						if(tempObject.isBoostAvailable()){
-							tempObject.setVelY(-12);
-							tempObject.boost();
-						}
+					if(key == KeyEvent.VK_D && tempObject.isGoingRight()) { 
+						tempObject.setVelX(5);  
+						tempObject.setAttacking(false);
+					}
+					
+					if(key == KeyEvent.VK_A && tempObject.isGoingLeft()) { 
+						tempObject.setVelX(-5); 
+						tempObject.setAttacking(false);			
+					}
+					
+					
+					if(key == KeyEvent.VK_S )
+					{
+						tempObject.setPickUp(true);
+						// temporary here used for charging	
 					}
 
-				}
+					if( key == KeyEvent.VK_R )
+					{
+						handler.reset();
+					}
+					
 
-				if(key == KeyEvent.VK_K)
-				{
-					tempObject.setAttacking(true);
-				}
+					if((key == KeyEvent.VK_W || key == KeyEvent.VK_SPACE ) && !tempObject.isJumping() && tempObject.getVelY() <= 5 )
+					{
+						tempObject.setJumping(true);
+						tempObject.setVelY(-12);
+					}
 
-				if(key == KeyEvent.VK_L)
-				{
-					if( tempObject.HasBow() && tempObject.getVelX() == 0 && tempObject.isArrowAvailable() ){
-						tempObject.setShooting(true);
-						tempObject.MinusArrow();
-						System.out.println("Shoot!");
+					if( key == KeyEvent.VK_SPACE || key == KeyEvent.VK_W )
+					{
+						if(tempObject.isJumping()){
+							if(tempObject.isBoostAvailable()){
+								tempObject.setVelY(-12);
+								tempObject.boost();
+							}
+						}
 
-						if( tempObject.getDirection() > 0)
-							handler.addObject(new Arrow( tempObject.getX()+40, tempObject.getY()+50, handler, ObjectID.Arrow, tempObject.getDirection()*10));
-						else
-							handler.addObject(new Arrow( tempObject.getX()-10, tempObject.getY()+50, handler, ObjectID.Arrow, tempObject.getDirection()*10));							
-					}			
+					}
+
+					if(key == KeyEvent.VK_K)
+					{
+						tempObject.setAttacking(true);
+					}
+
+					if(key == KeyEvent.VK_L)
+					{
+						if( tempObject.HasBow() && tempObject.getVelX() == 0 && tempObject.isArrowAvailable() ){
+							tempObject.setShooting(true);
+							tempObject.MinusArrow();
+							System.out.println("Shoot!");
+
+							if( tempObject.getDirection() > 0)
+								handler.addObject(new Arrow( tempObject.getX()+40, tempObject.getY()+50, handler, ObjectID.Arrow, tempObject.getDirection()*10));
+							else
+								handler.addObject(new Arrow( tempObject.getX()-10, tempObject.getY()+50, handler, ObjectID.Arrow, tempObject.getDirection()*10));							
+						}			
+					}
 				}
 			}
 		}
