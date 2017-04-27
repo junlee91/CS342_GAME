@@ -71,16 +71,16 @@ public class Game extends JPanel implements ActionListener, MouseListener
 		nameLabel.setIcon(image);
 		nameLabel.setOpaque(false);
 
-		// nameLabel.setBounds (200, 200, 100, 100);
-		// nameLabel.setHorizontalAlignment(JLabel.RIGHT);
-
 		nameLabel.addMouseListener(new MouseAdapter() 
 		{
 			public void mouseEntered(MouseEvent arg0) {
 				controls = true;
 			}
+			public void mouseExited(MouseEvent arg0) {
+				controls = false;
+			}
 		});
-		controls = false;
+
 		System.out.println("control set off\n");
 		this.add(nameLabel);
 		
