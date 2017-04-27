@@ -13,8 +13,6 @@ public class ObjectHandler
 
 	ImageLoader imageLoading;
 	private BufferedImage Layer = null;
-	private BufferedImage controlKey = null;
-	private int playerXpos;
 
 	public ObjectHandler()
 	{
@@ -24,7 +22,6 @@ public class ObjectHandler
 		Game.City = imageLoading.LoadImage("/res/Map/Forest_Tutorial.jpg");
 		Layer = imageLoading.LoadImage("/res/Map/Forest_Tutorial_Level.png");
 		
-		controlKey = imageLoading.LoadImage("/res/Icon/DisplayController.png");
 	}
 	
 	public void Update(){
@@ -34,11 +31,6 @@ public class ObjectHandler
 			tempObject = ObjectList.get(i);		
 
 			tempObject.Update(ObjectList);
-
-			if(tempObject.getId() == ObjectID.Player)
-			{
-				playerXpos = (int)tempObject.getX();
-			}
 
 			if(tempObject.getY() > 1800){
 				if(tempObject.getId() == ObjectID.Player)
@@ -57,11 +49,6 @@ public class ObjectHandler
 			tempObject = ObjectList.get(i);			
 			tempObject.renderObject(g);
 
-		}
-
-		if(Game.showControl)
-		{
-			g.drawImage(controlKey, playerXpos-800, 100, null);
 		}
 	}	
 	
