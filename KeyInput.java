@@ -39,10 +39,6 @@ public class KeyInput implements KeyListener{
 						// temporary here used for charging	
 					}
 
-					if( key == KeyEvent.VK_R )
-					{
-						handler.reset();
-					}
 					
 
 					if((key == KeyEvent.VK_W || key == KeyEvent.VK_SPACE ) && !tempObject.isJumping() && tempObject.getVelY() <= 5 )
@@ -83,6 +79,12 @@ public class KeyInput implements KeyListener{
 				}
 			}
 		}
+
+		if( key == KeyEvent.VK_R )
+		{
+			handler.reset();
+		}
+		
 		if(key == KeyEvent.VK_ESCAPE){
 			System.exit(0);
 		}	
