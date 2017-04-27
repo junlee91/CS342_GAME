@@ -90,7 +90,7 @@ public class Game extends JPanel implements ActionListener, MouseListener
 		this.addMouseListener(this);
 		this.addKeyListener(new KeyInput(handler));
 		
-		//thread.start();	// music thread
+		thread.start();	// music thread
 		refresh.start();
 	}
 
