@@ -13,6 +13,9 @@ import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import javax.swing.Timer;
 
+import java.io.File;
+import javax.imageio.ImageIO;
+import java.io.IOException;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import java.awt.event.MouseAdapter;
@@ -26,6 +29,8 @@ public class Game extends JPanel implements ActionListener, MouseListener
 	public Test test;
 
 	ImageIcon image;
+	BufferedImage showControls;
+
 	Camera camera;
 	ObjectHandler handler;
 	/*
@@ -45,6 +50,8 @@ public class Game extends JPanel implements ActionListener, MouseListener
 	private JLabel dispControlBtn;
 	private Thread thread;
 	private MusicPlayer bgm;
+	private Boolean controls = false;
+
 	//public Image contIcon;
 
 	public Game()
@@ -55,11 +62,10 @@ public class Game extends JPanel implements ActionListener, MouseListener
 		thread = new Thread(bgm);				// thread for MusicPlayer
 		camera = new Camera(0,0);				
 		handler = new ObjectHandler();			// create handler for objects
-		//unitTest();
 
 
 // ----------------------------------------------------------
-
+// WILL BE MOVED IN THE FUTURE!!
 		image = new ImageIcon("res/Icon/ControllerIcon.png");
 		JLabel nameLabel = new JLabel();
 		nameLabel.setIcon(image);
@@ -71,12 +77,18 @@ public class Game extends JPanel implements ActionListener, MouseListener
 		nameLabel.addMouseListener(new MouseAdapter() 
 		{
 			public void mouseEntered(MouseEvent arg0) {
-				System.out.println("You found me\n");
-				// make changes here to show image
+				controls = true;
 			}
 		});
-
+		controls = false;
+		System.out.println("control set off\n");
 		this.add(nameLabel);
+		
+		try
+		{
+			showControls = ImageIO.read(new File("res/Icon/DisplayController.png"));
+		}
+		catch(IOException imageError){}
 
  // ---------------------------------------------------------
 	
@@ -123,7 +135,7 @@ public class Game extends JPanel implements ActionListener, MouseListener
 
 		graphicSetting.translate(-camera.getX(), -camera.getY());		//--------------- end
 
-
+		if(controls) g.drawImage(showControls, 400,50, this);
 
 	}
 
