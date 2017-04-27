@@ -13,17 +13,20 @@ import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import javax.swing.Timer;
 
-import javax.swing.JButton;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import java.awt.Color;
+import java.io.File;
+import javax.imageio.ImageIO;
+import java.io.IOException;
 import javax.swing.JLabel;
+import javax.swing.ImageIcon;
 import java.awt.event.MouseAdapter;
 
 public class Game extends JPanel implements ActionListener, MouseListener
 {
 	private Timer refresh = new Timer(10, this);  // 360 frames per seconds
 	public static int WIDTH = 1800, HEIGHT = 750; // size of frame
+
+	ImageIcon image;
+	BufferedImage showControls;
 
 	Camera camera;
 	ObjectHandler handler;
@@ -45,7 +48,13 @@ public class Game extends JPanel implements ActionListener, MouseListener
 	private JLabel dispControlBtn;
 	private Thread thread;
 	private MusicPlayer bgm;
+<<<<<<< HEAD
 	public ImageIcon image;
+=======
+	private Boolean controls = false;
+
+	//public Image contIcon;
+>>>>>>> 20df0b7c7f51a46fff8579b826a095aa9b3aed50
 
 	public Game()
 	{
@@ -56,18 +65,24 @@ public class Game extends JPanel implements ActionListener, MouseListener
 		camera = new Camera(0,0);				
 		handler = new ObjectHandler();			// create handler for objects
 
+<<<<<<< HEAD
 		handler.SetGameLayer();
 		
 		this.setFocusable(true);
 		this.addMouseListener(this);
 		this.addKeyListener(new KeyInput(handler));
 
+=======
+
+// ----------------------------------------------------------
+// WILL BE MOVED IN THE FUTURE!!
+>>>>>>> 20df0b7c7f51a46fff8579b826a095aa9b3aed50
 		image = new ImageIcon("res/Icon/ControllerIcon.png");
 		JLabel nameLabel = new JLabel();
 		nameLabel.setIcon(image);
-		nameLabel.setBackground(Color.GRAY);
 		nameLabel.setOpaque(false);
 
+<<<<<<< HEAD
 		nameLabel.setHorizontalAlignment(JLabel.RIGHT);
 
 		nameLabel.addMouseListener(new MouseAdapter() 
@@ -80,6 +95,34 @@ public class Game extends JPanel implements ActionListener, MouseListener
 			}
 		});
 		this.add(nameLabel);
+=======
+		nameLabel.addMouseListener(new MouseAdapter() 
+		{
+			public void mouseEntered(MouseEvent arg0) {
+				controls = true;
+			}
+			public void mouseExited(MouseEvent arg0) {
+				controls = false;
+			}
+		});
+
+		System.out.println("control set off\n");
+		this.add(nameLabel);
+		
+		try
+		{
+			showControls = ImageIO.read(new File("res/Icon/DisplayController.png"));
+		}
+		catch(IOException imageError){}
+
+ // ---------------------------------------------------------
+	
+		handler.SetGameLayer();
+		
+		this.setFocusable(true);
+		this.addMouseListener(this);
+		this.addKeyListener(new KeyInput(handler));
+>>>>>>> 20df0b7c7f51a46fff8579b826a095aa9b3aed50
 		
 		//thread.start();	// music thread
 		refresh.start();
@@ -117,6 +160,9 @@ public class Game extends JPanel implements ActionListener, MouseListener
 		handler.renderObject(g);	
 
 		graphicSetting.translate(-camera.getX(), -camera.getY());		//--------------- end
+
+		if(controls) g.drawImage(showControls, 400,50, this);
+
 	}
 
 	public void actionPerformed(ActionEvent event){
