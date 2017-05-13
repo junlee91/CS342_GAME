@@ -45,4 +45,6 @@ Schedule and deliverable:
 	- Monster AI attack
 	  Monster Image Load
 	  Monster AI shooting			-- Sun 04/02 11:59pm (estimated 8 hours)
+	
+	- Project Finished
 										
