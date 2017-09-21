@@ -1,0 +1,50 @@
+Schedule and deliverable:
+	- Create git repository and send collaboration request to team members. -- Wed 02/22 by 11:59pm
+										COMPLETE
+	- Implement interface for Player.java -- Fri 02/24 by 11:59 (estimated 6 hours)
+										COMPLETE
+	
+	- Abstract class of GameObject		-- Wed 03/01 by 11:59pm (estimated 1 hour)
+										COMPLETE 
+	
+	- Implement gravitational fall		-- Wed 03/01 by 11:59pm (estimated 1 hour)
+										COMPLETE
+						
+	- Implement collision with bottomlayer. -- Thur 03/02 11:59pm (estimated 2 hours)
+										COMPLETE
+	
+	- Implement KeyAdapter to player	-- Thur 03/02 11:59pm (estimated 2 hours)
+										COMPLETE
+
+	- Collision Detection needs to be more sentitive
+						-- Sun 03/12 11:59pm (estimated 3 hours)
+										COMPLETE
+	- Background Image with rendering
+						-- Sun 03/12 11:59pm (estimated 3 hours)
+										COMPLETE
+	- Image motion (walk, jump) 
+						-- Tue 03/14 12:00pm (estimated 8 hours)
+										COMPLETE	
+	- Image motion (attack)
+						-- Sat 03/18 11:59pm (estimated 4 hours)
+										COMPLETE
+	- Back Ground Music			
+						-- Tue 03/21 11:59pm (estimated 2 hours)
+										COMPLETE
+														
+	- Next Level Layer
+						-- Fri 03/24 11:59pm (estimated 2 hours)
+						 				COMPLETE
+									
+	- Sound Effect Implementation		
+						-- Sun 04/02 11:59pm (estimated 8 hours)
+	
+	- Level Clear Check 
+						-- Sun 04/02 11:59pm (estimated 8 hours)
+	
+	- Monster AI attack
+	  Monster Image Load
+	  Monster AI shooting			-- Sun 04/02 11:59pm (estimated 8 hours)
+	
+	- Project Finished
+										

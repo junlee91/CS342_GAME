@@ -1,0 +1,11 @@
+Sohum Mehrotra Schedule and Deliverable:
+	Creation of Player class with various attributes
+	Ability to change these attributes
+
+	Create functions for interactions between players
+	Create functions for interactions between players and other types of mobs.
+	Ability to determine whether the character is airborn
+	Character interaction with platforms
+	Player interaction/collison mechanic
+	List of player abilities
+	
