@@ -2,160 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="857ac12b-c9de-4acb-8461-d82e46aba6ed" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Arrow.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Bow.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Camera.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/FireBall.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Game.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/GameObject.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Game_Container.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ImageLoader.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/KeyInput.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Layer.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Monster.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MonsterArcher.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/MusicPlayer.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/NextLevel.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ObjectHandler.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ObjectID.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ObjectMotion.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Player.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Potion.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Sword.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Test.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Collectables/CrossBow.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Collectables/Heal_potion.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Collectables/Sword_inRock.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Collectables/Sword_removed.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/EnemyHuman/Attack/LeftAttack/L1_attack.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/EnemyHuman/Attack/LeftAttack/L2_attack.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/EnemyHuman/Attack/LeftAttack/L3_attack.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/EnemyHuman/Attack/LeftAttack/L4_attack.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/EnemyHuman/Attack/LeftAttack/L5_attack.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/EnemyHuman/Attack/LeftAttack/L6_attack.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/EnemyHuman/Attack/RightAttack/R1_attack.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/EnemyHuman/Attack/RightAttack/R2_attack.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/EnemyHuman/Attack/RightAttack/R3_attack.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/EnemyHuman/Attack/RightAttack/R4_attack.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/EnemyHuman/Attack/RightAttack/R5_attack.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/EnemyHuman/Attack/RightAttack/R6_attack.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/EnemyHuman/Damaged/L_DamageAttack.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/EnemyHuman/Damaged/L_DamageStand.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/EnemyHuman/Damaged/R_DamageAttack.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/EnemyHuman/Damaged/R_DamageStand.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/EnemyHuman/L_Motion/L_walk_1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/EnemyHuman/L_Motion/L_walk_2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/EnemyHuman/L_Motion/L_walk_3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/EnemyHuman/L_Motion/L_walk_4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/EnemyHuman/L_Motion/L_walk_5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/EnemyHuman/R_Motion/R_walk_1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/EnemyHuman/R_Motion/R_walk_2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/EnemyHuman/R_Motion/R_walk_3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/EnemyHuman/R_Motion/R_walk_4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/EnemyHuman/R_Motion/R_walk_5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/EnemyWizard/Attack/LeftAttack/L_Attack_1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/EnemyWizard/Attack/LeftAttack/L_Attack_2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/EnemyWizard/Attack/LeftAttack/L_Attack_3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/EnemyWizard/Attack/LeftAttack/L_Attack_4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/EnemyWizard/Attack/RightAttack/R_Attack_1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/EnemyWizard/Attack/RightAttack/R_Attack_2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/EnemyWizard/Attack/RightAttack/R_Attack_3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/EnemyWizard/Attack/RightAttack/R_Attack_4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Gadet/Fireball.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Gate/closed.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Gate/open1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Gate/open2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Gate/open3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Attack/CrossBow/L_Gnd_shot1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Attack/CrossBow/L_Jmp_shot1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Attack/CrossBow/L_arrow.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Attack/CrossBow/R_Gnd_shot1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Attack/CrossBow/R_Jmp_shot1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Attack/CrossBow/R_arrow.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Attack/Sword/L_Attack1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Attack/Sword/L_Attack2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Attack/Sword/L_Attack3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Attack/Sword/L_Attack4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Attack/Sword/R_Attack1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Attack/Sword/R_Attack2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Attack/Sword/R_Attack3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Attack/Sword/R_Attack4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Damage/L_damageAttack.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Damage/L_damageJump.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Damage/L_damageSit.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Damage/L_damageStand.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Damage/R_damageAttack.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Damage/R_damageJump.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Damage/R_damageSit.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Damage/R_damageStand.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Death/L_deathDown.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Death/L_deathUp.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Death/R_deathDown.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Death/R_deathUp.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Jump/JL2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Jump/Old/J1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Jump/Old/J2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Jump/Old/J3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Jump/Old/_JL1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Jump/Old/_JL2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Jump/Old/_JL3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Jump/_J2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Pick Up/Crouch_L.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Pick Up/Crouch_R.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Pick Up/Read_me.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Stand/stand_2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Stand/stand_3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Walk Left/Jae/_L1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Walk Left/Jae/_L2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Walk Left/Jae/_L3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Walk Left/Jae/_L4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Walk Left/Jae/_L5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Walk Left/_L1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Walk Left/_L2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Walk Left/_L3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Walk Left/_L4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Walk Left/jpg form/L_1.JPG" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Walk Left/jpg form/L_2.JPG" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Walk Left/jpg form/L_3.JPG" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Walk Left/jpg form/L_4.JPG" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Walk Left/jpg form/L_5.JPG" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Walk Right/Jae/_R1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Walk Right/Jae/_R2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Walk Right/Jae/_R3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Walk Right/Jae/_R4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Walk Right/Jae/_R5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Walk Right/_R1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Walk Right/_R2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Walk Right/_R3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Walk Right/_R4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Walk Right/jpg form R/R_1.JPG" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Walk Right/jpg form R/R_2.JPG" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Walk Right/jpg form R/R_3.JPG" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Walk Right/jpg form R/R_4.JPG" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Hero/Walk Right/jpg form R/R_5.JPG" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Icon/ControllerIcon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Icon/DisplayController.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Map/City.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Map/City_Level.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Map/Forest.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Map/Forest_Lake.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Map/Forest_Level.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Map/Forest_Tutorial.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Map/Forest_Tutorial_Level.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Map/Map1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Map/Old/City2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Map/Old/Map_level2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Map/Old/castle.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Map/Old/cliffsidecastle.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Map/Old/floatinglands.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Map/Old/idle.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Map/Old/robot.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Monster/Ghost_AL.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Monster/Ghost_AR.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Monster/Ghost_L.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/Monster/Ghost_R.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/audio/MapleStory_BGM_Dragon_Dream.wav" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/res/audio/Talesweaver Title.wav" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -174,7 +21,15 @@
             <state relative-caret-position="417">
               <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <marker date="1506014974598" expanded="true" signature="1725:2629" ph="{...}" />
+                <marker date="1506014974598" expanded="true" signature="2088:2239" ph="{...}" />
+                <marker date="1506014974598" expanded="false" signature="2134:2141" ph=" { " />
+                <marker date="1506014974598" expanded="false" signature="2157:2162" ph=" }" />
+                <marker date="1506014974598" expanded="false" signature="2206:2213" ph=" { " />
+                <marker date="1506014974598" expanded="true" signature="2672:3516" ph="{...}" />
+                <marker date="1506014974598" expanded="true" signature="2676:2832" ph="//..." />
+                <marker date="1506014974598" expanded="true" signature="3565:3645" ph="{...}" />
+                <marker date="1506014974598" expanded="true" signature="3927:4154" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -190,34 +45,53 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ImageLoader.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ImageLoader.java">
+      <file leaf-file-name="ObjectHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ObjectHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+            <state relative-caret-position="-2240">
+              <caret line="26" column="25" lean-forward="false" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <marker date="1506015146018" expanded="true" signature="3333:4038" ph="{...}" />
+                <marker date="1506015146018" expanded="true" signature="4072:4542" ph="{...}" />
+                <marker date="1506015146018" expanded="false" signature="4570:4574" ph=" { " />
+                <marker date="1506015146018" expanded="false" signature="4589:4592" ph=" }" />
+                <marker date="1506015146018" expanded="true" signature="4618:4746" ph="{...}" />
+                <marker date="1506015146018" expanded="false" signature="4774:4780" ph=" { " />
+                <marker date="1506015146018" expanded="false" signature="4799:4802" ph=" }" />
+                <marker date="1506015146018" expanded="false" signature="4827:4833" ph=" { " />
+                <marker date="1506015146018" expanded="false" signature="4850:4853" ph=" }" />
+                <marker date="1506015146018" expanded="true" signature="4918:5146" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ObjectHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ObjectHandler.java">
+      <file leaf-file-name="Layer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Layer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2260">
-              <caret line="26" column="25" lean-forward="true" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
-              <folding />
+            <state relative-caret-position="80">
+              <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <marker date="1506015146018" expanded="false" signature="219:224" ph=" { " />
+                <marker date="1506015146018" expanded="false" signature="240:243" ph=" }" />
+                <marker date="1506015146018" expanded="true" signature="301:359" ph="{...}" />
+                <marker date="1506015146018" expanded="true" signature="399:611" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Layer.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Layer.java">
+      <file leaf-file-name="Bow.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Bow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="123">
+              <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#446#447#0" expanded="true" />
+                <element signature="e#528#529#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -523,26 +397,43 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24812031" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24812031" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -557,74 +448,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/CS342_GAME.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/Collectables/Heal_potion.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/Map/Forest_Tutorial.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/Hero/Jump/_J2.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/Hero/Walk Right/jpg form R/R_5.JPG">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/Hero/Walk Right/jpg form R/R_4.JPG">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/Hero/Walk Right/jpg form R/R_3.JPG">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/Hero/Walk Right/jpg form R/R_2.JPG">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/Hero/Walk Right/jpg form R/R_1.JPG">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/Hero/Attack/Sword/L_Attack1.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/Hero/Attack/Sword/L_Attack2.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/Hero/Attack/Sword/L_Attack3.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/Hero/Attack/Sword/R_Attack1.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/Hero/Attack/Sword/R_Attack2.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -635,6 +458,102 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Game_Container.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="26" lean-forward="false" selection-start-line="0" selection-start-column="26" selection-end-line="0" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="417">
+          <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding>
+            <marker date="1506014974598" expanded="true" signature="1725:2629" ph="{...}" />
+            <marker date="1506014974598" expanded="true" signature="2088:2239" ph="{...}" />
+            <marker date="1506014974598" expanded="false" signature="2134:2141" ph=" { " />
+            <marker date="1506014974598" expanded="false" signature="2157:2162" ph=" }" />
+            <marker date="1506014974598" expanded="false" signature="2206:2213" ph=" { " />
+            <marker date="1506014974598" expanded="true" signature="2672:3516" ph="{...}" />
+            <marker date="1506014974598" expanded="true" signature="2676:2832" ph="//..." />
+            <marker date="1506014974598" expanded="true" signature="3565:3645" ph="{...}" />
+            <marker date="1506014974598" expanded="true" signature="3927:4154" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ObjectHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2260">
+          <caret line="26" column="25" lean-forward="false" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
+          <folding>
+            <marker date="1506015146018" expanded="true" signature="3333:4038" ph="{...}" />
+            <marker date="1506015146018" expanded="true" signature="4072:4542" ph="{...}" />
+            <marker date="1506015146018" expanded="false" signature="4570:4574" ph=" { " />
+            <marker date="1506015146018" expanded="false" signature="4589:4592" ph=" }" />
+            <marker date="1506015146018" expanded="true" signature="4618:4746" ph="{...}" />
+            <marker date="1506015146018" expanded="false" signature="4774:4780" ph=" { " />
+            <marker date="1506015146018" expanded="false" signature="4799:4802" ph=" }" />
+            <marker date="1506015146018" expanded="false" signature="4827:4833" ph=" { " />
+            <marker date="1506015146018" expanded="false" signature="4850:4853" ph=" }" />
+            <marker date="1506015146018" expanded="true" signature="4918:5146" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Layer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="520">
+          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1506015146018" expanded="false" signature="219:224" ph=" { " />
+            <marker date="1506015146018" expanded="false" signature="240:243" ph=" }" />
+            <marker date="1506015146018" expanded="true" signature="301:359" ph="{...}" />
+            <marker date="1506015146018" expanded="true" signature="399:611" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/javax/imageio/ImageIO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="1387" column="0" lean-forward="false" selection-start-line="1387" selection-start-column="0" selection-end-line="1387" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DexUtils/ImageLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CS342_GAME.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/Collectables/Heal_potion.png" />
+    <entry file="file://$PROJECT_DIR$/res/Map/Forest_Tutorial.jpg" />
+    <entry file="file://$PROJECT_DIR$/res/Hero/Jump/_J2.png" />
+    <entry file="file://$PROJECT_DIR$/res/Hero/Walk Right/jpg form R/R_5.JPG" />
+    <entry file="file://$PROJECT_DIR$/res/Hero/Walk Right/jpg form R/R_4.JPG" />
+    <entry file="file://$PROJECT_DIR$/res/Hero/Walk Right/jpg form R/R_3.JPG" />
+    <entry file="file://$PROJECT_DIR$/res/Hero/Walk Right/jpg form R/R_2.JPG" />
+    <entry file="file://$PROJECT_DIR$/res/Hero/Walk Right/jpg form R/R_1.JPG" />
+    <entry file="file://$PROJECT_DIR$/res/Hero/Attack/Sword/L_Attack1.png" />
+    <entry file="file://$PROJECT_DIR$/res/Hero/Attack/Sword/L_Attack2.png" />
+    <entry file="file://$PROJECT_DIR$/res/Hero/Attack/Sword/L_Attack3.png" />
+    <entry file="file://$PROJECT_DIR$/res/Hero/Attack/Sword/R_Attack1.png" />
+    <entry file="file://$PROJECT_DIR$/res/Hero/Attack/Sword/R_Attack2.png" />
+    <entry file="file://$PROJECT_DIR$/res/Hero/Attack/Sword/R_Attack4.png" />
     <entry file="file://$PROJECT_DIR$/src/Game_Container.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -658,7 +577,15 @@
         <state relative-caret-position="417">
           <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <marker date="1506014974598" expanded="true" signature="1725:2629" ph="{...}" />
+            <marker date="1506014974598" expanded="true" signature="2088:2239" ph="{...}" />
+            <marker date="1506014974598" expanded="false" signature="2134:2141" ph=" { " />
+            <marker date="1506014974598" expanded="false" signature="2157:2162" ph=" }" />
+            <marker date="1506014974598" expanded="false" signature="2206:2213" ph=" { " />
+            <marker date="1506014974598" expanded="true" signature="2672:3516" ph="{...}" />
+            <marker date="1506014974598" expanded="true" signature="2676:2832" ph="//..." />
+            <marker date="1506014974598" expanded="true" signature="3565:3645" ph="{...}" />
+            <marker date="1506014974598" expanded="true" signature="3927:4154" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -666,16 +593,151 @@
     <entry file="file://$PROJECT_DIR$/src/ObjectHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2260">
-          <caret line="26" column="25" lean-forward="true" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
-          <folding />
+          <caret line="26" column="25" lean-forward="false" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
+          <folding>
+            <marker date="1506015146018" expanded="true" signature="3333:4038" ph="{...}" />
+            <marker date="1506015146018" expanded="true" signature="4072:4542" ph="{...}" />
+            <marker date="1506015146018" expanded="false" signature="4570:4574" ph=" { " />
+            <marker date="1506015146018" expanded="false" signature="4589:4592" ph=" }" />
+            <marker date="1506015146018" expanded="true" signature="4618:4746" ph="{...}" />
+            <marker date="1506015146018" expanded="false" signature="4774:4780" ph=" { " />
+            <marker date="1506015146018" expanded="false" signature="4799:4802" ph=" }" />
+            <marker date="1506015146018" expanded="false" signature="4827:4833" ph=" { " />
+            <marker date="1506015146018" expanded="false" signature="4850:4853" ph=" }" />
+            <marker date="1506015146018" expanded="true" signature="4918:5146" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Layer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+        <state relative-caret-position="80">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1506015146018" expanded="false" signature="219:224" ph=" { " />
+            <marker date="1506015146018" expanded="false" signature="240:243" ph=" }" />
+            <marker date="1506015146018" expanded="true" signature="301:359" ph="{...}" />
+            <marker date="1506015146018" expanded="true" signature="399:611" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Items/Sword.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="9" column="27" lean-forward="false" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CS342_GAME.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/Collectables/Heal_potion.png" />
+    <entry file="file://$PROJECT_DIR$/res/Map/Forest_Tutorial.jpg" />
+    <entry file="file://$PROJECT_DIR$/res/Hero/Jump/_J2.png" />
+    <entry file="file://$PROJECT_DIR$/res/Hero/Walk Right/jpg form R/R_5.JPG" />
+    <entry file="file://$PROJECT_DIR$/res/Hero/Walk Right/jpg form R/R_4.JPG" />
+    <entry file="file://$PROJECT_DIR$/res/Hero/Walk Right/jpg form R/R_3.JPG" />
+    <entry file="file://$PROJECT_DIR$/res/Hero/Walk Right/jpg form R/R_2.JPG" />
+    <entry file="file://$PROJECT_DIR$/res/Hero/Walk Right/jpg form R/R_1.JPG" />
+    <entry file="file://$PROJECT_DIR$/res/Hero/Attack/Sword/L_Attack1.png" />
+    <entry file="file://$PROJECT_DIR$/res/Hero/Attack/Sword/L_Attack2.png" />
+    <entry file="file://$PROJECT_DIR$/res/Hero/Attack/Sword/L_Attack3.png" />
+    <entry file="file://$PROJECT_DIR$/res/Hero/Attack/Sword/R_Attack1.png" />
+    <entry file="file://$PROJECT_DIR$/res/Hero/Attack/Sword/R_Attack2.png" />
+    <entry file="file://$PROJECT_DIR$/res/Hero/Attack/Sword/R_Attack4.png" />
+    <entry file="file://$PROJECT_DIR$/src/Game_Container.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="26" lean-forward="false" selection-start-line="0" selection-start-column="26" selection-end-line="0" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ImageLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="417">
+          <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+          <folding>
+            <marker date="1506014974598" expanded="true" signature="1725:2629" ph="{...}" />
+            <marker date="1506014974598" expanded="true" signature="2088:2239" ph="{...}" />
+            <marker date="1506014974598" expanded="false" signature="2134:2141" ph=" { " />
+            <marker date="1506014974598" expanded="false" signature="2157:2162" ph=" }" />
+            <marker date="1506014974598" expanded="false" signature="2206:2213" ph=" { " />
+            <marker date="1506014974598" expanded="true" signature="2672:3516" ph="{...}" />
+            <marker date="1506014974598" expanded="true" signature="2676:2832" ph="//..." />
+            <marker date="1506014974598" expanded="true" signature="3565:3645" ph="{...}" />
+            <marker date="1506014974598" expanded="true" signature="3927:4154" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ObjectHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2240">
+          <caret line="26" column="25" lean-forward="false" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
+          <folding>
+            <marker date="1506015146018" expanded="true" signature="3333:4038" ph="{...}" />
+            <marker date="1506015146018" expanded="true" signature="4072:4542" ph="{...}" />
+            <marker date="1506015146018" expanded="false" signature="4570:4574" ph=" { " />
+            <marker date="1506015146018" expanded="false" signature="4589:4592" ph=" }" />
+            <marker date="1506015146018" expanded="true" signature="4618:4746" ph="{...}" />
+            <marker date="1506015146018" expanded="false" signature="4774:4780" ph=" { " />
+            <marker date="1506015146018" expanded="false" signature="4799:4802" ph=" }" />
+            <marker date="1506015146018" expanded="false" signature="4827:4833" ph=" { " />
+            <marker date="1506015146018" expanded="false" signature="4850:4853" ph=" }" />
+            <marker date="1506015146018" expanded="true" signature="4918:5146" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Layer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1506015146018" expanded="false" signature="219:224" ph=" { " />
+            <marker date="1506015146018" expanded="false" signature="240:243" ph=" }" />
+            <marker date="1506015146018" expanded="true" signature="301:359" ph="{...}" />
+            <marker date="1506015146018" expanded="true" signature="399:611" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1217">
+          <caret line="5" column="22" lean-forward="false" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Bow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="123">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#446#447#0" expanded="true" />
+            <element signature="e#528#529#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
